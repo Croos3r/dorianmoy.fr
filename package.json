@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src/ --ext .vue,.ts",
+    "lint:fix": "eslint src/ --ext .vue,.ts --fix",
+    "format": "prettier src/ --check",
+    "format:fix": "prettier src/ --write"
   },
   "dependencies": {
     "@vercel/speed-insights": "^1.0.11",
