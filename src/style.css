@@ -4,16 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-	.txt-xs {
-		font-size: 0.875rem;
-	}
-
-	.txt-sm {
-		font-size: 1.125rem;
-	}
-}
-
 h1 {
 	font-size: 6rem;
 	font-weight: bold;
@@ -35,4 +25,11 @@ p, button {
 
 button {
 	font-weight: bold;
+}
+
+a {
+	@apply transition-colors duration-200;
+}
+a:hover {
+	@apply text-primary;
 }

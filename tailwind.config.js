@@ -11,18 +11,8 @@ export default {
 			sans: ["Inter", "sans-serif"],
 		},
 		fontSize: {
-			xs: [
-				".875rem",
-				{
-					lineHeight: "0.35rem",
-				},
-			],
-			sm: [
-				"1.125rem",
-				{
-					lineHeight: "0.45rem",
-				},
-			],
+			xs: [".875rem"],
+			sm: ["1.125rem"],
 		},
 		extend: {},
 	},
