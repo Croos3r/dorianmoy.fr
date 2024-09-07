@@ -3,6 +3,7 @@ import CSection from "./components/CSection.vue";
 import CNavigation from "./components/CNavigation.vue";
 import Intro from "./sections/Intro.vue";
 import AboutMe from "./sections/AboutMe.vue";
+import Competencies from "./sections/Competencies.vue";
 </script>
 <template>
 	<header>
@@ -13,7 +14,9 @@ import AboutMe from "./sections/AboutMe.vue";
 		<CSection id="about-me" :number="1" title="About me">
 			<AboutMe />
 		</CSection>
-		<CSection id="competencies" :number="2" title="Competencies" />
+		<CSection id="competencies" :number="2" title="Competencies">
+			<Competencies />
+		</CSection>
 		<CSection id="projects" :number="3" title="Projects" />
 		<CSection id="contact" :number="4" title="Contact" />
 	</main>
