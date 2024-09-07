@@ -12,17 +12,17 @@ import CNavigation from "./components/CNavigation.vue";
 		<CSection id="projects" :number="3" title="Projects" />
 		<CSection id="contact" :number="4" title="Contact" />
 	</main>
-	<footer class="border-t-light mb-5 border-t-4">
+	<footer class="mb-5 border-t-4 border-t-light">
 		<CNavigation />
-		<p class="dark:text-light text-dark text-center text-xs">
-			Développé avec <strong class="text-[red]">♥</strong> par <a href="#">moi-même</a><br />
-			Design par <a href="https://fiverr.com/nikolaieva_">Valeriia N</a>
+		<p class="text-center text-xs text-dark dark:text-light">
+			Implemented with <strong class="text-[red]">♥</strong> by <a href="#">Me</a><br />
+			Design by <a href="https://fiverr.com/nikolaieva_">Valeriia N</a>
 		</p>
 	</footer>
 </template>
 
 <style>
 body {
-	@apply dark:bg-dark bg-light max-lg:px-[3.125vw] lg:px-[12.5vw];
+	@apply bg-light max-lg:px-[3.125vw] lg:px-[12.5vw] dark:bg-dark;
 }
 </style>
