@@ -9,8 +9,10 @@ import AboutMe from "./sections/AboutMe.vue";
 		<CNavigation />
 	</header>
 	<main>
-		<CSection id="about-me" :number="1" title="About me" />
 		<Intro class="mb-80 mt-44" />
+		<CSection id="about-me" :number="1" title="About me">
+			<AboutMe />
+		</CSection>
 		<CSection id="competencies" :number="2" title="Competencies" />
 		<CSection id="projects" :number="3" title="Projects" />
 		<CSection id="contact" :number="4" title="Contact" />
