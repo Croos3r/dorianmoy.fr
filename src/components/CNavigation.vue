@@ -3,7 +3,7 @@
 		<a class="max-lg:hidden" href="#">
 			<img alt="Dorian's logo" class="h-14 w-auto" src="../assets/logo_alpha.png" />
 		</a>
-		<ul class="dark:text-light text-dark flex gap-x-6 text-sm">
+		<ul class="flex gap-x-6 text-sm text-dark dark:text-light">
 			<li><a href="#about-me">About me</a></li>
 			<li><a href="#competencies">Competencies</a></li>
 			<li><a href="#projects">Projects</a></li>
