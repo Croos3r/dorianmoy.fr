@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import CSection from "./components/CSection.vue";
 import CNavigation from "./components/CNavigation.vue";
+import Intro from "./sections/Intro.vue";
+import AboutMe from "./sections/AboutMe.vue";
 </script>
 <template>
 	<header>
@@ -8,6 +10,7 @@ import CNavigation from "./components/CNavigation.vue";
 	</header>
 	<main>
 		<CSection id="about-me" :number="1" title="About me" />
+		<Intro class="mb-80 mt-44" />
 		<CSection id="competencies" :number="2" title="Competencies" />
 		<CSection id="projects" :number="3" title="Projects" />
 		<CSection id="contact" :number="4" title="Contact" />
