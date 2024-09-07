@@ -1,3 +1,4 @@
+<script lang="ts" setup></script>
 <template>
 	<div class="ml-72 mt-5 flex justify-between text-dark dark:text-light">
 		<p class="max-w-[850px]">
@@ -20,5 +21,4 @@
 		/>
 	</div>
 </template>
-<script></script>
-<style></style>
+<style scoped></style>
