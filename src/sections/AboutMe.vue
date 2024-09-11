@@ -11,7 +11,7 @@
 			and Java.<br />
 			My year goals are to learn more about <strong class="text-primary">Web3</strong> and
 			<strong class="text-primary">Offensive Cybersecurity</strong> which are two fields that I am passionate about.<br /><br />
-			Lastly, if you cannot find me in front of my computer, I am probably in the nearest EDM festival or club dancing
+			Lastly, if you cannot find me in front of my desk, I am probably in the nearest EDM festival or club dancing
 			<strong class="text-primary">Hakken</strong>.
 		</p>
 		<img
