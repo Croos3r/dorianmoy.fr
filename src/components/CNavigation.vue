@@ -1,7 +1,8 @@
 <template>
 	<nav class="mb-20 mt-12 flex h-14 items-center max-lg:justify-around lg:justify-between">
 		<a class="max-lg:hidden" href="#">
-			<img alt="Dorian's logo" class="h-14 w-auto" src="../assets/logo_alpha.png" />
+			<img alt="Dorian's logo" class="hidden h-14 w-auto dark:block" src="../assets/logo_alpha.png" />
+			<img alt="Dorian's logo" class="block h-14 w-auto dark:hidden" src="../assets/logo_alpha_dark.png" />
 		</a>
 		<ul class="flex gap-x-6 text-sm text-dark dark:text-light">
 			<li><a href="#about-me">About me</a></li>
