@@ -21,7 +21,7 @@ withDefaults(defineProps<CProjectThumbnailProps>(), { light: false });
 				class="group relative h-[28.75rem] bg-cover bg-center bg-no-repeat"
 			>
 				<FontAwesomeIcon
-					:class="`group-hover:${light ? 'text-light' : 'text-dark'}`"
+					:class="{ 'group-hover:text-light': light, 'group-hover:text-dark': !light }"
 					:icon="faCircleRight"
 					class="absolute bottom-8 right-8 h-12 w-12 text-primary transition-all"
 				/>
