@@ -13,7 +13,7 @@ import CButton from "../components/CButton.vue";
 				Web3 and Cybersecurity enthusiast
 			</p>
 		</div>
-		<a href="#contact">
+		<a href="mailto://contact@dorianmoy.fr">
 			<CButton class="mt-16" title="Get in touch" variant="line" />
 		</a>
 	</div>
