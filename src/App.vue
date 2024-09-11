@@ -21,7 +21,6 @@ import Projects from "./sections/Projects.vue";
 		<CSection id="projects" :number="3" title="Projects">
 			<Projects />
 		</CSection>
-		<CSection id="contact" :number="4" title="Contact" />
 	</main>
 	<footer class="mb-5 border-t-4 border-t-light">
 		<CNavigation />
