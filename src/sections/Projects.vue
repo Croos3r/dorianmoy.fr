@@ -9,7 +9,6 @@
 		/>
 		<CProjectThumbnail
 			description="The LibertAI website, explaining the project and its goals."
-			light
 			thumbnail="libertai_io.png"
 			title="libertai.io"
 			url="https://libertai.io"

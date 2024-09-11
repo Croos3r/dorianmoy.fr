@@ -7,10 +7,10 @@ export type CProjectThumbnailProps = {
 	description: string;
 	thumbnail: `${string}.png`;
 	url: string;
-	light: boolean;
+	light?: boolean;
 };
 
-defineProps<CProjectThumbnailProps>();
+withDefaults(defineProps<CProjectThumbnailProps>(), { light: false });
 </script>
 
 <template>
