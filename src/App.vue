@@ -4,6 +4,7 @@ import CNavigation from "./components/CNavigation.vue";
 import Intro from "./sections/Intro.vue";
 import AboutMe from "./sections/AboutMe.vue";
 import Competencies from "./sections/Competencies.vue";
+import Projects from "./sections/Projects.vue";
 </script>
 <template>
 	<header>
@@ -17,7 +18,9 @@ import Competencies from "./sections/Competencies.vue";
 		<CSection id="competencies" :number="2" title="Competencies">
 			<Competencies />
 		</CSection>
-		<CSection id="projects" :number="3" title="Projects" />
+		<CSection id="projects" :number="3" title="Projects">
+			<Projects />
+		</CSection>
 		<CSection id="contact" :number="4" title="Contact" />
 	</main>
 	<footer class="mb-5 border-t-4 border-t-light">
