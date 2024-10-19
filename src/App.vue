@@ -11,7 +11,7 @@ import Projects from "./sections/Projects.vue";
 		<CNavigation />
 	</header>
 	<main>
-		<Intro class="mb-80 mt-44" />
+		<Intro class="mb-80 max-md:mt-10 md:mt-44" />
 		<CSection id="about-me" :number="1" title="About me">
 			<AboutMe />
 		</CSection>
