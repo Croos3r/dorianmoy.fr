@@ -24,7 +24,7 @@ import Projects from "./sections/Projects.vue";
 	</main>
 	<footer class="mb-5 border-t-4 border-t-light">
 		<CNavigation />
-		<p class="text-center text-xs text-dark dark:text-light">
+		<p class="text-center text-xs text-dark max-sm:hidden dark:text-light">
 			Handcrafted with <strong class="text-[red]">♥</strong> by <a href="#">Me</a><br />
 			Designed by <a href="https://fiverr.com/nikolaieva_">Valeriia N</a>
 		</p>
