@@ -14,11 +14,11 @@ withDefaults(defineProps<CProjectThumbnailProps>(), { light: false });
 </script>
 
 <template>
-	<div class="max-md::w-[60vw] md:w-[35vw] lg:w-[22.5vw]">
+	<div class="max-md::w-[60vw] md:w-[35vw] xl:w-[22.5vw]">
 		<a :href="url">
 			<div
 				:style="`background-image: url('/src/assets/${thumbnail}')`"
-				class="group relative bg-cover bg-center bg-no-repeat max-md:h-[60vw] md:h-[35vw] lg:h-[22.5vw]"
+				class="group relative bg-cover bg-center bg-no-repeat max-md:h-[60vw] md:h-[35vw] xl:h-[22.5vw]"
 			>
 				<FontAwesomeIcon
 					:class="{ 'group-hover:text-light': light, 'group-hover:text-dark': !light }"
