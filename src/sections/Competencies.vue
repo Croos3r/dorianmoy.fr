@@ -4,7 +4,7 @@ import CCompetencyCategory from "../components/CCompetencyCategory.vue";
 </script>
 
 <template>
-	<div class="mt-20 flex justify-center gap-x-32">
+	<div class="mt-20 grid justify-items-center gap-8 sm:grid-cols-2 xl:grid-cols-4">
 		<CCompetencyCategory
 			:competencies="[
 				{ name: 'JS/TS', rating: 4 },
