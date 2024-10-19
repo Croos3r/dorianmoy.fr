@@ -2,6 +2,13 @@
 export default {
 	content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
 	theme: {
+		screens: {
+			sm: "640px",
+			md: "768px",
+			lg: "1024px",
+			xl: "1280px",
+			"2xl": "1600px",
+		},
 		colors: {
 			dark: "#1b1a21",
 			light: "#f5f5f5",
