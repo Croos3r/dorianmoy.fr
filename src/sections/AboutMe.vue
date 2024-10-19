@@ -1,6 +1,6 @@
 <script lang="ts" setup></script>
 <template>
-	<div class="ml-72 mt-5 flex justify-between text-dark dark:text-light">
+	<div class="mt-5 flex justify-between text-dark 2xl:ml-72 dark:text-light">
 		<p class="max-w-[850px]">
 			Hello, I am Dorian <strong class="text-primary">"Crooser"</strong> Moy, a junior french Fullstack Developer living
 			in Korea 🇰🇷.<br /><br />
@@ -16,7 +16,7 @@
 		</p>
 		<img
 			alt="Portrait picture of Dorian Moy"
-			class="h-64 w-64 bg-dark text-light dark:bg-light dark:text-dark"
+			class="h-64 w-64 bg-dark text-light max-md:hidden dark:bg-light dark:text-dark"
 			src="../assets/dorianmoy.png"
 		/>
 	</div>
