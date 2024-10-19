@@ -18,7 +18,7 @@ import CButton from "../components/CButton.vue";
 				<CButton title="Get in touch" variant="line" />
 			</a>
 			<a href="/curriculum_vitae_dorian_moy.pdf" target="_blank">
-				<CButton title="Download my CV" variant="fill" />
+				<CButton title="View my CV" variant="fill" />
 			</a>
 		</div>
 	</div>
