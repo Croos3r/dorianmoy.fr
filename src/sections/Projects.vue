@@ -1,5 +1,5 @@
 <template>
-	<div class="flex justify-around gap-y-5">
+	<div class="grid justify-items-center gap-y-10 max-md:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 		<CProjectThumbnail
 			description="A simple portfolio for my personal use, the one you're currently browsing."
 			light
