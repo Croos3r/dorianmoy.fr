@@ -14,7 +14,9 @@ const dynamicStyle =
 </script>
 
 <template>
-	<button :class="`px-[7.5rem] py-5 transition-all ${dynamicStyle}`">
+	<button
+		:class="`text-center transition-all max-md:h-[4rem] max-md:w-[20rem] md:h-[4.5rem] md:w-[23rem] ${dynamicStyle}`"
+	>
 		{{ title }}
 	</button>
 </template>
