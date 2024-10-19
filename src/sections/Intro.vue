@@ -6,16 +6,21 @@ import CButton from "../components/CButton.vue";
 	<div>
 		<div class="flex flex-col gap-y-2.5 text-dark dark:text-light">
 			<p>Hi, my name is</p>
-			<h1>Dorian Moy</h1>
-			<p class="leading-8">
+			<h1 class="max-sm:leading-none">Dorian Moy</h1>
+			<p class="md:leading-8">
 				Junior French Fullstack Developer living in Korea<br />
 				Proficient in TypeScript-based stacks<br />
 				Web3 and Cybersecurity enthusiast
 			</p>
 		</div>
-		<a href="mailto://contact@dorianmoy.fr">
-			<CButton class="mt-16" title="Get in touch" variant="line" />
-		</a>
+		<div class="mt-16 flex gap-8 max-lg:flex-col">
+			<a href="mailto://contact@dorianmoy.fr">
+				<CButton title="Get in touch" variant="line" />
+			</a>
+			<a href="https://dorianmoy.fr/curriculum_vitae_dorian_moy.pdf" target="_blank">
+				<CButton title="Download my CV" variant="fill" />
+			</a>
+		</div>
 	</div>
 </template>
 

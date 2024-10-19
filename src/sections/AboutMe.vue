@@ -1,6 +1,6 @@
 <script lang="ts" setup></script>
 <template>
-	<div class="mt-5 flex justify-between text-dark 2xl:ml-72 dark:text-light">
+	<div class="flex justify-between text-dark 2xl:ml-72 dark:text-light">
 		<p class="max-w-[850px]">
 			Hello, I am Dorian <strong class="text-primary">"Crooser"</strong> Moy, a junior french Fullstack Developer living
 			in Korea 🇰🇷.<br /><br />
