@@ -5,9 +5,9 @@
 			<img alt="Dorian's logo" class="block h-14 w-auto dark:hidden" src="../assets/logo_alpha_dark.png" />
 		</a>
 		<ul class="flex gap-x-6 text-sm text-dark max-sm:hidden dark:text-light">
-			<li><a href="#about-me">About me</a></li>
-			<li><a href="#competencies">Competencies</a></li>
-			<li><a href="#projects">Projects</a></li>
+			<li><a v-smooth-scroll href="#about-me">About me</a></li>
+			<li><a v-smooth-scroll href="#competencies">Competencies</a></li>
+			<li><a v-smooth-scroll href="#projects">Projects</a></li>
 		</ul>
 	</nav>
 </template>
