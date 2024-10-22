@@ -3,11 +3,11 @@ import CButton from "../components/CButton.vue";
 </script>
 
 <template>
-	<div>
+	<section class="max-sm:text-center">
 		<div class="flex flex-col gap-y-2.5 text-dark dark:text-light">
 			<p>Hi, my name is</p>
 			<h1 class="max-sm:leading-none">Dorian Moy</h1>
-			<p class="md:leading-8">
+			<p class="max-sm:text-sm md:leading-8">
 				Junior French Fullstack Developer living in Korea<br />
 				Proficient in TypeScript-based stacks<br />
 				Web3 and Cybersecurity enthusiast
@@ -21,7 +21,7 @@ import CButton from "../components/CButton.vue";
 				<CButton title="View my CV" variant="fill" />
 			</a>
 		</div>
-	</div>
+	</section>
 </template>
 
 <style scoped></style>
