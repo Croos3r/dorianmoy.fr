@@ -19,7 +19,8 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "@vercel/speed-insights": "^1.0.11",
-    "vue": "^3.4.21"
+    "vue": "^3.4.21",
+    "vue3-smooth-scroll": "^0.8.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.11.0",
