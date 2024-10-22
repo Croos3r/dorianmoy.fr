@@ -15,7 +15,7 @@ withDefaults(defineProps<CProjectThumbnailProps>(), { light: false });
 
 <template>
 	<div class="max-md::w-[60vw] md:w-[35vw] lg:w-[22.5vw]">
-		<a :href="url">
+		<a :href="url" target="_blank">
 			<div
 				:style="`background-image: url('/${thumbnail}')`"
 				class="group relative bg-cover bg-center bg-no-repeat max-md:h-[60vw] md:h-[35vw] lg:h-[22.5vw]"
