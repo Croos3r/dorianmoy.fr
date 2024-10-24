@@ -9,7 +9,7 @@ import CButton from "../components/CButton.vue";
 			<h1 class="max-sm:leading-none">Dorian Moy</h1>
 			<p class="max-sm:text-sm md:leading-8">
 				Junior French Fullstack Developer living in Korea<br />
-				Proficient in TypeScript-based stacks<br />
+				Proficient with TypeScript-based stacks<br />
 				Web3 and Cybersecurity enthusiast
 			</p>
 		</div>
