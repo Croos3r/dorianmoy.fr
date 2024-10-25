@@ -14,7 +14,7 @@ function toggleTheme() {
 <template>
 	<div
 		:class="theme === 'dark' ? 'bg-primary text-light hover:text-dark' : 'bg-dark text-primary hover:text-light'"
-		class="fixed bottom-5 left-5 h-[5rem] w-[5rem] cursor-pointer rounded-full text-center text-[3rem] leading-[5rem] hover:duration-100"
+		class="h-[5rem] w-[5rem] cursor-pointer rounded-full text-center text-[3rem] leading-[5rem] hover:duration-100"
 		@click="toggleTheme"
 	>
 		<FontAwesomeIcon :icon="theme === 'dark' ? faMoon : faSun" class="transition-all" />
