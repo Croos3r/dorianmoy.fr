@@ -14,7 +14,7 @@ defineProps<CCompetencyCategoryProps>();
 
 <template>
 	<div class="flex w-52 flex-col gap-y-14 text-dark dark:text-light">
-		<FontAwesomeIcon :icon="iconName" class="h-12 text-light" />
+		<FontAwesomeIcon :icon="iconName" class="h-12" />
 		<h3 class="w-full text-center">{{ title }}</h3>
 		<div class="flex flex-col gap-y-2.5">
 			<CCompetency v-for="{ name, rating } in competencies" :key="name" :name="name" :rating="rating" />
