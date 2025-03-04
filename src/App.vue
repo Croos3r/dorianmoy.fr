@@ -6,6 +6,7 @@ import AboutMe from "./sections/AboutMe.vue";
 import Competencies from "./sections/Competencies.vue";
 import Projects from "./sections/Projects.vue";
 import CThemeSwitcher from "./components/CThemeSwitcher.vue";
+import Contact from "./sections/Contact.vue";
 
 if (localStorage.getItem("theme") === null)
 	localStorage.theme =
@@ -26,6 +27,9 @@ if (localStorage.theme === "dark") document.documentElement.classList.add("dark"
 		</CSection>
 		<CSection id="projects" :number="3" class="delay-200" title="Projects">
 			<Projects />
+		</CSection>
+		<CSection id="contact" :number="4" class="delay-250" title="Contact">
+			<Contact />
 		</CSection>
 	</main>
 	<CThemeSwitcher class="fixed bottom-5 max-lg:right-5 max-sm:hidden lg:left-5" />
