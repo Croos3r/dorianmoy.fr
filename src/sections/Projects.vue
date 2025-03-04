@@ -1,6 +1,22 @@
 <template>
 	<div class="grid justify-items-center gap-y-10 max-md:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 		<CProjectThumbnail
+			description="A simple and efficient SaaS tool to allow french real estate agents to find and manage their leads."
+			light
+			picture-position="left"
+			thumbnail="pigeactive_fr.png"
+			title="pigeactive.fr"
+			url="https://pigeactive.fr"
+		/>
+		<CProjectThumbnail
+			description="My End of Studies project, a all in one suite for managing your personal and professional documents. The next decentralized and confidential Office 360/Google Suite."
+			light
+			picture-position="left"
+			thumbnail="app_bedrock_im.png"
+			title="app.bedrock.im (School Project)"
+			url="https://app.bedrock.im"
+		/>
+		<CProjectThumbnail
 			description="A simple portfolio for my personal use, the one you're currently browsing."
 			picture-position="left"
 			thumbnail="dorianmoy_fr.png"
@@ -15,10 +31,10 @@
 			url="https://libertai.io"
 		/>
 		<CProjectThumbnail
-			description="A confidential version of Notion/Obsidian, on the blockchain. The best of both worlds."
-			thumbnail="bedrock_im.png"
-			title="bedrock.im"
-			url="https://bedrock.im"
+			description="The first iteration of my End of Studies project, a confidential and decentralized version of Notion/Obidian."
+			thumbnail="old_bedrock_im.png"
+			title="bedrock.im (72h Hackathon Winner)"
+			url="https://old.bedrock.im"
 		/>
 		<CProjectThumbnail
 			description="Mobile and web fullstack application that automates communications and tasks between internet services."
