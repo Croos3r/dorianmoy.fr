@@ -2,7 +2,6 @@
 	<div class="grid justify-items-center gap-y-10 max-md:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 		<CProjectThumbnail
 			description="A simple and efficient SaaS tool to allow french real estate agents to find and manage their leads."
-			light
 			picture-position="left"
 			thumbnail="pigeactive_fr.png"
 			title="pigeactive.fr"
