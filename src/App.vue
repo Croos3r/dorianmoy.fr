@@ -38,8 +38,4 @@ if (localStorage.theme === "dark") document.documentElement.classList.add("dark"
 	</footer>
 </template>
 
-<style>
-body {
-	@apply bg-light transition-colors duration-500 max-lg:px-[3.125vw] lg:px-[12.5vw] dark:bg-dark;
-}
-</style>
+<style></style>
