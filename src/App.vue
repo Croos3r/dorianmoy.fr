@@ -29,8 +29,8 @@ if (localStorage.theme === "dark") document.documentElement.classList.add("dark"
 		</CSection>
 	</main>
 	<CThemeSwitcher class="fixed bottom-5 max-lg:right-5 max-sm:hidden lg:left-5" />
-	<footer class="mb-5 border-t-4 border-t-light">
-		<CNavigation class="delay-[250ms]" />
+	<footer class="mb-5 border-t-4 border-t-dark delay-[250ms] dark:border-t-light">
+		<CNavigation />
 		<p class="text-center text-xs text-dark delay-300 max-sm:hidden dark:text-light">
 			Handcrafted with <strong class="text-[red]">♥</strong> by <a href="#">Me</a><br />
 			Designed by <a href="https://fiverr.com/nikolaieva_">Valeriia N</a>
