@@ -8,7 +8,7 @@
 			url="https://pigeactive.fr"
 		/>
 		<CProjectThumbnail
-			description="My End of Studies project, a all in one suite for managing your personal and professional documents. The next decentralized and confidential Office 360/Google Suite."
+			description="My End of Studies project, a all in one suite for managing your personal and professional documents. The next decentralized and confidential Office 365/Google Suite."
 			light
 			picture-position="left"
 			thumbnail="app_bedrock_im.png"
@@ -30,7 +30,7 @@
 			url="https://libertai.io"
 		/>
 		<CProjectThumbnail
-			description="The first iteration of my End of Studies project, a confidential and decentralized version of Notion/Obidian."
+			description="The first iteration of my End of Studies project, a confidential and decentralized version of Notion/Obsidian."
 			thumbnail="old_bedrock_im.png"
 			title="bedrock.im (72h Hackathon Winner)"
 			url="https://old.bedrock.im"
