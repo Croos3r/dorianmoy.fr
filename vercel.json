@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/dj",
+      "destination": "https://ra.co/dj/csr.",
+      "permanent": false
+    }
+  ]
+}
