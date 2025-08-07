@@ -34,7 +34,9 @@ if (localStorage.theme === "dark") document.documentElement.classList.add("dark"
 	<footer class="mb-5 border-t-4 border-t-dark delay-[250ms] dark:border-t-light">
 		<CNavigation />
 		<p class="text-center text-xs text-dark delay-300 max-sm:hidden dark:text-light">
+			<!-- eslint-disable-next-line vue/no-v-html -->
 			<span v-html="$t('footer.handcrafted')"></span><br />
+			<!-- eslint-disable-next-line vue/no-v-html -->
 			<span v-html="$t('footer.designed')"></span>
 		</p>
 	</footer>
