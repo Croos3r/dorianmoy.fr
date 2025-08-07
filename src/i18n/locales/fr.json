@@ -1,68 +1,68 @@
 {
-  "nav": {
-    "aboutMe": "À propos",
-    "competencies": "Compétences",
-    "projects": "Projets"
-  },
-  "intro": {
-    "greeting": "Bonjour, je m'appelle",
-    "name": "Dorian Moy",
-    "title": "Développeur Fullstack Junior",
-    "subtitle1": "Spécialisé sur les stacks TypeScript",
-    "subtitle2": "Passionné de Web3 et de Cybersécurité",
-    "getInTouch": "Me contacter",
-    "viewResume": "Voir mon CV"
-  },
-  "sections": {
-    "aboutMe": "À propos",
-    "competencies": "Compétences",
-    "projects": "Projets"
-  },
-  "aboutMe": {
-    "description": "Bonjour, je suis Dorian <strong class=\"text-primary\">\"Crooser\"</strong> Moy, développeur Fullstack Junior, étudiant en 5ème année et enseignant sur le campus parisien d'Epitech.<br /><br />Je suis principalement spécialisé sur les stacks <strong class=\"text-primary\">basées sur TypeScript</strong> mais je peux aussi travailler avec C/C++, Python, Java et Rust.<br /><br />Mes objectifs de l'année sont d'apprendre davantage sur le <strong class=\"text-primary\">Web3</strong> et la <strong class=\"text-primary\">Cybersécurité Offensive</strong> qui sont deux domaines qui me passionnent.<br /><br />Enfin, si vous ne me trouvez pas devant mon bureau, je suis probablement dans le festival EDM ou club le plus proche en train de danser le <strong class=\"text-primary\">Hakken</strong>.",
-    "altText": "Portrait de Dorian Moy"
-  },
-  "footer": {
-    "handcrafted": "Développé avec <strong class=\"text-[red]\">♥</strong> par <a href=\"#\">Moi</a>",
-    "designed": "Designé par <a href=\"https://fiverr.com/nikolaieva_\">Valeriia N</a>"
-  },
-  "competencies": {
-    "languages": "Langages",
-    "frontend": "Frontend",
-    "backend": "Backend",
-    "tools": "Outils"
-  },
-  "projects": [
-    {
-      "title": "pigeactive.fr",
-      "description": "Un outil SaaS simple et efficace pour permettre aux agents immobiliers de trouver et gérer leurs prospects."
-    },
-    {
-      "title": "app.bedrock.im (Projet scolaire)",
-      "description": "Mon projet de fin d'études, une suite tout-en-un pour gérer vos documents personnels et professionnels. Le prochain Office 365/Google Suite décentralisé et confidentiel."
-    },
-    {
-      "title": "dorianmoy.fr",
-      "description": "Un portfolio simple pour mon usage personnel, celui que vous consultez actuellement."
-    },
-    {
-      "title": "libertai.io",
-      "description": "Le site web LibertAI, expliquant le projet et ses objectifs."
-    },
-    {
-      "title": "bedrock.im (Gagnant Hackathon 72h)",
-      "description": "La première itération de mon projet de fin d'études, une version confidentielle et décentralisée de Notion/Obsidian."
-    },
-    {
-      "title": "Area (Projet scolaire)",
-      "description": "Application fullstack mobile et web qui automatise les communications et tâches entre services internet."
-    },
-    {
-      "title": "Trombiday (Projet scolaire)",
-      "description": "Une petite application mobile avec un tableau de bord personnalisable composé de différents widgets basés sur votre géolocalisation."
-    }
-  ],
-  "language": {
-    "switch": "Changer de langue"
-  }
+	"nav": {
+		"aboutMe": "À propos",
+		"competencies": "Compétences",
+		"projects": "Projets"
+	},
+	"intro": {
+		"greeting": "Bonjour, je m'appelle",
+		"name": "Dorian Moy",
+		"title": "Développeur Fullstack Junior",
+		"subtitle1": "Spécialisé sur les stacks TypeScript",
+		"subtitle2": "Passionné de Web3 et de Cybersécurité",
+		"getInTouch": "Me contacter",
+		"viewResume": "Voir mon CV"
+	},
+	"sections": {
+		"aboutMe": "À propos",
+		"competencies": "Compétences",
+		"projects": "Projets"
+	},
+	"aboutMe": {
+		"description": "Bonjour, je suis Dorian <strong class=\"text-primary\">\"Crooser\"</strong> Moy, développeur Fullstack Junior, étudiant en 5ème année et enseignant sur le campus parisien d'Epitech.<br /><br />Je suis principalement spécialisé sur les stacks <strong class=\"text-primary\">basées sur TypeScript</strong> mais je peux aussi travailler avec C/C++, Python, Java et Rust.<br /><br />Mes objectifs de l'année sont d'apprendre davantage sur le <strong class=\"text-primary\">Web3</strong> et la <strong class=\"text-primary\">Cybersécurité Offensive</strong> qui sont deux domaines qui me passionnent.<br /><br />Enfin, si vous ne me trouvez pas devant mon bureau, je suis probablement dans le festival EDM ou club le plus proche en train de danser le <strong class=\"text-primary\">Hakken</strong>.",
+		"altText": "Portrait de Dorian Moy"
+	},
+	"footer": {
+		"handcrafted": "Développé avec <strong class=\"text-[red]\">♥</strong> par <a href=\"#\">Moi</a>",
+		"designed": "Designé par <a href=\"https://fiverr.com/nikolaieva_\">Valeriia N</a>"
+	},
+	"competencies": {
+		"languages": "Langages",
+		"frontend": "Frontend",
+		"backend": "Backend",
+		"tools": "Outils"
+	},
+	"projects": [
+		{
+			"title": "pigeactive.fr",
+			"description": "Un outil SaaS simple et efficace pour permettre aux agents immobiliers de trouver et gérer leurs prospects."
+		},
+		{
+			"title": "app.bedrock.im (Projet scolaire)",
+			"description": "Mon projet de fin d'études, une suite tout-en-un pour gérer vos documents personnels et professionnels. Le prochain Office 365/Google Suite décentralisé et confidentiel."
+		},
+		{
+			"title": "dorianmoy.fr",
+			"description": "Un portfolio simple pour mon usage personnel, celui que vous consultez actuellement."
+		},
+		{
+			"title": "libertai.io",
+			"description": "Le site web LibertAI, expliquant le projet et ses objectifs."
+		},
+		{
+			"title": "bedrock.im (Gagnant Hackathon 72h)",
+			"description": "La première itération de mon projet de fin d'études, une version confidentielle et décentralisée de Notion/Obsidian."
+		},
+		{
+			"title": "Area (Projet scolaire)",
+			"description": "Application fullstack mobile et web qui automatise les communications et tâches entre services internet."
+		},
+		{
+			"title": "Trombiday (Projet scolaire)",
+			"description": "Une petite application mobile avec un tableau de bord personnalisable composé de différents widgets basés sur votre géolocalisation."
+		}
+	],
+	"language": {
+		"switch": "Changer de langue"
+	}
 }
