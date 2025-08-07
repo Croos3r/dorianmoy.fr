@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "aboutMe": "About me",
+    "competencies": "Competencies",
+    "projects": "Projects"
+  },
+  "intro": {
+    "greeting": "Hi, my name is",
+    "name": "Dorian Moy",
+    "title": "Junior French Fullstack Developer",
+    "subtitle1": "Proficient with TypeScript-based stacks",
+    "subtitle2": "Web3 and Cybersecurity enthusiast",
+    "getInTouch": "Get in touch",
+    "viewResume": "View my Resumé"
+  },
+  "sections": {
+    "aboutMe": "About me",
+    "competencies": "Competencies",
+    "projects": "Projects"
+  },
+  "aboutMe": {
+    "description": "Hello, I am Dorian <strong class=\"text-primary\">\"Crooser\"</strong> Moy, a junior french Fullstack Developer, 5th year Student and Teacher at the parisian Epitech's campus.<br /><br />I am mostly proficient with <strong class=\"text-primary\">TypeScript-based</strong> stacks but I can also work with C/C++, Python, Java and Rust.<br /><br />My year goals are to learn more about <strong class=\"text-primary\">Web3</strong> and <strong class=\"text-primary\">Offensive Cybersecurity</strong> which are two fields I am passionate about.<br /><br />Lastly, if you cannot find me in front of my desk, I am probably in the nearest EDM festival or club dancing <strong class=\"text-primary\">Hakken</strong>.",
+    "altText": "Portrait picture of Dorian Moy"
+  },
+  "footer": {
+    "handcrafted": "Handcrafted with <strong class=\"text-[red]\">♥</strong> by <a href=\"#\">Me</a>",
+    "designed": "Designed by <a href=\"https://fiverr.com/nikolaieva_\">Valeriia N</a>"
+  },
+  "competencies": {
+    "languages": "Languages",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Tools"
+  },
+  "projects": [
+    {
+      "title": "pigeactive.fr",
+      "description": "A simple and efficient SaaS tool to allow french real estate agents to find and manage their leads."
+    },
+    {
+      "title": "app.bedrock.im (School Project)",
+      "description": "My End of Studies project, a all in one suite for managing your personal and professional documents. The next decentralized and confidential Office 365/Google Suite."
+    },
+    {
+      "title": "dorianmoy.fr",
+      "description": "A simple portfolio for my personal use, the one you're currently browsing."
+    },
+    {
+      "title": "libertai.io",
+      "description": "The LibertAI website, explaining the project and its goals."
+    },
+    {
+      "title": "bedrock.im (72h Hackathon Winner)",
+      "description": "The first iteration of my End of Studies project, a confidential and decentralized version of Notion/Obsidian."
+    },
+    {
+      "title": "Area (School project)",
+      "description": "Mobile and web fullstack application that automates communications and tasks between internet services."
+    },
+    {
+      "title": "Trombiday (School project)",
+      "description": "A small mobile application featuring a customisable dashboard composed of different widgets based on your geolocation."
+    }
+  ],
+  "language": {
+    "switch": "Switch language"
+  }
+}
