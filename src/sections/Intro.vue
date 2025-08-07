@@ -17,8 +17,7 @@ import CButton from "../components/CButton.vue";
 			<a href="mailto://contact@dorianmoy.fr">
 				<CButton :title="$t('intro.getInTouch')" variant="line" />
 			</a>
-			<a href="/resume_dorian_moy.pdf" target="_blank">
-				<CButton title="View my Resumé" variant="fill" />
+			<a :href="$i18n.locale === 'en' ? '/resume_dorian_moy_en.pdf' : '/curriculum_vitae_dorian_moy_fr.pdf'" target="_blank">
 				<CButton :title="$t('intro.viewResume')" variant="fill" />
 			</a>
 		</div>
