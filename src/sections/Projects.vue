@@ -1,54 +1,54 @@
 <template>
 	<div class="grid justify-items-center gap-y-10 max-md:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 		<CProjectThumbnail
-			description="A simple and efficient SaaS tool to allow french real estate agents to find and manage their leads."
+			:description="$t('projects[0].description')"
 			picture-position="left"
 			thumbnail="pigeactive_fr.png"
-			title="pigeactive.fr"
+			:title="$t('projects[0].title')"
 			url="https://pigeactive.fr"
 		/>
 		<CProjectThumbnail
-			description="My End of Studies project, a all in one suite for managing your personal and professional documents. The next decentralized and confidential Office 365/Google Suite."
+			:description="$t('projects[1].description')"
 			light
 			picture-position="left"
 			thumbnail="app_bedrock_im.png"
-			title="app.bedrock.im (School Project)"
+			:title="$t('projects[1].title')"
 			url="https://app.bedrock.im"
 		/>
 		<CProjectThumbnail
-			description="A simple portfolio for my personal use, the one you're currently browsing."
+			:description="$t('projects[2].description')"
 			picture-position="left"
 			thumbnail="dorianmoy_fr.png"
-			title="dorianmoy.fr"
+			:title="$t('projects[2].title')"
 			url="https://dorianmoy.fr"
 		/>
 		<CProjectThumbnail
-			description="The LibertAI website, explaining the project and its goals."
+			:description="$t('projects[3].description')"
 			light
 			thumbnail="libertai_io.png"
-			title="libertai.io"
+			:title="$t('projects[3].title')"
 			url="https://libertai.io"
 		/>
 		<CProjectThumbnail
-			description="The first iteration of my End of Studies project, a confidential and decentralized version of Notion/Obsidian."
+			:description="$t('projects[4].description')"
 			thumbnail="old_bedrock_im.png"
-			title="bedrock.im (72h Hackathon Winner)"
+			:title="$t('projects[4].title')"
 			url="https://old.bedrock.im"
 		/>
 		<CProjectThumbnail
-			description="Mobile and web fullstack application that automates communications and tasks between internet services."
+			:description="$t('projects[5].description')"
 			light
 			picture-position="left"
 			thumbnail="area_github.png"
-			title="Area (School project)"
+			:title="$t('projects[5].title')"
 			url="https://github.com/RezaRahemtola/Area"
 		/>
 		<CProjectThumbnail
-			description="A small mobile application featuring a customisable dashboard composed of different widgets based on your geolocation."
+			:description="$t('projects[6].description')"
 			light
 			picture-position="left"
 			thumbnail="trombiday_github.png"
-			title="Trombiday (School project)"
+			:title="$t('projects[6].title')"
 			url="https://github.com/RezaRahemtola/Survivor"
 		/>
 	</div>

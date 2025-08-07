@@ -14,7 +14,7 @@ import CCompetencyCategory from "../components/CCompetencyCategory.vue";
 				{ name: 'Haskell', rating: 1 },
 			]"
 			:icon-name="faCode"
-			title="Languages"
+			:title="$t('competencies.languages')"
 		/>
 		<CCompetencyCategory
 			:competencies="[
@@ -25,7 +25,7 @@ import CCompetencyCategory from "../components/CCompetencyCategory.vue";
 				{ name: 'TailwindCSS', rating: 4 },
 			]"
 			:icon-name="faDisplay"
-			title="Frontend"
+			:title="$t('competencies.frontend')"
 		/>
 		<CCompetencyCategory
 			:competencies="[
@@ -36,7 +36,7 @@ import CCompetencyCategory from "../components/CCompetencyCategory.vue";
 				{ name: 'Redis', rating: 3 },
 			]"
 			:icon-name="faGears"
-			title="Backend"
+			:title="$t('competencies.backend')"
 		/>
 		<CCompetencyCategory
 			:competencies="[
@@ -47,7 +47,7 @@ import CCompetencyCategory from "../components/CCompetencyCategory.vue";
 				{ name: 'Jenkins', rating: 2 },
 			]"
 			:icon-name="faScrewdriverWrench"
-			title="Tools"
+			:title="$t('competencies.tools')"
 		/>
 	</div>
 </template>
