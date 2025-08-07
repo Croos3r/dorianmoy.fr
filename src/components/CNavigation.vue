@@ -5,9 +5,15 @@
 			<img alt="Dorian's logo" class="block h-14 w-auto dark:hidden" src="../assets/logo_alpha_dark.png" />
 		</a>
 		<ul class="flex gap-x-6 text-sm text-dark max-sm:hidden dark:text-light">
-			<li><a v-smooth-scroll href="#about-me">{{ $t('nav.aboutMe') }}</a></li>
-			<li><a v-smooth-scroll href="#competencies">{{ $t('nav.competencies') }}</a></li>
-			<li><a v-smooth-scroll href="#projects">{{ $t('nav.projects') }}</a></li>
+			<li>
+				<a v-smooth-scroll href="#about-me">{{ $t("nav.aboutMe") }}</a>
+			</li>
+			<li>
+				<a v-smooth-scroll href="#competencies">{{ $t("nav.competencies") }}</a>
+			</li>
+			<li>
+				<a v-smooth-scroll href="#projects">{{ $t("nav.projects") }}</a>
+			</li>
 		</ul>
 	</nav>
 </template>
