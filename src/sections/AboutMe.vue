@@ -2,15 +2,12 @@
 <template>
 	<div class="flex justify-between text-dark 2xl:ml-72 dark:text-light">
 		<p class="max-w-[850px]">
-			Hello, I am Dorian <strong class="text-primary">"Crooser"</strong> Moy, a junior french Fullstack Developer living
-			in Korea 🇰🇷.<br /><br />
-			Currently studying at the <strong class="text-primary">Chung Ang University</strong> in Seoul for my exchange year
-			in Computer Science. In France 🇫🇷, I am a 4th year student at <strong class="text-primary">Epitech</strong> in
-			Paris.<br /><br />
+			Hello, I am Dorian <strong class="text-primary">"Crooser"</strong> Moy, a junior french Fullstack Developer, 5th
+			year Student and Teacher at the parisian Epitech's campus.<br /><br />
 			I am mostly proficient with <strong class="text-primary">TypeScript-based stacks</strong> but I can also work with
-			C/C++, Python, Java and Rust.<br />
+			C/C++, Python, Java and Rust.<br /><br />
 			My year goals are to learn more about <strong class="text-primary">Web3</strong> and
-			<strong class="text-primary">Offensive Cybersecurity</strong> which are two fields that I am passionate about.<br /><br />
+			<strong class="text-primary">Offensive Cybersecurity</strong> which are two fields I am passionate about.<br /><br />
 			Lastly, if you cannot find me in front of my desk, I am probably in the nearest EDM festival or club dancing
 			<strong class="text-primary">Hakken</strong>.
 		</p>
