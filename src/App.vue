@@ -29,7 +29,7 @@ if (localStorage.theme === "dark") document.documentElement.classList.add("dark"
 			<Projects />
 		</CSection>
 	</main>
-	<CThemeSwitcher class="fixed bottom-5 max-lg:right-5 max-sm:hidden lg:left-5" />
+	<CThemeSwitcher class="fixed bottom-5 max-lg:right-5 lg:left-5 max-sm:right-5" />
 	<CLanguageSwitcher />
 	<footer class="mb-5 border-t-4 border-t-dark delay-[250ms] dark:border-t-light">
 		<CNavigation />
