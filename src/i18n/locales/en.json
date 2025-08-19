@@ -23,7 +23,7 @@
 		"altText": "Portrait picture of Dorian Moy"
 	},
 	"footer": {
-		"handcrafted": "Handcrafted with <strong class=\"text-[red]\">♥</strong> by <a href=\"#\">Me</a>",
+		"handcrafted": "Handcrafted with <strong id=\"heart\">♥</strong> by <a href=\"#\">Me</a>",
 		"designed": "Designed by <a href=\"https://fiverr.com/nikolaieva_\">Valeriia N</a>"
 	},
 	"competencies": {

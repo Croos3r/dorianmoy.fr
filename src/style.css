@@ -35,3 +35,7 @@ a {
 a:hover {
 	@apply text-primary;
 }
+
+#heart {
+	@apply text-[red];
+}
