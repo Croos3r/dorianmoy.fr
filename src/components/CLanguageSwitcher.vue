@@ -1,10 +1,10 @@
 <template>
 	<button
 		:title="$t('language.switch')"
-		class="fixed bottom-5 z-50 flex h-[5rem] w-[5rem] items-center justify-center rounded-full bg-primary shadow-xl transition-all hover:bg-primary/80 max-lg:right-28 max-sm:hidden lg:left-28 dark:bg-primary dark:hover:bg-primary/80"
+		class="fixed bottom-5 z-50 flex h-[5rem] w-[5rem] items-center justify-center overflow-hidden rounded-full bg-primary shadow-xl transition-all hover:bg-primary/80 max-lg:right-28 max-sm:hidden lg:left-28 dark:bg-primary dark:hover:bg-primary/80"
 		@click="toggleLanguage"
 	>
-		<span class="text-[2.25rem]">{{ currentLanguage === "en" ? "🇬🇧" : "🇫🇷" }}</span>
+		<span class="text-[1.75rem] font-bold text-light">{{ currentLanguage === "en" ? "EN" : "FR" }}</span>
 	</button>
 </template>
 
