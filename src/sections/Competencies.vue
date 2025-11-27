@@ -10,8 +10,8 @@ import CCompetencyCategory from "../components/CCompetencyCategory.vue";
 				{ name: 'JS/TS', rating: 4 },
 				{ name: 'Java', rating: 3 },
 				{ name: 'C/C++', rating: 3 },
-				{ name: 'Rust', rating: 2 },
-				{ name: 'Haskell', rating: 1 },
+				{ name: 'Rust', rating: 3 },
+				{ name: 'Haskell', rating: 2 },
 			]"
 			:icon-name="faCode"
 			:title="$t('competencies.languages')"
@@ -41,9 +41,9 @@ import CCompetencyCategory from "../components/CCompetencyCategory.vue";
 		<CCompetencyCategory
 			:competencies="[
 				{ name: 'Docker', rating: 4 },
-				{ name: 'Git', rating: 3 },
+				{ name: 'Git', rating: 4 },
 				{ name: 'Linux', rating: 3 },
-				{ name: 'Github Actions', rating: 2 },
+				{ name: 'Github Actions', rating: 4 },
 				{ name: 'Jenkins', rating: 2 },
 			]"
 			:icon-name="faScrewdriverWrench"
