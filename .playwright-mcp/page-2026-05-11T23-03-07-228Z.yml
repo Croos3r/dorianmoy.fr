@@ -1,0 +1,457 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]: ~/portfolio - dorian-moy
+    - generic [ref=e6]:
+      - group "language" [ref=e7]:
+        - button "english" [ref=e9] [cursor=pointer]:
+          - img [ref=e11]
+          - generic [ref=e19]: english
+        - button "system" [pressed] [ref=e20] [cursor=pointer]:
+          - img [ref=e22]
+          - generic [ref=e25]: system
+        - button "french" [ref=e26] [cursor=pointer]:
+          - img [ref=e28]
+          - generic [ref=e32]: french
+      - group "theme" [ref=e33]:
+        - button "light" [ref=e35] [cursor=pointer]:
+          - img [ref=e36]
+          - generic [ref=e39]: light
+        - button "system" [pressed] [ref=e40] [cursor=pointer]:
+          - img [ref=e41]
+          - generic [ref=e44]: system
+        - button "dark" [ref=e45] [cursor=pointer]:
+          - img [ref=e46]
+          - generic [ref=e48]: dark
+  - generic [ref=e49]:
+    - complementary [ref=e50]:
+      - generic [ref=e51]:
+        - img [ref=e52]
+        - generic [ref=e54]: ~/portfolio
+      - generic [ref=e55]:
+        - button "M about.md" [ref=e56] [cursor=pointer]:
+          - generic [ref=e61]: M
+          - generic [ref=e62]: about.md
+        - button "Y stack.yaml" [ref=e63] [cursor=pointer]:
+          - generic [ref=e68]: "Y"
+          - generic [ref=e69]: stack.yaml
+        - button "▸ projects/" [ref=e70] [cursor=pointer]:
+          - generic [ref=e75]: ▸
+          - generic [ref=e76]: projects/
+        - button "T contact.ts" [ref=e77] [cursor=pointer]:
+          - generic [ref=e82]: T
+          - generic [ref=e83]: contact.ts
+      - generic [ref=e84]: :reg marks
+      - link "\"a github" [ref=e85] [cursor=pointer]:
+        - /url: https://github.com/Croos3r
+        - generic [ref=e86]: "\"a"
+        - generic [ref=e87]: github
+        - img [ref=e88]
+      - link "\"b linkedin" [ref=e91] [cursor=pointer]:
+        - /url: https://www.linkedin.com/in/dorian-moy/
+        - generic [ref=e92]: "\"b"
+        - generic [ref=e93]: linkedin
+        - img [ref=e94]
+      - link "\"r resume.pdf" [ref=e97] [cursor=pointer]:
+        - /url: /resume_dorian_moy_en.pdf
+        - generic [ref=e98]: "\"r"
+        - generic [ref=e99]: resume.pdf
+        - img [ref=e100]
+      - generic [ref=e102]:
+        - generic [ref=e103]:
+          - generic [ref=e104]: j ↓ k ↑
+          - generic [ref=e105]: move
+        - generic [ref=e106]:
+          - generic [ref=e107]: g ⇞ G ⇟
+          - generic [ref=e108]: top / bottom
+        - generic [ref=e109]:
+          - generic [ref=e110]: ↵
+          - generic [ref=e111]: open file
+        - generic [ref=e112]:
+          - generic [ref=e113]: "\"a"
+          - generic [ref=e114]: go to mark
+        - generic [ref=e115]:
+          - generic [ref=e116]: "\"r"
+          - generic [ref=e117]: resume.pdf
+    - main [ref=e118]:
+      - generic [ref=e119]:
+        - generic [ref=e120]: $ whoami
+        - generic [ref=e121]:
+          - generic [ref=e122]: Hi, my name is
+          - heading "Dorian Moy." [level=1] [ref=e123]
+        - paragraph [ref=e125]: Junior French Fullstack Developer. Proficient with TypeScript-based stacks. Web3 and Cybersecurity enthusiast.
+        - generic [ref=e127]:
+          - generic [ref=e128]: TypeScript stacks
+          - generic [ref=e129]: Web3
+          - generic [ref=e130]: Cybersecurity
+      - generic [ref=e133]:
+        - generic [ref=e134]:
+          - generic [ref=e135]: 01 / about.md
+          - heading "About me" [level=2] [ref=e137]
+          - generic [ref=e138]:
+            - paragraph [ref=e140]:
+              - text: Hello, I am Dorian
+              - strong [ref=e141]: "\"Crooser\""
+              - text: Moy, a junior french Fullstack Developer, 5th year Student and Teacher at the parisian Epitech's campus.
+            - paragraph [ref=e143]:
+              - text: I am mostly proficient with
+              - strong [ref=e144]: TypeScript-based
+              - text: stacks but I can also work with C/C++, Python, Java and Rust.
+            - paragraph [ref=e146]:
+              - text: My year goals are to learn more about
+              - strong [ref=e147]: Web3
+              - text: and
+              - strong [ref=e148]: Offensive Cybersecurity
+              - text: which are two fields I am passionate about.
+            - paragraph [ref=e150]:
+              - text: Lastly, if you cannot find me in front of my desk, I am probably in the nearest EDM festival or club dancing
+              - strong [ref=e151]: Hakken
+              - text: .
+        - generic [ref=e153]:
+          - img "Dorian Moy" [ref=e154]
+          - generic [ref=e155]: // portrait.webp
+      - generic [ref=e157]:
+        - generic [ref=e158]: 02 / stack.yaml
+        - heading "Competencies" [level=2] [ref=e160]
+        - generic [ref=e161]:
+          - generic [ref=e163]:
+            - generic [ref=e164]:
+              - img [ref=e165]
+              - generic [ref=e168]: Languages
+            - list [ref=e169]:
+              - listitem [ref=e170]:
+                - button "filter projects by TypeScript" [ref=e171] [cursor=pointer]:
+                  - link "TypeScript TypeScript" [ref=e172]:
+                    - /url: https://www.typescriptlang.org
+                    - img "TypeScript" [ref=e173]
+                    - generic [ref=e175]: TypeScript
+                  - generic [ref=e176]: daily
+              - listitem [ref=e178]:
+                - button "filter projects by Python" [ref=e179] [cursor=pointer]:
+                  - link "Python Python" [ref=e180]:
+                    - /url: https://www.python.org
+                    - img "Python" [ref=e181]
+                    - generic [ref=e183]: Python
+                  - generic [ref=e184]: shipped
+              - listitem [ref=e186]:
+                - button "filter projects by Java" [ref=e187] [cursor=pointer]:
+                  - link "Java Java" [ref=e188]:
+                    - /url: https://openjdk.org
+                    - img "Java" [ref=e189]
+                    - generic [ref=e191]: Java
+                  - generic [ref=e192]: shipped
+              - listitem [ref=e194]:
+                - button "filter projects by C/C++" [ref=e195] [cursor=pointer]:
+                  - link "C/C++ C/C++" [ref=e196]:
+                    - /url: https://isocpp.org
+                    - img "C/C++" [ref=e197]
+                    - generic [ref=e199]: C/C++
+                  - generic [ref=e200]: shipped
+              - listitem [ref=e202]:
+                - button "filter projects by Rust" [ref=e203] [cursor=pointer]:
+                  - link "Rust Rust" [ref=e204]:
+                    - /url: https://www.rust-lang.org
+                    - img "Rust" [ref=e205]
+                    - generic [ref=e207]: Rust
+                  - generic [ref=e208]: daily
+              - listitem [ref=e210]:
+                - button "filter projects by Haskell" [ref=e211] [cursor=pointer]:
+                  - link "Haskell Haskell" [ref=e212]:
+                    - /url: https://www.haskell.org
+                    - img "Haskell" [ref=e213]
+                    - generic [ref=e215]: Haskell
+                  - generic [ref=e216]: shipped
+              - listitem [ref=e218]:
+                - button "filter projects by Go" [ref=e219] [cursor=pointer]:
+                  - link "Go Go" [ref=e220]:
+                    - /url: https://go.dev
+                    - img "Go" [ref=e221]
+                    - generic [ref=e223]: Go
+                  - generic [ref=e224]: learning
+          - generic [ref=e227]:
+            - generic [ref=e228]:
+              - img [ref=e229]
+              - generic [ref=e233]: Frontend
+            - list [ref=e234]:
+              - listitem [ref=e235]:
+                - button "filter projects by React" [ref=e236] [cursor=pointer]:
+                  - link "React React" [ref=e237]:
+                    - /url: https://react.dev
+                    - img "React" [ref=e238]
+                    - generic [ref=e240]: React
+                  - generic [ref=e241]: daily
+              - listitem [ref=e243]:
+                - button "filter projects by Vue" [ref=e244] [cursor=pointer]:
+                  - link "Vue Vue" [ref=e245]:
+                    - /url: https://vuejs.org
+                    - img "Vue" [ref=e246]
+                    - generic [ref=e248]: Vue
+                  - generic [ref=e249]: shipped
+              - listitem [ref=e251]:
+                - button "filter projects by Next.js" [ref=e252] [cursor=pointer]:
+                  - link "Next.js Next.js" [ref=e253]:
+                    - /url: https://nextjs.org
+                    - img "Next.js" [ref=e254]
+                    - generic [ref=e256]: Next.js
+                  - generic [ref=e257]: shipped
+              - listitem [ref=e259]:
+                - button "filter projects by React-Native" [ref=e260] [cursor=pointer]:
+                  - link "React-Native React-Native" [ref=e261]:
+                    - /url: https://reactnative.dev
+                    - img "React-Native" [ref=e262]
+                    - generic [ref=e264]: React-Native
+                  - generic [ref=e265]: shipped
+              - listitem [ref=e267]:
+                - button "filter projects by Tailwind" [ref=e268] [cursor=pointer]:
+                  - link "Tailwind Tailwind" [ref=e269]:
+                    - /url: https://tailwindcss.com
+                    - img "Tailwind" [ref=e270]
+                    - generic [ref=e272]: Tailwind
+                  - generic [ref=e273]: daily
+              - listitem [ref=e275]:
+                - button "filter projects by Leptos" [ref=e276] [cursor=pointer]:
+                  - link "Leptos Leptos" [ref=e277]:
+                    - /url: https://leptos.dev
+                    - img "Leptos" [ref=e278]
+                    - generic [ref=e280]: Leptos
+                  - generic [ref=e281]: learning
+              - listitem [ref=e283]:
+                - button "filter projects by TanStack Start" [ref=e284] [cursor=pointer]:
+                  - link "Ts TanStack Start" [ref=e285]:
+                    - /url: https://tanstack.com/start
+                    - generic "TanStack Start" [ref=e286]: Ts
+                    - generic [ref=e287]: TanStack Start
+                  - generic [ref=e288]: learning
+          - generic [ref=e291]:
+            - generic [ref=e292]:
+              - img [ref=e293]
+              - generic [ref=e296]: Backend
+            - list [ref=e297]:
+              - listitem [ref=e298]:
+                - button "filter projects by NestJS" [ref=e299] [cursor=pointer]:
+                  - link "NestJS NestJS" [ref=e300]:
+                    - /url: https://nestjs.com
+                    - img "NestJS" [ref=e301]
+                    - generic [ref=e303]: NestJS
+                  - generic [ref=e304]: shipped
+              - listitem [ref=e306]:
+                - button "filter projects by Adonis" [ref=e307] [cursor=pointer]:
+                  - link "Adonis Adonis" [ref=e308]:
+                    - /url: https://adonisjs.com
+                    - img "Adonis" [ref=e309]
+                    - generic [ref=e311]: Adonis
+                  - generic [ref=e312]: daily
+              - listitem [ref=e314]:
+                - button "filter projects by Postgres" [ref=e315] [cursor=pointer]:
+                  - link "Postgres Postgres" [ref=e316]:
+                    - /url: https://www.postgresql.org
+                    - img "Postgres" [ref=e317]
+                    - generic [ref=e319]: Postgres
+                  - generic [ref=e320]: daily
+              - listitem [ref=e322]:
+                - button "filter projects by MySQL" [ref=e323] [cursor=pointer]:
+                  - link "MySQL MySQL" [ref=e324]:
+                    - /url: https://www.mysql.com
+                    - img "MySQL" [ref=e325]
+                    - generic [ref=e327]: MySQL
+                  - generic [ref=e328]: shipped
+              - listitem [ref=e330]:
+                - button "filter projects by MongoDB" [ref=e331] [cursor=pointer]:
+                  - link "MongoDB MongoDB" [ref=e332]:
+                    - /url: https://www.mongodb.com
+                    - img "MongoDB" [ref=e333]
+                    - generic [ref=e335]: MongoDB
+                  - generic [ref=e336]: shipped
+              - listitem [ref=e338]:
+                - button "filter projects by Redis" [ref=e339] [cursor=pointer]:
+                  - link "Redis Redis" [ref=e340]:
+                    - /url: https://redis.io
+                    - img "Redis" [ref=e341]
+                    - generic [ref=e343]: Redis
+                  - generic [ref=e344]: shipped
+              - listitem [ref=e346]:
+                - button "filter projects by gRPC" [ref=e347] [cursor=pointer]:
+                  - link "gR gRPC" [ref=e348]:
+                    - /url: https://grpc.io
+                    - generic "gRPC" [ref=e349]: gR
+                    - generic [ref=e350]: gRPC
+                  - generic [ref=e351]: shipped
+          - generic [ref=e354]:
+            - generic [ref=e355]:
+              - img [ref=e356]
+              - generic [ref=e361]: Tools
+            - list [ref=e362]:
+              - listitem [ref=e363]:
+                - button "filter projects by Docker" [ref=e364] [cursor=pointer]:
+                  - link "Docker Docker" [ref=e365]:
+                    - /url: https://www.docker.com
+                    - img "Docker" [ref=e366]
+                    - generic [ref=e368]: Docker
+                  - generic [ref=e369]: daily
+              - listitem [ref=e371]:
+                - button "filter projects by Git" [ref=e372] [cursor=pointer]:
+                  - link "Git Git" [ref=e373]:
+                    - /url: https://git-scm.com
+                    - img "Git" [ref=e374]
+                    - generic [ref=e376]: Git
+                  - generic [ref=e377]: daily
+              - listitem [ref=e379]:
+                - button "filter projects by Linux" [ref=e380] [cursor=pointer]:
+                  - link "Linux Linux" [ref=e381]:
+                    - /url: https://www.kernel.org
+                    - img "Linux" [ref=e382]
+                    - generic [ref=e384]: Linux
+                  - generic [ref=e385]: daily
+              - listitem [ref=e387]:
+                - button "filter projects by Claude Code" [ref=e388] [cursor=pointer]:
+                  - link "Claude Code Claude Code" [ref=e389]:
+                    - /url: https://claude.com/claude-code
+                    - img "Claude Code" [ref=e390]
+                    - generic [ref=e392]: Claude Code
+                  - generic [ref=e393]: daily
+              - listitem [ref=e395]:
+                - button "filter projects by Jenkins" [ref=e396] [cursor=pointer]:
+                  - link "Jenkins Jenkins" [ref=e397]:
+                    - /url: https://www.jenkins.io
+                    - img "Jenkins" [ref=e398]
+                    - generic [ref=e400]: Jenkins
+                  - generic [ref=e401]: shipped
+              - listitem [ref=e403]:
+                - button "filter projects by Dokploy" [ref=e404] [cursor=pointer]:
+                  - link "Dk Dokploy" [ref=e405]:
+                    - /url: https://dokploy.com
+                    - generic "Dokploy" [ref=e406]: Dk
+                    - generic [ref=e407]: Dokploy
+                  - generic [ref=e408]: learning
+      - generic [ref=e411]:
+        - generic [ref=e412]: 03 / projects/
+        - heading "Projects" [level=2] [ref=e414]
+        - generic [ref=e416]:
+          - generic [ref=e417]: :filter
+          - textbox "filter by technology…" [ref=e418]
+        - generic [ref=e419]:
+          - button "dorianmoy.fr A simple portfolio for my personal use, the one you're currently browsing. Vue TypeScript Tailwind Claude Code 2026" [ref=e421] [cursor=pointer]:
+            - generic [ref=e422]:
+              - generic [ref=e424]: dorianmoy.fr
+              - generic [ref=e425]: A simple portfolio for my personal use, the one you're currently browsing.
+            - generic [ref=e426]:
+              - link "Vue" [ref=e427]:
+                - /url: https://vuejs.org
+                - img "Vue" [ref=e428]
+              - link "TypeScript" [ref=e430]:
+                - /url: https://www.typescriptlang.org
+                - img "TypeScript" [ref=e431]
+              - link "Tailwind" [ref=e433]:
+                - /url: https://tailwindcss.com
+                - img "Tailwind" [ref=e434]
+              - link "Claude Code" [ref=e436]:
+                - /url: https://claude.com/claude-code
+                - img "Claude Code" [ref=e437]
+            - generic [ref=e439]: "2026"
+          - button "Sorting algorithm visualizer A pure-Rust visualizer for classic sorting algorithms, rendered with raylib bindings. Rust Raylib 2026" [ref=e441] [cursor=pointer]:
+            - generic [ref=e442]:
+              - generic [ref=e444]: Sorting algorithm visualizer
+              - generic [ref=e445]: A pure-Rust visualizer for classic sorting algorithms, rendered with raylib bindings.
+            - generic [ref=e446]:
+              - link "Rust" [ref=e447]:
+                - /url: https://www.rust-lang.org
+                - img "Rust" [ref=e448]
+              - link "Raylib" [ref=e450]:
+                - /url: https://www.raylib.com
+                - img "Raylib" [ref=e451]
+            - generic [ref=e453]: "2026"
+          - button "pigeactive.fr Freelance A simple and efficient SaaS tool to allow french real estate agents to find and manage their leads. Adonis TypeScript Postgres Tailwind +2 2025" [ref=e455] [cursor=pointer]:
+            - generic [ref=e456]:
+              - generic [ref=e457]:
+                - generic [ref=e458]: pigeactive.fr
+                - generic [ref=e459]: Freelance
+              - generic [ref=e460]: A simple and efficient SaaS tool to allow french real estate agents to find and manage their leads.
+            - generic [ref=e461]:
+              - link "Adonis" [ref=e462]:
+                - /url: https://adonisjs.com
+                - img "Adonis" [ref=e463]
+              - link "TypeScript" [ref=e465]:
+                - /url: https://www.typescriptlang.org
+                - img "TypeScript" [ref=e466]
+              - link "Postgres" [ref=e468]:
+                - /url: https://www.postgresql.org
+                - img "Postgres" [ref=e469]
+              - link "Tailwind" [ref=e471]:
+                - /url: https://tailwindcss.com
+                - img "Tailwind" [ref=e472]
+              - generic [ref=e474]: "+2"
+            - generic [ref=e475]: "2025"
+          - button "app.bedrock.im School project My End of Studies project, an all-in-one suite for managing your personal and professional documents. The next decentralized and confidential Office 365/Google Suite. Next.js TypeScript Python Solidity +6 2025" [ref=e477] [cursor=pointer]:
+            - generic [ref=e478]:
+              - generic [ref=e479]:
+                - generic [ref=e480]: app.bedrock.im
+                - generic [ref=e481]: School project
+              - generic [ref=e482]: My End of Studies project, an all-in-one suite for managing your personal and professional documents. The next decentralized and confidential Office 365/Google Suite.
+            - generic [ref=e483]:
+              - link "Next.js" [ref=e484]:
+                - /url: https://nextjs.org
+                - img "Next.js" [ref=e485]
+              - link "TypeScript" [ref=e487]:
+                - /url: https://www.typescriptlang.org
+                - img "TypeScript" [ref=e488]
+              - link "Python" [ref=e490]:
+                - /url: https://www.python.org
+                - img "Python" [ref=e491]
+              - link "Solidity" [ref=e493]:
+                - /url: https://soliditylang.org
+                - img "Solidity" [ref=e494]
+              - generic [ref=e496]: "+6"
+            - generic [ref=e497]: "2025"
+          - button "Scroll indexer Freelance A high-throughput blockchain indexer for Scroll, written in Rust, for the Cryptio crypto-accounting platform. Rust Scroll 2025" [ref=e499] [cursor=pointer]:
+            - generic [ref=e500]:
+              - generic [ref=e501]:
+                - generic [ref=e502]: Scroll indexer
+                - generic [ref=e503]: Freelance
+              - generic [ref=e504]: A high-throughput blockchain indexer for Scroll, written in Rust, for the Cryptio crypto-accounting platform.
+            - generic [ref=e505]:
+              - link "Rust" [ref=e506]:
+                - /url: https://www.rust-lang.org
+                - img "Rust" [ref=e507]
+              - link "Scroll" [ref=e509]:
+                - /url: https://scroll.io
+                - generic "Scroll" [ref=e510]: Sc
+            - generic [ref=e511]: "2025"
+        - button "See 12 more ▾" [ref=e513] [cursor=pointer]:
+          - text: See 12 more
+          - generic [ref=e514]: ▾
+      - generic [ref=e516]:
+        - generic [ref=e517]: 04 / contact.ts
+        - heading "Get in touch" [level=2] [ref=e519]
+        - paragraph [ref=e521]: Got a project, an offer, or just want to say hi? Drop me a line.
+        - generic [ref=e523]:
+          - generic [ref=e524]:
+            - generic [ref=e526]: "> name"
+            - textbox "> name" [ref=e527]:
+              - /placeholder: Your name
+          - generic [ref=e528]:
+            - generic [ref=e530]: "> email"
+            - textbox "> email" [ref=e531]:
+              - /placeholder: you@domain.com
+          - generic [ref=e532]:
+            - generic [ref=e534]: "> message"
+            - textbox "> message" [ref=e535]:
+              - /placeholder: What's on your mind?
+          - generic [ref=e536]:
+            - generic [ref=e537]: ● ready · 0 chars
+            - button "send" [ref=e538] [cursor=pointer]:
+              - text: send
+              - img [ref=e539]
+        - generic [ref=e543]:
+          - generic [ref=e544]: $
+          - generic [ref=e545]: or email me directly →
+          - link "contact@dorianmoy.fr" [ref=e546] [cursor=pointer]:
+            - /url: mailto:contact@dorianmoy.fr
+  - contentinfo [ref=e547]:
+    - generic [ref=e548]: NORMAL
+    - generic [ref=e549]:
+      - img [ref=e550]
+      - text: main
+    - generic [ref=e555]: about.md
+    - generic [ref=e557]: md
+    - generic [ref=e558]: utf-8
+    - generic [ref=e559]: LF
+    - generic [ref=e560]: 1/4

@@ -180,7 +180,7 @@
 		"email": "email",
 		"message": "message",
 		"namePh": "Votre nom",
-		"emailPh": "vous@domaine.com",
+		"emailPh": "vous{'@'}domaine.com",
 		"messagePh": "Qu'avez-vous en tête ?",
 		"required": "requis",
 		"invalidEmail": "email invalide",
