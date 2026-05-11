@@ -11,7 +11,7 @@ import TechIcon from "../components/TechIcon.vue";
 
 const { t } = useI18n();
 
-const emit = defineEmits<{ (e: "open-project", p: Project): void }>();
+const emit = defineEmits<{ "open-project": [project: Project] }>();
 const open = (p: Project) => emit("open-project", p);
 
 const INITIAL_COUNT = 5;
@@ -35,30 +35,20 @@ const isSelected = (tech: string) => selectedTechs.value.includes(tech);
 
 const suggestions = computed(() => {
 	const q = query.value.trim().toLowerCase();
-	return allTechs.value.filter(
-		(tech) => !isSelected(tech) && (!q || tech.toLowerCase().includes(q)),
-	);
+	return allTechs.value.filter((tech) => !isSelected(tech) && (!q || tech.toLowerCase().includes(q)));
 });
 
 const filteredProjects = computed(() =>
 	selectedTechs.value.length
-		? PORTFOLIO.projects.filter((p) =>
-				selectedTechs.value.every((t) => p.stack.includes(t)),
-			)
+		? PORTFOLIO.projects.filter((p) => selectedTechs.value.every((t) => p.stack.includes(t)))
 		: PORTFOLIO.projects,
 );
 
 const visibleProjects = computed(() => {
 	if (selectedTechs.value.length) return filteredProjects.value;
-	return expanded.value
-		? PORTFOLIO.projects
-		: PORTFOLIO.projects.slice(0, INITIAL_COUNT);
+	return expanded.value ? PORTFOLIO.projects : PORTFOLIO.projects.slice(0, INITIAL_COUNT);
 });
-const hasMore = computed(
-	() =>
-		selectedTechs.value.length === 0 &&
-		PORTFOLIO.projects.length > INITIAL_COUNT,
-);
+const hasMore = computed(() => selectedTechs.value.length === 0 && PORTFOLIO.projects.length > INITIAL_COUNT);
 
 const addTech = (tech: string) => {
 	if (!isSelected(tech)) selectedTechs.value = [...selectedTechs.value, tech];
@@ -176,13 +166,8 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 						}"
 						:aria-label="`remove ${tech}`"
 						@click.stop="removeTech(tech)"
-						@mouseenter="
-							(e) =>
-								((e.currentTarget as HTMLElement).style.background = PAL.gold + '33')
-						"
-						@mouseleave="
-							(e) => ((e.currentTarget as HTMLElement).style.background = 'transparent')
-						"
+						@mouseenter="(e) => ((e.currentTarget as HTMLElement).style.background = PAL.gold + '33')"
+						@mouseleave="(e) => ((e.currentTarget as HTMLElement).style.background = 'transparent')"
 					>
 						✕
 					</button>
@@ -191,9 +176,7 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 					v-model="query"
 					type="text"
 					autocomplete="off"
-					:placeholder="
-						selectedTechs.length ? '' : t('projects.filter.placeholder')
-					"
+					:placeholder="selectedTechs.length ? '' : t('projects.filter.placeholder')"
 					:style="{
 						all: 'unset',
 						flex: 1,
@@ -204,9 +187,7 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 					}"
 					@focus="open_ = true"
 					@blur="onBlur"
-					@keydown.enter.prevent="
-						suggestions.length > 0 && addTech(suggestions[0])
-					"
+					@keydown.enter.prevent="suggestions.length > 0 && addTech(suggestions[0])"
 					@keydown.backspace="
 						query === '' && selectedTechs.length && removeTech(selectedTechs[selectedTechs.length - 1])
 					"
@@ -223,12 +204,8 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 						textTransform: 'uppercase',
 					}"
 					@click.stop="clearAll"
-					@mouseenter="
-						(e) => ((e.currentTarget as HTMLElement).style.color = PAL.gold)
-					"
-					@mouseleave="
-						(e) => ((e.currentTarget as HTMLElement).style.color = themeTokens.dim)
-					"
+					@mouseenter="(e) => ((e.currentTarget as HTMLElement).style.color = PAL.gold)"
+					@mouseleave="(e) => ((e.currentTarget as HTMLElement).style.color = themeTokens.dim)"
 				>
 					{{ t("projects.filter.clear") }}
 				</button>
@@ -275,10 +252,7 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 								? 'rgba(199,167,99,0.10)'
 								: 'rgba(199,167,99,0.16)')
 					"
-					@mouseleave="
-						(e) =>
-							((e.currentTarget as HTMLElement).style.background = 'transparent')
-					"
+					@mouseleave="(e) => ((e.currentTarget as HTMLElement).style.background = 'transparent')"
 				>
 					<TechIcon :name="tech" :size="16" />
 					{{ tech }}
@@ -313,11 +287,7 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 				overflow: 'hidden',
 			}"
 		>
-			<RevealOnScroll
-				v-for="(p, i) in visibleProjects"
-				:key="p.id"
-				:delay="i * 60"
-			>
+			<RevealOnScroll v-for="(p, i) in visibleProjects" :key="p.id" :delay="i * 60">
 				<div
 					class="v2-proj-row"
 					role="button"
@@ -333,10 +303,7 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 						boxSizing: 'border-box',
 						background: themeTokens.panel,
 						transition: 'background .2s, padding-left .25s',
-						borderBottom:
-							i < visibleProjects.length - 1
-								? `1px solid ${themeTokens.border}`
-								: 'none',
+						borderBottom: i < visibleProjects.length - 1 ? `1px solid ${themeTokens.border}` : 'none',
 						outline: 'none',
 					}"
 					@click="open(p)"
@@ -345,9 +312,7 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 					@mouseenter="
 						(e) => {
 							const el = e.currentTarget as HTMLElement;
-							el.style.background = isDark
-								? 'rgba(199,167,99,0.12)'
-								: 'rgba(199,167,99,0.18)';
+							el.style.background = isDark ? 'rgba(199,167,99,0.12)' : 'rgba(199,167,99,0.18)';
 							el.style.paddingLeft = '36px';
 						}
 					"
@@ -393,10 +358,7 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 							{{ t(p.taglineKey) }}
 						</div>
 					</span>
-					<span
-						class="v2-proj-stack"
-						:style="{ display: 'flex', gap: '6px', alignItems: 'center' }"
-					>
+					<span class="v2-proj-stack" :style="{ display: 'flex', gap: '6px', alignItems: 'center' }">
 						<template v-for="s in p.stack.slice(0, 4)" :key="s">
 							<a
 								v-if="getTechHome(s)"
@@ -462,9 +424,7 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 				@mouseenter="
 					(e) => {
 						const el = e.currentTarget as HTMLElement;
-						el.style.background = isDark
-							? 'rgba(199,167,99,0.10)'
-							: 'rgba(199,167,99,0.16)';
+						el.style.background = isDark ? 'rgba(199,167,99,0.10)' : 'rgba(199,167,99,0.16)';
 						el.style.borderColor = PAL.gold;
 					}
 				"
@@ -477,11 +437,7 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 				"
 				@click="expanded = !expanded"
 			>
-				{{
-					expanded
-						? t("projects.seeLess")
-						: t("projects.seeMore", { n: PORTFOLIO.projects.length - INITIAL_COUNT })
-				}}
+				{{ expanded ? t("projects.seeLess") : t("projects.seeMore", { n: PORTFOLIO.projects.length - INITIAL_COUNT }) }}
 				<span :style="{ transform: expanded ? 'rotate(180deg)' : 'none', transition: 'transform .2s' }">▾</span>
 			</button>
 		</div>

@@ -39,7 +39,12 @@ const mode = ref<"NORMAL" | "INSERT">("NORMAL");
 const modalProject = ref<Project | null>(null);
 const vimError = ref<VimError | null>(null);
 
-const activeIdx = computed(() => Math.max(0, files.findIndex((f) => f.id === active.value)));
+const activeIdx = computed(() =>
+	Math.max(
+		0,
+		files.findIndex((f) => f.id === active.value),
+	),
+);
 const activeFile = computed(() => files[activeIdx.value]);
 const FILE_TYPE_SHORT: Record<FileEntry["type"], string> = {
 	markdown: "md",
@@ -117,12 +122,7 @@ const disarmEx = () => {
 };
 const onKey = (e: KeyboardEvent) => {
 	const tgt = e.target as HTMLElement | null;
-	if (
-		tgt?.tagName === "INPUT" ||
-		tgt?.tagName === "TEXTAREA" ||
-		tgt?.isContentEditable
-	)
-		return;
+	if (tgt?.tagName === "INPUT" || tgt?.tagName === "TEXTAREA" || tgt?.isContentEditable) return;
 	if (e.metaKey || e.ctrlKey || e.altKey) return;
 
 	if (pendingReg) {
@@ -140,8 +140,7 @@ const onKey = (e: KeyboardEvent) => {
 			if (idx != null && PORTFOLIO.socials[idx]) {
 				e.preventDefault();
 				const href = PORTFOLIO.socials[idx].href;
-				if (href && href !== "#")
-					window.open(href, "_blank", "noopener,noreferrer");
+				if (href && href !== "#") window.open(href, "_blank", "noopener,noreferrer");
 			}
 		}
 		pendingReg = false;
@@ -238,8 +237,7 @@ onMounted(() => {
 		const ids = Object.keys(sectionRefs);
 		const visibility = new Map(ids.map((id) => [id, 0]));
 		const pickActive = () => {
-			const nearBottom =
-				root.scrollTop + root.clientHeight >= root.scrollHeight - 40;
+			const nearBottom = root.scrollTop + root.clientHeight >= root.scrollHeight - 40;
 			if (nearBottom) {
 				active.value = ids[ids.length - 1];
 				return;
@@ -315,17 +313,8 @@ onBeforeUnmount(() => {
 				minHeight: 0,
 			}"
 		>
-			<SideBar
-				:files="files"
-				:active="active"
-				:sel-idx="selIdx"
-				@navigate="navigate"
-			/>
-			<main
-				ref="mainEl"
-				class="v2-main"
-				:style="{ overflowY: 'auto', overflowX: 'hidden' }"
-			>
+			<SideBar :files="files" :active="active" :sel-idx="selIdx" @navigate="navigate" />
+			<main ref="mainEl" class="v2-main" :style="{ overflowY: 'auto', overflowX: 'hidden' }">
 				<HeroSection />
 				<div :ref="setSectionRef('about')"><AboutSection /></div>
 				<div :ref="setSectionRef('competencies')"><StackSection /></div>

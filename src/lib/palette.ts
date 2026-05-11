@@ -16,5 +16,4 @@ export const TAG_COLORS = {
 
 export type TagKey = keyof typeof TAG_COLORS;
 
-export const MONO_STACK =
-	'ui-monospace, "SF Mono", Menlo, "Cascadia Code", Consolas, monospace';
+export const MONO_STACK = 'ui-monospace, "SF Mono", Menlo, "Cascadia Code", Consolas, monospace';

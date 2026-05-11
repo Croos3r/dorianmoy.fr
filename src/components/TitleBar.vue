@@ -27,10 +27,7 @@ const { t } = useI18n();
 		}"
 	>
 		<span aria-hidden="true" />
-		<span
-			class="v2-titlebar-label"
-			:style="{ textAlign: 'center', whiteSpace: 'nowrap' }"
-		>
+		<span class="v2-titlebar-label" :style="{ textAlign: 'center', whiteSpace: 'nowrap' }">
 			~/portfolio - {{ PORTFOLIO.handle }}
 		</span>
 		<div

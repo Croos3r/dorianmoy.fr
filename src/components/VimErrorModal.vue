@@ -8,7 +8,7 @@ const props = defineProps<{
 	code: string;
 	message: string;
 }>();
-const emit = defineEmits<{ (e: "close"): void }>();
+const emit = defineEmits<{ close: [] }>();
 
 const onKey = (e: KeyboardEvent) => {
 	if (!props.show) return;

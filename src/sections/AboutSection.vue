@@ -52,6 +52,7 @@ const { t } = useI18n();
 						:key="i"
 						:delay="i * 80"
 					>
+						<!-- eslint-disable vue/no-v-html -->
 						<p
 							:style="{
 								margin: i ? '16px 0 0' : 0,
@@ -61,6 +62,7 @@ const { t } = useI18n();
 							}"
 							v-html="p"
 						/>
+						<!-- eslint-enable vue/no-v-html -->
 					</RevealOnScroll>
 				</div>
 			</div>

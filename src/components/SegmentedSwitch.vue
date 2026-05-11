@@ -17,7 +17,7 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-	(e: "update:value", v: string): void;
+	"update:value": [value: string];
 }>();
 
 const idx = computed(() =>
@@ -96,14 +96,12 @@ const onClick = (opt: SegmentedOption) => {
 			@click="onClick(opt)"
 			@mouseenter="
 				(e) => {
-					if (opt.id !== value)
-						(e.currentTarget as HTMLElement).style.color = isDark ? PAL.cream : PAL.ink;
+					if (opt.id !== value) (e.currentTarget as HTMLElement).style.color = isDark ? PAL.cream : PAL.ink;
 				}
 			"
 			@mouseleave="
 				(e) => {
-					if (opt.id !== value)
-						(e.currentTarget as HTMLElement).style.color = themeTokens.dim;
+					if (opt.id !== value) (e.currentTarget as HTMLElement).style.color = themeTokens.dim;
 				}
 			"
 		>

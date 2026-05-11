@@ -9,7 +9,7 @@ import TerminalIcon from "./TerminalIcon.vue";
 import TechIcon from "./TechIcon.vue";
 
 const props = defineProps<{ project: Project | null }>();
-const emit = defineEmits<{ (e: "close"): void }>();
+const emit = defineEmits<{ close: [] }>();
 
 const { t } = useI18n();
 
@@ -20,8 +20,7 @@ const onKey = (e: KeyboardEvent) => {
 	}
 	if (e.key === "q" && !e.metaKey && !e.ctrlKey && !e.altKey) {
 		const t = e.target as HTMLElement | null;
-		if (t?.tagName === "INPUT" || t?.tagName === "TEXTAREA" || t?.isContentEditable)
-			return;
+		if (t?.tagName === "INPUT" || t?.tagName === "TEXTAREA" || t?.isContentEditable) return;
 		e.preventDefault();
 		emit("close");
 	}
@@ -106,12 +105,8 @@ watch(
 						transition: 'background .2s',
 					}"
 					aria-label="close"
-					@mouseenter="
-						(e) => ((e.currentTarget as HTMLElement).style.background = themeTokens.border)
-					"
-					@mouseleave="
-						(e) => ((e.currentTarget as HTMLElement).style.background = 'transparent')
-					"
+					@mouseenter="(e) => ((e.currentTarget as HTMLElement).style.background = themeTokens.border)"
+					@mouseleave="(e) => ((e.currentTarget as HTMLElement).style.background = 'transparent')"
 					@click="emit('close')"
 				>
 					<svg
@@ -169,7 +164,6 @@ watch(
 					./{{ project.id }}
 				</div>
 			</div>
-
 
 			<div
 				class="v2-modal-body"
@@ -240,13 +234,8 @@ watch(
 								textDecoration: 'none',
 								transition: 'border-color .15s',
 							}"
-							@mouseenter="
-								(e) => ((e.currentTarget as HTMLElement).style.borderColor = PAL.gold)
-							"
-							@mouseleave="
-								(e) =>
-									((e.currentTarget as HTMLElement).style.borderColor = themeTokens.border)
-							"
+							@mouseenter="(e) => ((e.currentTarget as HTMLElement).style.borderColor = PAL.gold)"
+							@mouseleave="(e) => ((e.currentTarget as HTMLElement).style.borderColor = themeTokens.border)"
 						>
 							<TechIcon :name="s" :size="18" />
 							<span

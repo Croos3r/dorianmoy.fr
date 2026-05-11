@@ -54,11 +54,7 @@ const filterByTech = (tech: string) => {
 				gap: '24px',
 			}"
 		>
-			<RevealOnScroll
-				v-for="(c, i) in PORTFOLIO.competencies"
-				:key="c.labelKey"
-				:delay="i * 80"
-			>
+			<RevealOnScroll v-for="(c, i) in PORTFOLIO.competencies" :key="c.labelKey" :delay="i * 80">
 				<div
 					:style="{
 						border: `1px solid ${themeTokens.border}`,
@@ -121,10 +117,7 @@ const filterByTech = (tech: string) => {
 											? 'rgba(199,167,99,0.10)'
 											: 'rgba(199,167,99,0.14)')
 								"
-								@mouseleave="
-									(e) =>
-										((e.currentTarget as HTMLElement).style.background = 'transparent')
-								"
+								@mouseleave="(e) => ((e.currentTarget as HTMLElement).style.background = 'transparent')"
 							>
 								<!-- Logo + name route to the tech's homepage. Click here is
 								     captured before bubbling, so the parent filter action

@@ -19,7 +19,7 @@ defineProps<{
 }>();
 
 const emit = defineEmits<{
-	(e: "navigate", id: string, idx: number): void;
+	navigate: [id: string, idx: number];
 }>();
 
 const { t } = useI18n();
@@ -82,12 +82,7 @@ const resumeFilename = computed(() => t("resume.filename"));
 					boxSizing: 'border-box',
 					font: `${active === f.id ? 700 : 500} 13px/1.4 ${MONO_STACK}`,
 					color: active === f.id || selIdx === i ? themeTokens.fg : themeTokens.dim,
-					background:
-						selIdx === i
-							? isDark
-								? 'rgba(199,167,99,0.10)'
-								: 'rgba(199,167,99,0.16)'
-							: 'transparent',
+					background: selIdx === i ? (isDark ? 'rgba(199,167,99,0.10)' : 'rgba(199,167,99,0.16)') : 'transparent',
 					position: 'relative',
 				}"
 				@click="emit('navigate', f.id, i)"
@@ -180,9 +175,7 @@ const resumeFilename = computed(() => t("resume.filename"));
 			@mouseenter="(e) => ((e.currentTarget as HTMLElement).style.color = PAL.gold)"
 			@mouseleave="(e) => ((e.currentTarget as HTMLElement).style.color = themeTokens.dim)"
 		>
-			<span :style="{ color: PAL.gold, opacity: 0.7, width: '14px' }"
-				>"{{ ["a", "b", "c", "d", "e"][i] || "*" }}</span
-			>
+			<span :style="{ color: PAL.gold, opacity: 0.7, width: '14px' }">"{{ ["a", "b", "c", "d", "e"][i] || "*" }}</span>
 			<span :style="{ flex: 1 }">{{ s.label.toLowerCase() }}</span>
 			<TerminalIcon name="arrowUR" :size="11" />
 		</a>

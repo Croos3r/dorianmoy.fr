@@ -8,7 +8,13 @@ export type TechEntry = {
 
 export const TECH_REGISTRY: Record<string, TechEntry> = {
 	TypeScript: { slug: "typescript", hex: "3178c6", mono: "TS", home: "https://www.typescriptlang.org" },
-	JavaScript: { slug: "javascript", hex: "f7df1e", mono: "JS", fg: "#1a1a1a", home: "https://developer.mozilla.org/docs/Web/JavaScript" },
+	JavaScript: {
+		slug: "javascript",
+		hex: "f7df1e",
+		mono: "JS",
+		fg: "#1a1a1a",
+		home: "https://developer.mozilla.org/docs/Web/JavaScript",
+	},
 	Python: { slug: "python", hex: "3776ab", mono: "Py", home: "https://www.python.org" },
 	Java: { slug: "openjdk", hex: "ed8b00", mono: "Jv", home: "https://openjdk.org" },
 	Rust: { slug: "rust", hex: "000000", mono: "Rs", home: "https://www.rust-lang.org" },

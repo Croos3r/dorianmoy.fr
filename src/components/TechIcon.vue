@@ -13,9 +13,7 @@ const props = withDefaults(
 const entry = computed(() => TECH_REGISTRY[props.name]);
 const pad = computed(() => Math.max(3, Math.round(props.size * 0.16)));
 const url = computed(() =>
-	entry.value
-		? `https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/${entry.value.slug}.svg`
-		: "",
+	entry.value ? `https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/${entry.value.slug}.svg` : "",
 );
 const fallbackMono = computed(() => {
 	if (entry.value?.mono) return entry.value.mono;
@@ -41,12 +39,8 @@ watch(
 );
 
 const useMonogram = computed(() => !entry.value || failed.value);
-const monoBg = computed(() =>
-	entry.value && failed.value ? "#" + entry.value.hex : "rgb(120,120,120)",
-);
-const monoFg = computed(() =>
-	entry.value && failed.value ? entry.value.fg || "#fff" : "#fff",
-);
+const monoBg = computed(() => (entry.value && failed.value ? "#" + entry.value.hex : "rgb(120,120,120)"));
+const monoFg = computed(() => (entry.value && failed.value ? entry.value.fg || "#fff" : "#fff"));
 </script>
 
 <template>

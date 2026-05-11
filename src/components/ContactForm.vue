@@ -16,8 +16,7 @@ const errors = computed<Record<string, string>>(() => {
 	const e: Record<string, string> = {};
 	if (!form.name.trim()) e.name = t("form.required");
 	if (!form.email.trim()) e.email = t("form.required");
-	else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
-		e.email = t("form.invalidEmail");
+	else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = t("form.invalidEmail");
 	if (!form.message.trim()) e.message = t("form.required");
 	else if (form.message.trim().length < 10) e.message = t("form.tooShort");
 	return e;
@@ -33,9 +32,7 @@ const submit = async (e: Event) => {
 	await new Promise((r) => setTimeout(r, 900));
 	status.value = "sent";
 	const subject = encodeURIComponent(`Hello from ${form.name}`);
-	const body = encodeURIComponent(
-		`${form.message}\n\nFrom ${form.name}\n${form.email}`,
-	);
+	const body = encodeURIComponent(`${form.message}\n\nFrom ${form.name}\n${form.email}`);
 	window.location.href = `mailto:${PORTFOLIO.email}?subject=${subject}&body=${body}`;
 };
 
@@ -122,9 +119,7 @@ const onBlur = (k: string) => (e: FocusEvent) => {
 				}"
 			>
 				{{ t("form.queuedBody") }}
-				<a :href="`mailto:${PORTFOLIO.email}`" :style="{ color: PAL.amber }">{{
-					t("form.emailMe")
-				}}</a
+				<a :href="`mailto:${PORTFOLIO.email}`" :style="{ color: PAL.amber }">{{ t("form.emailMe") }}</a
 				>.
 			</div>
 			<button
@@ -171,12 +166,8 @@ const onBlur = (k: string) => (e: FocusEvent) => {
 					marginBottom: '6px',
 				}"
 			>
-				<span
-					><span :style="{ color: PAL.gold }">&gt;</span> {{ t(`form.${k}`) }}</span
-				>
-				<span v-if="showErr(k)" :style="{ color: '#e0234e', fontSize: '10px' }"
-					>// {{ errors[k] }}</span
-				>
+				<span><span :style="{ color: PAL.gold }">&gt;</span> {{ t(`form.${k}`) }}</span>
+				<span v-if="showErr(k)" :style="{ color: '#e0234e', fontSize: '10px' }">// {{ errors[k] }}</span>
 			</label>
 			<textarea
 				v-if="k === 'message'"
@@ -219,12 +210,10 @@ const onBlur = (k: string) => (e: FocusEvent) => {
 				}"
 			>
 				<template v-if="status === 'sending'"
-					><span :style="{ color: PAL.amber }">●</span>
-					{{ t("form.sending") }}</template
+					><span :style="{ color: PAL.amber }">●</span> {{ t("form.sending") }}</template
 				>
 				<template v-else
-					><span :style="{ color: TAG_COLORS.daily }">●</span>
-					{{ t("form.ready") }} ·
+					><span :style="{ color: TAG_COLORS.daily }">●</span> {{ t("form.ready") }} ·
 					{{ t("form.chars", { n: form.message.length }) }}</template
 				>
 			</span>
@@ -250,8 +239,7 @@ const onBlur = (k: string) => (e: FocusEvent) => {
 				}"
 				@mouseenter="
 					(e) => {
-						if (status !== 'sending')
-							(e.currentTarget as HTMLElement).style.transform = 'translateY(-1px)';
+						if (status !== 'sending') (e.currentTarget as HTMLElement).style.transform = 'translateY(-1px)';
 					}
 				"
 				@mouseleave="(e) => ((e.currentTarget as HTMLElement).style.transform = 'translateY(0)')"

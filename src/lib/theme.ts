@@ -3,13 +3,11 @@ import { PAL } from "./palette";
 
 export type ThemeChoice = "light" | "system" | "dark";
 
-const stored = (typeof localStorage !== "undefined" && (localStorage.getItem("themeChoice") as ThemeChoice)) || "system";
+const stored =
+	(typeof localStorage !== "undefined" && (localStorage.getItem("themeChoice") as ThemeChoice)) || "system";
 export const themeChoice = ref<ThemeChoice>(stored);
 
-const prefersDark =
-	typeof window !== "undefined"
-		? window.matchMedia("(prefers-color-scheme: dark)")
-		: null;
+const prefersDark = typeof window !== "undefined" ? window.matchMedia("(prefers-color-scheme: dark)") : null;
 const systemDark = ref(prefersDark?.matches ?? false);
 prefersDark?.addEventListener?.("change", (e) => (systemDark.value = e.matches));
 

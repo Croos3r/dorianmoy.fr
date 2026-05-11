@@ -37,7 +37,9 @@ const fill = computed(() => (props.name === "github" ? "currentColor" : "none"))
 		</template>
 		<template v-else-if="name === 'tools'">
 			<circle cx="12" cy="12" r="3" />
-			<path d="M12 2 V5 M12 19 V22 M2 12 H5 M19 12 H22 M4.93 4.93 L7.05 7.05 M16.95 16.95 L19.07 19.07 M4.93 19.07 L7.05 16.95 M16.95 7.05 L19.07 4.93" />
+			<path
+				d="M12 2 V5 M12 19 V22 M2 12 H5 M19 12 H22 M4.93 4.93 L7.05 7.05 M16.95 16.95 L19.07 19.07 M4.93 19.07 L7.05 16.95 M16.95 7.05 L19.07 4.93"
+			/>
 		</template>
 		<template v-else-if="name === 'branch'">
 			<circle cx="6" cy="6" r="2" />
@@ -52,7 +54,9 @@ const fill = computed(() => (props.name === "github" ? "currentColor" : "none"))
 		</template>
 		<template v-else-if="name === 'sun'">
 			<circle cx="12" cy="12" r="4" />
-			<path d="M12 2 V4 M12 20 V22 M2 12 H4 M20 12 H22 M4.93 4.93 L6.34 6.34 M17.66 17.66 L19.07 19.07 M4.93 19.07 L6.34 17.66 M17.66 6.34 L19.07 4.93" />
+			<path
+				d="M12 2 V4 M12 20 V22 M2 12 H4 M20 12 H22 M4.93 4.93 L6.34 6.34 M17.66 17.66 L19.07 19.07 M4.93 19.07 L6.34 17.66 M17.66 6.34 L19.07 4.93"
+			/>
 		</template>
 		<template v-else-if="name === 'moon'">
 			<path d="M20 14.5 A9 9 0 1 1 9.5 4 A7 7 0 0 0 20 14.5 Z" />

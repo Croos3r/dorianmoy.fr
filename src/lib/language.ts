@@ -8,8 +8,7 @@ const detect = (): "en" | "fr" => {
 	return navigator.language?.toLowerCase().startsWith("fr") ? "fr" : "en";
 };
 
-const stored =
-	(typeof localStorage !== "undefined" && (localStorage.getItem("langChoice") as LangChoice)) || "system";
+const stored = (typeof localStorage !== "undefined" && (localStorage.getItem("langChoice") as LangChoice)) || "system";
 export const langChoice = ref<LangChoice>(stored);
 
 export const effectiveLocale = computed<"en" | "fr">(() =>

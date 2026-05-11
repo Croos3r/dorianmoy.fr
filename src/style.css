@@ -11,7 +11,11 @@ body,
 	margin: 0;
 }
 body {
-	font-family: "Inter", system-ui, -apple-system, sans-serif;
+	font-family:
+		"Inter",
+		system-ui,
+		-apple-system,
+		sans-serif;
 	background: #f0eee9;
 	color: rgb(27, 26, 33);
 	-webkit-font-smoothing: antialiased;
