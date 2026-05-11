@@ -1,68 +1,156 @@
 {
-	"nav": {
-		"aboutMe": "À propos",
-		"competencies": "Compétences",
-		"projects": "Projets"
+	"theme": {
+		"light": "clair",
+		"system": "sys",
+		"dark": "sombre"
 	},
-	"intro": {
+	"lang": {
+		"english": "Anglais",
+		"system": "Système",
+		"french": "Français"
+	},
+	"sidebar": {
+		"marks": "marques",
+		"move": "déplacer",
+		"topbot": "haut / bas",
+		"open": "ouvrir",
+		"mark": "aller à"
+	},
+	"resume": {
+		"label": "cv.pdf",
+		"url": "/curriculum_vitae_dorian_moy_fr.pdf",
+		"filename": "curriculum_vitae_dorian_moy_fr.pdf"
+	},
+	"hero": {
 		"greeting": "Bonjour, je m'appelle",
-		"name": "Dorian Moy",
-		"title": "Développeur Fullstack Junior",
-		"subtitle1": "Spécialisé sur les stacks TypeScript",
-		"subtitle2": "Passionné de Web3 et de Cybersécurité",
-		"getInTouch": "Me contacter",
-		"viewResume": "Voir mon CV"
-	},
-	"sections": {
-		"aboutMe": "À propos",
-		"competencies": "Compétences",
-		"projects": "Projets"
-	},
-	"aboutMe": {
-		"description": "Bonjour, je suis Dorian <strong class=\"text-primary\">\"Crooser\"</strong> Moy, développeur Fullstack Junior, étudiant en 5ème année et enseignant sur le campus parisien d'Epitech.<br /><br />Je suis principalement spécialisé sur les stacks <strong class=\"text-primary\">basées sur TypeScript</strong> mais je peux aussi travailler avec C/C++, Python, Java et Rust.<br /><br />Mes objectifs de l'année sont d'apprendre davantage sur le <strong class=\"text-primary\">Web3</strong> et la <strong class=\"text-primary\">Cybersécurité Offensive</strong> qui sont deux domaines qui me passionnent.<br /><br />Enfin, si vous ne me trouvez pas devant mon bureau, je suis probablement dans le festival EDM ou club le plus proche en train de danser le <strong class=\"text-primary\">Hakken</strong>.",
-		"altText": "Portrait de Dorian Moy"
-	},
-	"footer": {
-		"handcrafted": "Développé avec <strong id=\"heart\" >♥</strong> par <a href=\"#\">moi-même</a>",
-		"designed": "Designé par <a href=\"https://fiverr.com/nikolaieva_\">Valeriia N</a>"
-	},
-	"competencies": {
-		"languages": "Langages",
-		"frontend": "Frontend",
-		"backend": "Backend",
-		"tools": "Outils"
-	},
-	"projects": [
-		{
-			"title": "pigeactive.fr",
-			"description": "Un outil SaaS simple et efficace pour permettre aux agents immobiliers de trouver et gérer leurs prospects."
-		},
-		{
-			"title": "app.bedrock.im (Projet scolaire)",
-			"description": "Mon projet de fin d'études, une suite tout-en-un pour gérer vos documents personnels et professionnels. Le prochain Office 365/Google Suite décentralisé et confidentiel."
-		},
-		{
-			"title": "dorianmoy.fr",
-			"description": "Un portfolio simple pour mon usage personnel, celui que vous consultez actuellement."
-		},
-		{
-			"title": "libertai.io",
-			"description": "Le site web LibertAI, expliquant le projet et ses objectifs."
-		},
-		{
-			"title": "bedrock.im (Gagnant Hackathon 72h)",
-			"description": "La première itération de mon projet de fin d'études, une version confidentielle et décentralisée de Notion/Obsidian."
-		},
-		{
-			"title": "Area (Projet scolaire)",
-			"description": "Application fullstack mobile et web qui automatise les communications et tâches entre services internet."
-		},
-		{
-			"title": "Trombiday (Projet scolaire)",
-			"description": "Une petite application mobile avec un tableau de bord personnalisable composé de différents widgets basés sur votre géolocalisation."
+		"role": "Développeur Fullstack Junior.",
+		"location": "Spécialisé sur les stacks TypeScript. Passionné de Web3 et de Cybersécurité.",
+		"tag": {
+			"openToWork": "Stacks TypeScript",
+			"years": "Web3",
+			"learning": "Cybersécurité"
 		}
-	],
-	"language": {
-		"switch": "Changer de langue"
+	},
+	"about": {
+		"title": "À propos",
+		"p1": "Bonjour, je suis Dorian <strong>\"Crooser\"</strong> Moy, développeur Fullstack Junior, étudiant en 5ème année et enseignant sur le campus parisien d'Epitech.",
+		"p2": "Je suis principalement spécialisé sur les stacks <strong>basées sur TypeScript</strong> mais je peux aussi travailler avec C/C++, Python, Java et Rust.",
+		"p3": "Mes objectifs de l'année sont d'apprendre davantage sur le <strong>Web3</strong> et la <strong>Cybersécurité Offensive</strong> qui sont deux domaines qui me passionnent.",
+		"p4": "Enfin, si vous ne me trouvez pas devant mon bureau, je suis probablement dans le festival EDM ou club le plus proche en train de danser le <strong>Hakken</strong>."
+	},
+	"stack": {
+		"title": "Compétences",
+		"cat": {
+			"languages": "Langages",
+			"frontend": "Frontend",
+			"backend": "Backend",
+			"tools": "Outils"
+		},
+		"tag": {
+			"daily": "quotidien",
+			"shipped": "livré",
+			"touched": "touché",
+			"learning": "apprends"
+		}
+	},
+	"projects": {
+		"title": "Projets",
+		"seeMore": "Voir {n} de plus",
+		"seeLess": "Voir moins",
+		"list": [
+			{
+				"title": "pigeactive.fr",
+				"subtitle": "Freelance",
+				"description": "Un outil SaaS simple et efficace pour permettre aux agents immobiliers de trouver et gérer leurs prospects.",
+				"body": "Pensé pour les agents indépendants qui jonglent entre une demi-douzaine de sites d'annonces et des tableurs. Pigeactive agrège les nouvelles annonces, les score, et fait remonter les plus prometteuses dans une seule boîte de réception avec des modèles de prise de contact en un clic."
+			},
+			{
+				"title": "app.bedrock.im",
+				"subtitle": "Projet scolaire",
+				"description": "Mon projet de fin d'études, une suite tout-en-un pour gérer vos documents personnels et professionnels. Le prochain Office 365/Google Suite décentralisé et confidentiel.",
+				"body": "Un vrai drive pour vos fichiers personnels et professionnels : upload, organisation, partage et collaboration sur documents, images, vidéos, notes et plus, avec prévisualisation et édition pour les formats qui comptent. Chiffré de bout en bout, décentralisé au niveau du stockage pour qu'aucun prestataire ne détienne les données."
+			},
+			{
+				"title": "dorianmoy.fr",
+				"subtitle": "",
+				"description": "Un portfolio simple pour mon usage personnel, celui que vous consultez actuellement.",
+				"body": "Le site que vous êtes en train de regarder. Une SPA Vue 3 d'inspiration neovim : responsive en container-queries, thème clair/sombre/système, entièrement bilingue (FR/EN), et pilotable au clavier si vous aimez ça."
+			},
+			{
+				"title": "libertai.io",
+				"subtitle": "Freelance",
+				"description": "Le site web LibertAI, expliquant le projet et ses objectifs.",
+				"body": "Site vitrine de LibertAI, une plateforme d'IA ouverte et décentralisée. Build Next.js quasi-statique, pensé pour des mises à jour rapides, des animations de landing soignées et zéro tracking."
+			},
+			{
+				"title": "bedrock.im",
+				"subtitle": "Gagnant Hackathon 72h",
+				"description": "La première itération de mon projet de fin d'études, une version confidentielle et décentralisée de Notion/Obsidian.",
+				"body": "Construit en 72 heures pendant un hackathon, livré sous forme de démo fonctionnelle. Prise de notes en Markdown avec éditeur par blocs, chiffrement de bout en bout, et synchronisation décentralisée entre appareils. Premier prix, et base de la suite bedrock.im complète."
+			},
+			{
+				"title": "Area",
+				"subtitle": "Projet scolaire",
+				"description": "Application fullstack mobile et web qui automatise les communications et tâches entre services internet.",
+				"body": "Un clone d'IFTTT/Zapier développé en équipe à Epitech. L'utilisateur câble des « actions » d'un service (une nouvelle issue GitHub, un message Discord) vers des « réactions » sur un autre (un email, un évènement de calendrier). Client web, client mobile Flutter, et backend NestJS avec un système de plugins de services extensible."
+			},
+			{
+				"title": "Trombiday",
+				"subtitle": "Projet scolaire",
+				"description": "Une petite application mobile avec un tableau de bord personnalisable composé de différents widgets basés sur votre géolocalisation.",
+				"body": "Un écran d'accueil à base de widgets pour votre téléphone : météo, transports, actualités locales, tout ce qui dépend de l'endroit où vous êtes à l'instant. Disposition par glisser-déposer, sync hors-ligne, et une API de widgets pensée pour facilement en ajouter de nouveaux."
+			},
+			{
+				"title": "Indexeur Scroll",
+				"subtitle": "Freelance",
+				"description": "Un indexeur blockchain haute performance pour Scroll, écrit en Rust, pour la plateforme de crypto-comptabilité Cryptio.",
+				"body": "Construit pour Cryptio, une plateforme de crypto-comptabilité qui a besoin de données on-chain fiables pour rapprocher les portefeuilles de ses clients. L'indexeur ingère tout l'historique de Scroll, normalise transactions, traces et logs dans le format que consomment les pipelines de Cryptio, et suit la tête de chaîne en temps réel. Écrit en Rust pour les performances et les garanties que le système de types apporte sur l'état concurrent."
+			},
+			{
+				"title": "IHM pilotée par schémas",
+				"subtitle": "Stage Thales",
+				"description": "Une nouvelle IHM pour un composant transversal de Thales, qui génère des formulaires à partir de XML Schemas de protocoles de communication militaires.",
+				"body": "Thales compte des dizaines de protocoles de communication militaires, chacun formellement spécifié sous forme de XML Schema. Les opérateurs doivent remplir ces messages à la main, vite et sans ambiguïté. L'IHM parse n'importe quel XSD à la volée, en dérive une représentation JSON intermédiaire, et en rend un formulaire React typé et validé. Ajouter le support d'un nouveau protocole ne demande plus d'écrire un nouvel écran, juste de déposer son schéma."
+			},
+			{
+				"title": "Observer, Comprendre, Agir",
+				"subtitle": "Freelance",
+				"description": "Un guide mobile pour les agents de sécurité des Jeux Olympiques de Paris, pour les aider à comprendre, analyser et répondre à des menaces de faibles à critiques.",
+				"body": "Construite en amont des JO de Paris pour les agents de sécurité privée déployés sur les sites. L'app prend la forme d'une liste de fiches stylisées, organisées par niveau de menace, de faible à critique, que les agents peuvent consulter sur le terrain. Chaque fiche guide l'agent dans l'observation de la situation, la compréhension de ce qui s'y joue, et la bonne réponse à apporter, le tout appuyé par des visuels."
+			},
+			{
+				"title": "Visualiseur d'algorithmes de tri",
+				"subtitle": "",
+				"description": "Un visualiseur pur Rust des algorithmes de tri classiques, rendu via les bindings raylib.",
+				"body": "Une petite application native qui anime la façon dont les différents algorithmes de tri déplacent les données. Tri à bulles, par insertion, par sélection, rapide, fusion, par tas, par base et quelques plus exotiques, tournant côte à côte ou un par un avec une taille d'entrée et une vitesse réglables. Pur Rust sur les bindings raylib, sans moteur ni GC, juste des barres et des frames."
+			}
+		]
+	},
+	"modal": {
+		"visit": "Voir le projet"
+	},
+	"contact": {
+		"title": "Me contacter",
+		"lede": "Un projet, une offre, ou juste envie de dire bonjour ? Laissez-moi un mot.",
+		"orEmail": "ou par email →"
+	},
+	"form": {
+		"name": "nom",
+		"email": "email",
+		"message": "message",
+		"namePh": "Votre nom",
+		"emailPh": "vous@domaine.com",
+		"messagePh": "Qu'avez-vous en tête ?",
+		"required": "requis",
+		"invalidEmail": "email invalide",
+		"tooShort": "trop court",
+		"sending": "envoi…",
+		"ready": "prêt",
+		"chars": "{n} caractères",
+		"send": "envoyer",
+		"queued": "Message en attente.",
+		"queuedBody": "Votre client mail devrait s'être ouvert. Sinon,",
+		"emailMe": "écrivez-moi",
+		"sendAnother": "envoyer un autre →"
 	}
 }
