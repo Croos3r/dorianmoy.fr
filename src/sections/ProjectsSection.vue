@@ -5,6 +5,7 @@ import { PAL, MONO_STACK } from "../lib/palette";
 import { themeTokens, isDark } from "../lib/theme";
 import { PORTFOLIO, type Project } from "../lib/portfolio";
 import { getTechHome } from "../lib/techRegistry";
+import { selectedTechs } from "../lib/filters";
 import RevealOnScroll from "../components/RevealOnScroll.vue";
 import TechIcon from "../components/TechIcon.vue";
 
@@ -15,10 +16,65 @@ const open = (p: Project) => emit("open-project", p);
 
 const INITIAL_COUNT = 5;
 const expanded = ref(false);
-const visibleProjects = computed(() =>
-	expanded.value ? PORTFOLIO.projects : PORTFOLIO.projects.slice(0, INITIAL_COUNT),
+
+// Sorted, de-duped list of every tech that appears across the projects'
+// stacks. Drives the filter chip row.
+const allTechs = computed(() => {
+	const set = new Set<string>();
+	for (const p of PORTFOLIO.projects) for (const s of p.stack) set.add(s);
+	return [...set].sort((a, b) => a.localeCompare(b));
+});
+
+// Multi-select filter: a project must include EVERY selected tech. The ref
+// is shared via lib/filters so other sections can pre-fill it (e.g. clicking
+// a competency in the stack section).
+const query = ref("");
+const open_ = ref(false);
+
+const isSelected = (tech: string) => selectedTechs.value.includes(tech);
+
+const suggestions = computed(() => {
+	const q = query.value.trim().toLowerCase();
+	return allTechs.value.filter(
+		(tech) => !isSelected(tech) && (!q || tech.toLowerCase().includes(q)),
+	);
+});
+
+const filteredProjects = computed(() =>
+	selectedTechs.value.length
+		? PORTFOLIO.projects.filter((p) =>
+				selectedTechs.value.every((t) => p.stack.includes(t)),
+			)
+		: PORTFOLIO.projects,
 );
-const hasMore = computed(() => PORTFOLIO.projects.length > INITIAL_COUNT);
+
+const visibleProjects = computed(() => {
+	if (selectedTechs.value.length) return filteredProjects.value;
+	return expanded.value
+		? PORTFOLIO.projects
+		: PORTFOLIO.projects.slice(0, INITIAL_COUNT);
+});
+const hasMore = computed(
+	() =>
+		selectedTechs.value.length === 0 &&
+		PORTFOLIO.projects.length > INITIAL_COUNT,
+);
+
+const addTech = (tech: string) => {
+	if (!isSelected(tech)) selectedTechs.value = [...selectedTechs.value, tech];
+	query.value = "";
+};
+const removeTech = (tech: string) => {
+	selectedTechs.value = selectedTechs.value.filter((t) => t !== tech);
+};
+const clearAll = () => {
+	selectedTechs.value = [];
+	query.value = "";
+};
+
+// Close the suggestion popover when focus leaves the field. Defer so a click
+// on a suggestion still registers.
+const onBlur = () => setTimeout(() => (open_.value = false), 120);
 </script>
 
 <template>
@@ -48,9 +104,207 @@ const hasMore = computed(() => PORTFOLIO.projects.length > INITIAL_COUNT);
 				{{ t("projects.title") }}
 			</h2>
 		</RevealOnScroll>
+		<!-- ── Multi-tech filter ────────────────────────────────────── -->
 		<div
 			:style="{
-				marginTop: '32px',
+				marginTop: '24px',
+				position: 'relative',
+				maxWidth: '640px',
+			}"
+		>
+			<div
+				:style="{
+					display: 'flex',
+					flexWrap: 'wrap',
+					alignItems: 'center',
+					gap: '6px',
+					padding: '8px 10px',
+					border: `1px solid ${open_ ? PAL.gold : themeTokens.border}`,
+					borderRadius: '4px',
+					background: themeTokens.panel,
+					transition: 'border-color .15s, box-shadow .15s',
+					boxShadow: open_ ? `0 0 0 3px ${PAL.gold}1f` : 'none',
+				}"
+				@click="
+					(e) => {
+						open_ = true;
+						const input = (e.currentTarget as HTMLElement).querySelector('input');
+						input?.focus();
+					}
+				"
+			>
+				<span
+					:style="{
+						font: `500 11px/1 ${MONO_STACK}`,
+						color: PAL.gold,
+						letterSpacing: '1px',
+						textTransform: 'uppercase',
+						alignSelf: 'center',
+					}"
+					>:filter</span
+				>
+				<span
+					v-for="tech in selectedTechs"
+					:key="tech"
+					:style="{
+						display: 'inline-flex',
+						alignItems: 'center',
+						gap: '6px',
+						padding: '3px 4px 3px 8px',
+						borderRadius: '3px',
+						background: PAL.gold + '22',
+						border: `1px solid ${PAL.gold}55`,
+						font: `500 11px/1 ${MONO_STACK}`,
+						color: PAL.gold,
+					}"
+					@click.stop
+				>
+					<TechIcon :name="tech" :size="14" />
+					{{ tech }}
+					<button
+						:style="{
+							all: 'unset',
+							cursor: 'pointer',
+							width: '16px',
+							height: '16px',
+							display: 'inline-flex',
+							alignItems: 'center',
+							justifyContent: 'center',
+							borderRadius: '2px',
+							color: PAL.gold,
+							fontSize: '12px',
+						}"
+						:aria-label="`remove ${tech}`"
+						@click.stop="removeTech(tech)"
+						@mouseenter="
+							(e) =>
+								((e.currentTarget as HTMLElement).style.background = PAL.gold + '33')
+						"
+						@mouseleave="
+							(e) => ((e.currentTarget as HTMLElement).style.background = 'transparent')
+						"
+					>
+						✕
+					</button>
+				</span>
+				<input
+					v-model="query"
+					type="text"
+					autocomplete="off"
+					:placeholder="
+						selectedTechs.length ? '' : t('projects.filter.placeholder')
+					"
+					:style="{
+						all: 'unset',
+						flex: 1,
+						minWidth: '120px',
+						padding: '4px 2px',
+						font: `500 12px/1 ${MONO_STACK}`,
+						color: themeTokens.fg,
+					}"
+					@focus="open_ = true"
+					@blur="onBlur"
+					@keydown.enter.prevent="
+						suggestions.length > 0 && addTech(suggestions[0])
+					"
+					@keydown.backspace="
+						query === '' && selectedTechs.length && removeTech(selectedTechs[selectedTechs.length - 1])
+					"
+				/>
+				<button
+					v-if="selectedTechs.length"
+					:style="{
+						all: 'unset',
+						cursor: 'pointer',
+						padding: '4px 8px',
+						font: `500 11px/1 ${MONO_STACK}`,
+						color: themeTokens.dim,
+						letterSpacing: '0.3px',
+						textTransform: 'uppercase',
+					}"
+					@click.stop="clearAll"
+					@mouseenter="
+						(e) => ((e.currentTarget as HTMLElement).style.color = PAL.gold)
+					"
+					@mouseleave="
+						(e) => ((e.currentTarget as HTMLElement).style.color = themeTokens.dim)
+					"
+				>
+					{{ t("projects.filter.clear") }}
+				</button>
+			</div>
+
+			<!-- ── Suggestions popover ─────────────────────────────── -->
+			<div
+				v-if="open_ && suggestions.length > 0"
+				:style="{
+					position: 'absolute',
+					top: 'calc(100% + 4px)',
+					left: 0,
+					right: 0,
+					maxHeight: '240px',
+					overflowY: 'auto',
+					background: themeTokens.bg,
+					border: `1px solid ${themeTokens.border}`,
+					borderRadius: '4px',
+					boxShadow: '0 10px 30px rgba(0,0,0,0.18)',
+					zIndex: 10,
+					padding: '4px',
+				}"
+			>
+				<button
+					v-for="tech in suggestions"
+					:key="tech"
+					:style="{
+						all: 'unset',
+						cursor: 'pointer',
+						display: 'flex',
+						alignItems: 'center',
+						gap: '8px',
+						padding: '6px 10px',
+						borderRadius: '3px',
+						font: `500 12px/1 ${MONO_STACK}`,
+						color: themeTokens.fg,
+						width: '100%',
+						boxSizing: 'border-box',
+					}"
+					@mousedown.prevent="addTech(tech)"
+					@mouseenter="
+						(e) =>
+							((e.currentTarget as HTMLElement).style.background = isDark
+								? 'rgba(199,167,99,0.10)'
+								: 'rgba(199,167,99,0.16)')
+					"
+					@mouseleave="
+						(e) =>
+							((e.currentTarget as HTMLElement).style.background = 'transparent')
+					"
+				>
+					<TechIcon :name="tech" :size="16" />
+					{{ tech }}
+				</button>
+			</div>
+		</div>
+
+		<div
+			v-if="visibleProjects.length === 0"
+			:style="{
+				marginTop: '24px',
+				padding: '32px 28px',
+				border: `1px dashed ${themeTokens.border}`,
+				borderRadius: '6px',
+				font: `500 13px/1.5 ${MONO_STACK}`,
+				color: themeTokens.dim,
+				textAlign: 'center',
+			}"
+		>
+			{{ t("projects.filter.empty", { tech: selectedTechs.join(" + ") }) }}
+		</div>
+
+		<div
+			v-else
+			:style="{
+				marginTop: '24px',
 				display: 'flex',
 				flexDirection: 'column',
 				gap: '1px',

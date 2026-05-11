@@ -1,13 +1,13 @@
 {
 	"theme": {
 		"light": "light",
-		"system": "sys",
+		"system": "system",
 		"dark": "dark"
 	},
 	"lang": {
-		"english": "English",
-		"system": "System",
-		"french": "French"
+		"english": "english",
+		"system": "system",
+		"french": "french"
 	},
 	"sidebar": {
 		"marks": "marks",
@@ -57,6 +57,11 @@
 		"title": "Projects",
 		"seeMore": "See {n} more",
 		"seeLess": "See less",
+		"filter": {
+			"placeholder": "filter by technology…",
+			"clear": "Clear",
+			"empty": "No projects match {tech}."
+		},
 		"list": [
 			{
 				"title": "pigeactive.fr",
@@ -123,6 +128,42 @@
 				"subtitle": "",
 				"description": "A pure-Rust visualizer for classic sorting algorithms, rendered with raylib bindings.",
 				"body": "A small native app that animates how different sorting algorithms move data around. Bubble, insertion, selection, quick, merge, heap, radix and a few weirder ones, all running side-by-side or one at a time on a tunable input size and speed. Pure Rust on top of the raylib bindings, no engine, no GC pauses, just bars and frames."
+			},
+			{
+				"title": "IoT battery analysis",
+				"subtitle": "Zozio Internship",
+				"description": "A predictive tool that mines battery logs to anticipate when IoT devices deployed across a site are about to die.",
+				"body": "Zozio's hardware tracks thousands of battery-powered IoT devices in industrial sites. Replacing them reactively means downtime; replacing them too early wastes money. The tool pulls years of battery telemetry from the production Postgres, models per-device discharge curves, and flags the devices likely to die within the next few weeks so field teams can schedule replacements in a single sweep. A lot of the work went into making the SQL fast enough that the whole site can be analyzed in seconds rather than hours."
+			},
+			{
+				"title": "Core platform maintenance",
+				"subtitle": "Zozio Internship",
+				"description": "Day-to-day maintenance and feature work on Zozio's core backend, plus tightening up the CI/CD around it.",
+				"body": "Worked across the Express/JavaScript backend that powers Zozio's real-time tracking platform: bug fixes, small features, Redis-backed performance improvements, and Docker-ization of the dev environment. Also took a pass at the GitLab pipelines so test + build + deploy stopped being a manual ritual."
+			},
+			{
+				"title": "Legacy UI migration",
+				"subtitle": "Zozio Internship",
+				"description": "Incremental migration of the old PHP/JS UI to React + TypeScript components, embedded via iframes so users could move over without a big-bang rewrite.",
+				"body": "The legacy interface was a sprawling PHP/JS app that couldn't be rewritten in one shot without taking the product offline. Instead, each modernized screen was built as a standalone React + TypeScript component and embedded into the legacy shell through an iframe, with a tiny postMessage bridge for navigation and auth. Users got a steadily better experience while the rest of the app kept working, and the team could replace the legacy screens one at a time."
+			},
+			{
+				"title": "Hermes",
+				"subtitle": "Freelance",
+				"description": "A homegrown anticheat for a Minecraft server I co-founded, written in Java with a MySQL store and RabbitMQ messaging.",
+				"body": "From my early Minecraft-freelance years, Hermes was a simple but practical server-side anticheat for one of the Minecraft servers I co-founded. It caught 6 distinct flying techniques, 3 different speed exploits, and over 10 miscellaneous cheats (reach, kill-aura variants, fast-place, no-fall, and friends). Java for the in-server checks, MySQL for the violation log, and RabbitMQ to fan out detection events to the rest of the network."
+			},
+			{
+				"title": "DracoJump",
+				"subtitle": "Freelance",
+				"description": "A fully configurable double-jump mechanic plugin with scriptable animations, built for an external Minecraft client.",
+				"body": "Commissioned by an external Minecraft server owner who wanted a polished, configurable double-jump feel. The plugin exposes every knob (jump height, cooldown, recharge mode, per-permission tuning) and ships a small scripting layer for the in-air animations so server admins can author their own particle / sound / motion sequences without touching code. MongoDB powers the cosmetics shop on top: players buy custom double-jump animations, and the store records each transaction and tracks which cosmetics a player owns and has currently equipped."
+			},
+			{
+				"title": "GlaDOS",
+				"subtitle": "School project",
+				"description": "A high-level, bytecode-interpreted language built entirely in pure Haskell, with custom parsing, bytecode, virtual machine, package system and closures.",
+				"body": "End-to-end implementation of a small programming language, written in pure Haskell. Custom parser, custom bytecode instruction set, custom virtual machine to execute it, with a package system for splitting programs across modules and proper closure handling so functions can capture and carry their lexical environment. Every layer hand-rolled, no third-party runtime or VM borrowed."
 			}
 		]
 	},

@@ -4,11 +4,17 @@ import { PAL, MONO_STACK, TAG_COLORS } from "../lib/palette";
 import { themeTokens, isDark } from "../lib/theme";
 import { PORTFOLIO } from "../lib/portfolio";
 import { getTechHome } from "../lib/techRegistry";
+import { setFilter, scrollToProjects } from "../lib/filters";
 import RevealOnScroll from "../components/RevealOnScroll.vue";
 import TerminalIcon from "../components/TerminalIcon.vue";
 import TechIcon from "../components/TechIcon.vue";
 
 const { t } = useI18n();
+
+const filterByTech = (tech: string) => {
+	setFilter([tech]);
+	scrollToProjects();
+};
 </script>
 
 <template>
@@ -91,11 +97,12 @@ const { t } = useI18n();
 						}"
 					>
 						<li v-for="it in c.items" :key="it.name">
-							<a
-								:href="getTechHome(it.name) || '#'"
-								:target="getTechHome(it.name) ? '_blank' : undefined"
-								:rel="getTechHome(it.name) ? 'noopener noreferrer' : undefined"
+							<div
+								role="button"
+								tabindex="0"
+								:aria-label="`filter projects by ${it.name}`"
 								:style="{
+									cursor: 'pointer',
 									display: 'grid',
 									gridTemplateColumns: 'auto 1fr auto',
 									alignItems: 'center',
@@ -103,10 +110,11 @@ const { t } = useI18n();
 									padding: '6px 8px',
 									margin: '0 -8px',
 									borderRadius: '4px',
-									textDecoration: 'none',
-									color: 'inherit',
 									transition: 'background .15s',
 								}"
+								@click="filterByTech(it.name)"
+								@keydown.enter.prevent="filterByTech(it.name)"
+								@keydown.space.prevent="filterByTech(it.name)"
 								@mouseenter="
 									(e) =>
 										((e.currentTarget as HTMLElement).style.background = isDark
@@ -118,14 +126,48 @@ const { t } = useI18n();
 										((e.currentTarget as HTMLElement).style.background = 'transparent')
 								"
 							>
-								<TechIcon :name="it.name" :size="26" />
-								<span
+								<!-- Logo + name route to the tech's homepage. Click here is
+								     captured before bubbling, so the parent filter action
+								     doesn't also fire. -->
+								<a
+									v-if="getTechHome(it.name)"
+									:href="getTechHome(it.name)"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="v2-tech-link"
 									:style="{
-										font: '500 14px/1.2 Inter, sans-serif',
-										color: themeTokens.fg,
+										gridColumn: '1 / span 2',
+										justifySelf: 'start',
+										width: 'fit-content',
+										display: 'inline-flex',
+										alignItems: 'center',
+										gap: '12px',
+										textDecoration: 'none',
+										color: 'inherit',
+										minWidth: 0,
 									}"
-									>{{ it.name }}</span
+									@click.stop
 								>
+									<TechIcon :name="it.name" :size="26" />
+									<span
+										class="v2-tech-name"
+										:style="{
+											font: '500 14px/1.2 Inter, sans-serif',
+											color: themeTokens.fg,
+										}"
+										>{{ it.name }}</span
+									>
+								</a>
+								<template v-else>
+									<TechIcon :name="it.name" :size="26" />
+									<span
+										:style="{
+											font: '500 14px/1.2 Inter, sans-serif',
+											color: themeTokens.fg,
+										}"
+										>{{ it.name }}</span
+									>
+								</template>
 								<span
 									:style="{
 										display: 'inline-flex',
@@ -150,7 +192,7 @@ const { t } = useI18n();
 									/>
 									{{ t(`stack.tag.${it.tag}`) }}
 								</span>
-							</a>
+							</div>
 						</li>
 					</ul>
 				</div>

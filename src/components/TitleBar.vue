@@ -66,7 +66,7 @@ const { t } = useI18n();
 					>
 						<FlagIcon v-if="option.id === 'en'" code="en" :w="14" />
 						<FlagIcon v-else-if="option.id === 'fr'" code="fr" :w="14" />
-						<TerminalIcon v-else name="globe" :size="10" stroke="currentColor" />
+						<TerminalIcon v-else name="monitor" :size="10" stroke="currentColor" />
 					</span>
 				</template>
 			</SegmentedSwitch>

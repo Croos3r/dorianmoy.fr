@@ -30,6 +30,16 @@ body {
 	container-type: inline-size;
 }
 
+/* Tech name inside a stack-section row underlines on hover so users know
+   the logo + name lead off-site, while the rest of the row triggers the
+   in-page projects filter. */
+.v2-tech-link:hover .v2-tech-name {
+	text-decoration: underline;
+	text-decoration-color: rgb(199, 167, 99);
+	text-underline-offset: 3px;
+	text-decoration-thickness: 1px;
+}
+
 /* Highlight <strong> inside copy with the gold accent rather than weight.
    Tailwind preflight strips the browser-default bold, which is what we want
    here — the emphasis comes from color, not weight. */
@@ -37,6 +47,41 @@ body {
 .v2-main b {
 	color: rgb(199, 167, 99);
 	font-weight: inherit;
+}
+
+/* ── Custom scrollbar ──────────────────────────────────────────
+   Thin, gold-tinted thumb on a transparent track. Same treatment in
+   light and dark — the gold accent reads well over both backgrounds.
+   Applies to the main pane, sidebar, modals, filter suggestions, and
+   any nested scroll containers. */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(199, 167, 99, 0.45) transparent;
+}
+*::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+*::-webkit-scrollbar-track {
+	background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+	background: rgba(199, 167, 99, 0.35);
+	border-radius: 4px;
+	border: 2px solid transparent;
+	background-clip: padding-box;
+	transition: background-color 0.15s;
+}
+*::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(199, 167, 99, 0.65);
+	background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:active {
+	background-color: rgba(199, 167, 99, 0.85);
+	background-clip: padding-box;
+}
+*::-webkit-scrollbar-corner {
+	background: transparent;
 }
 
 /* Smooth theme transitions across the whole UI. */
