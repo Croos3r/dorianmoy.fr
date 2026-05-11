@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Playwright MCP artifacts (snapshots, screenshots dropped at repo root)
+.playwright-mcp/
+/*.png
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
