@@ -2,9 +2,7 @@
 import { useI18n } from "vue-i18n";
 import { themeChoice, setTheme } from "../lib/theme";
 import { langChoice, setLang } from "../lib/language";
-import { themeTokens } from "../lib/theme";
 import { PORTFOLIO } from "../lib/portfolio";
-import { MONO_STACK } from "../lib/palette";
 import SegmentedSwitch from "./SegmentedSwitch.vue";
 import TerminalIcon from "./TerminalIcon.vue";
 import FlagIcon from "./FlagIcon.vue";
@@ -13,31 +11,24 @@ const { t } = useI18n();
 </script>
 
 <template>
+	<!--
+	  Responsive layout:
+	  - Default (>1440px): 3-col grid, label centered, switches right
+	  - ≤1440 (incl. tablet): flex space-between, label hugs left, switches right
+	  - ≤720: hide label, switches take full width
+	  - ≤560: label visible left (ellipsis), switches grouped right; pill-mode handled by SegmentedSwitch
+	-->
 	<header
-		class="v2-titlebar"
-		:style="{
-			display: 'grid',
-			gridTemplateColumns: '1fr auto 1fr',
-			alignItems: 'center',
-			padding: '0 16px',
-			gap: '16px',
-			borderBottom: `1px solid ${themeTokens.border}`,
-			font: `500 12px/1 ${MONO_STACK}`,
-			color: themeTokens.dim,
-		}"
+		class="v2-titlebar @max-[1440px]:flex @max-[1440px]:justify-between @max-[720px]:justify-between @max-[560px]:gap-1.5 @max-[440px]:px-4 grid grid-cols-[1fr_auto_1fr] items-center gap-4 border-b border-border px-4 font-mono text-xs font-medium leading-none text-dim"
 	>
-		<span aria-hidden="true" />
-		<span class="v2-titlebar-label" :style="{ textAlign: 'center', whiteSpace: 'nowrap' }">
+		<span aria-hidden="true" class="@max-[1440px]:hidden" />
+		<span
+			class="v2-titlebar-label @max-[1440px]:text-left @max-[720px]:hidden @max-[560px]:inline-block @max-[560px]:min-w-0 @max-[560px]:flex-[0_1_auto] @max-[560px]:overflow-hidden @max-[560px]:text-ellipsis @max-[560px]:text-left whitespace-nowrap text-center"
+		>
 			~/portfolio - {{ PORTFOLIO.handle }}
 		</span>
 		<div
-			class="v2-titlebar-switches"
-			:style="{
-				display: 'inline-flex',
-				alignItems: 'center',
-				gap: '8px',
-				justifySelf: 'end',
-			}"
+			class="v2-titlebar-switches @max-[1440px]:justify-self-auto @max-[720px]:w-full @max-[720px]:justify-between @max-[560px]:w-auto @max-[560px]:shrink-0 @max-[560px]:justify-end inline-flex items-center gap-2 justify-self-end"
 		>
 			<SegmentedSwitch
 				:options="[
@@ -51,16 +42,7 @@ const { t } = useI18n();
 				@update:value="(v) => setLang(v as 'en' | 'system' | 'fr')"
 			>
 				<template #icon="{ option }">
-					<span
-						:style="{
-							width: '16px',
-							height: '11px',
-							display: 'inline-flex',
-							alignItems: 'center',
-							justifyContent: 'center',
-							flexShrink: 0,
-						}"
-					>
+					<span class="inline-flex h-[11px] w-4 shrink-0 items-center justify-center">
 						<FlagIcon v-if="option.id === 'en'" code="en" :w="14" />
 						<FlagIcon v-else-if="option.id === 'fr'" code="fr" :w="14" />
 						<TerminalIcon v-else name="monitor" :size="10" stroke="currentColor" />

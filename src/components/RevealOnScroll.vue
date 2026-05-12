@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, onBeforeUnmount, ref } from "vue";
 
-withDefaults(
+const props = withDefaults(
 	defineProps<{
 		delay?: number;
 		y?: number;
@@ -13,6 +13,19 @@ const el = ref<HTMLElement | null>(null);
 const shown = ref(false);
 let ob: IntersectionObserver | null = null;
 
+// Find the nearest scrolling ancestor — the page's main pane scrolls, not the
+// document, so an observer with `root: null` would see every element as already
+// intersecting and reveal everything on mount instead of as the user scrolls.
+const findScrollRoot = (start: HTMLElement): Element | null => {
+	let cur: HTMLElement | null = start.parentElement;
+	while (cur) {
+		const overflowY = getComputedStyle(cur).overflowY;
+		if (overflowY === "auto" || overflowY === "scroll") return cur;
+		cur = cur.parentElement;
+	}
+	return null;
+};
+
 onMounted(() => {
 	if (!el.value) return;
 	ob = new IntersectionObserver(
@@ -22,7 +35,11 @@ onMounted(() => {
 				ob?.disconnect();
 			}
 		},
-		{ threshold: 0.15, rootMargin: "0px 0px -5% 0px" },
+		{
+			root: findScrollRoot(el.value),
+			threshold: 0.15,
+			rootMargin: "0px 0px -5% 0px",
+		},
 	);
 	ob.observe(el.value);
 });
@@ -33,9 +50,9 @@ onBeforeUnmount(() => ob?.disconnect());
 	<div
 		ref="el"
 		:style="{
-			transform: shown ? 'translateY(0)' : `translateY(${y}px)`,
+			transform: shown ? 'translateY(0)' : `translateY(${props.y}px)`,
 			opacity: shown ? 1 : 0,
-			transition: `transform .7s cubic-bezier(.2,.7,.2,1) ${delay}ms, opacity .7s ease ${delay}ms`,
+			transition: `transform .7s cubic-bezier(.2,.7,.2,1) ${props.delay}ms, opacity .7s ease ${props.delay}ms`,
 		}"
 	>
 		<slot />

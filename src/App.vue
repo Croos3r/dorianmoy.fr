@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
-import { themeTokens } from "./lib/theme";
 import TitleBar from "./components/TitleBar.vue";
 import SideBar, { type FileEntry } from "./components/SideBar.vue";
 import StatusBar from "./components/StatusBar.vue";
@@ -292,29 +291,13 @@ onBeforeUnmount(() => {
 <template>
 	<div
 		id="terminal-root"
-		class="v2-root"
-		:style="{
-			background: themeTokens.bg,
-			color: themeTokens.fg,
-			height: '100vh',
-			fontFamily: 'Inter, system-ui, sans-serif',
-			display: 'grid',
-			gridTemplateRows: '42px 1fr 28px',
-			overflow: 'hidden',
-		}"
+		class="v2-root grid h-screen grid-rows-[42px_1fr_28px] overflow-hidden bg-bg font-sans text-fg"
 	>
 		<TitleBar />
 
-		<div
-			class="v2-body"
-			:style="{
-				display: 'grid',
-				gridTemplateColumns: '240px 1fr',
-				minHeight: 0,
-			}"
-		>
+		<div class="v2-body @max-[820px]:grid-cols-1 grid min-h-0 grid-cols-[240px_1fr]">
 			<SideBar :files="files" :active="active" :sel-idx="selIdx" @navigate="navigate" />
-			<main ref="mainEl" class="v2-main" :style="{ overflowY: 'auto', overflowX: 'hidden' }">
+			<main ref="mainEl" class="v2-main overflow-y-auto overflow-x-hidden">
 				<HeroSection />
 				<div :ref="setSectionRef('about')"><AboutSection /></div>
 				<div :ref="setSectionRef('competencies')"><StackSection /></div>

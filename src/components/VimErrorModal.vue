@@ -1,7 +1,5 @@
 <script lang="ts" setup>
 import { onBeforeUnmount, onMounted, watch } from "vue";
-import { PAL, MONO_STACK } from "../lib/palette";
-import { themeTokens } from "../lib/theme";
 
 const props = defineProps<{
 	show: boolean;
@@ -36,76 +34,26 @@ watch(
 <template>
 	<div
 		v-if="show"
-		:style="{
-			position: 'fixed',
-			inset: 0,
-			zIndex: 1100,
-			background: 'rgba(0,0,0,0.55)',
-			backdropFilter: 'blur(6px)',
-			display: 'flex',
-			justifyContent: 'center',
-			alignItems: 'center',
-			padding: 'clamp(12px, 4vh, 40px)',
-			animation: 'pm-fade .2s ease',
-		}"
+		class="vm-fade fixed inset-0 z-[1100] flex items-center justify-center bg-black/55 backdrop-blur-md"
+		style="padding: clamp(12px, 4vh, 40px)"
 		@click="emit('close')"
 	>
 		<div
-			:style="{
-				background: themeTokens.bg,
-				color: themeTokens.fg,
-				width: 'min(520px, 100%)',
-				borderRadius: '8px',
-				overflow: 'hidden',
-				border: `1px solid ${themeTokens.border}`,
-				fontFamily: 'Inter, system-ui, sans-serif',
-				animation: 'pm-slide .25s cubic-bezier(.2,.7,.2,1)',
-				boxShadow: '0 30px 80px rgba(0,0,0,0.35)',
-			}"
+			class="vm-slide w-[min(520px,100%)] overflow-hidden rounded-lg border border-border bg-bg font-sans text-fg shadow-[0_30px_80px_rgba(0,0,0,0.35)]"
 			@click.stop
 		>
 			<div
-				:style="{
-					padding: '14px 18px',
-					borderBottom: `1px solid ${themeTokens.border}`,
-					font: `500 11px/1 ${MONO_STACK}`,
-					color: themeTokens.dim,
-					letterSpacing: '1px',
-					textTransform: 'uppercase',
-				}"
+				class="border-b border-border px-[18px] py-3.5 font-mono text-[11px] font-medium uppercase leading-none tracking-widest text-dim"
 			>
 				{{ code }}
 			</div>
-			<div
-				:style="{
-					padding: '28px 22px',
-					font: `600 14px/1.4 ${MONO_STACK}`,
-					color: '#e0234e',
-					textAlign: 'center',
-					wordBreak: 'break-word',
-				}"
-			>
+			<div class="break-words px-[22px] py-7 text-center font-mono text-sm font-semibold leading-snug text-err">
 				{{ message }}
 			</div>
-			<div
-				:style="{
-					padding: '0 22px 18px',
-					display: 'flex',
-					justifyContent: 'center',
-				}"
-			>
+			<div class="flex justify-center px-[22px] pb-[18px]">
 				<button
-					:style="{
-						all: 'unset',
-						cursor: 'pointer',
-						padding: '8px 14px',
-						background: PAL.gold,
-						color: PAL.ink,
-						font: `600 12px/1 ${MONO_STACK}`,
-						letterSpacing: '0.5px',
-						textTransform: 'uppercase',
-						borderRadius: '4px',
-					}"
+					type="button"
+					class="cursor-pointer rounded bg-gold px-3.5 py-2 font-mono text-xs font-semibold uppercase leading-none tracking-wider text-ink"
 					@click="emit('close')"
 				>
 					OK
@@ -114,3 +62,30 @@ watch(
 		</div>
 	</div>
 </template>
+
+<style scoped>
+.vm-fade {
+	animation: vm-fade 0.2s ease;
+}
+.vm-slide {
+	animation: vm-slide 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@keyframes vm-fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes vm-slide {
+	from {
+		transform: translateY(20px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+</style>

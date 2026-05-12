@@ -189,9 +189,11 @@
 		"ready": "prêt",
 		"chars": "{n} caractères",
 		"send": "envoyer",
-		"queued": "Message en attente.",
-		"queuedBody": "Votre client mail devrait s'être ouvert. Sinon,",
-		"emailMe": "écrivez-moi",
-		"sendAnother": "envoyer un autre →"
+		"sentTitle": "Message envoyé.",
+		"sentBody": "Merci de m'avoir contacté. Je reviens vers vous dès que possible.",
+		"sendAnother": "envoyer un autre →",
+		"errorTitle": "Impossible d'envoyer le message.",
+		"errorBody": "Quelque chose s'est mal passé de mon côté. Réessayez dans un instant, ou écrivez-moi directement à",
+		"retry": "réessayer →"
 	}
 }

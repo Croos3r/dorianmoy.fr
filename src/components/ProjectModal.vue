@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import { onBeforeUnmount, onMounted, watch } from "vue";
 import { useI18n } from "vue-i18n";
-import { PAL, MONO_STACK } from "../lib/palette";
-import { themeTokens, isDark } from "../lib/theme";
 import { getTechHome } from "../lib/techRegistry";
 import type { Project } from "../lib/portfolio";
 import TerminalIcon from "./TerminalIcon.vue";
@@ -46,67 +44,22 @@ watch(
 <template>
 	<div
 		v-if="project"
-		:style="{
-			position: 'fixed',
-			inset: 0,
-			zIndex: 1000,
-			background: 'rgba(0,0,0,0.55)',
-			backdropFilter: 'blur(6px)',
-			display: 'flex',
-			justifyContent: 'center',
-			alignItems: 'flex-start',
-			padding: 'clamp(12px, 4vh, 40px)',
-			overflowY: 'auto',
-			animation: 'pm-fade .25s ease',
-		}"
+		class="pm-fade fixed inset-0 z-[1000] flex items-start justify-center overflow-y-auto bg-black/55 backdrop-blur-md"
+		style="padding: clamp(12px, 4vh, 40px)"
 		@click="emit('close')"
 	>
 		<div
-			class="v2-modal"
-			:style="{
-				background: themeTokens.bg,
-				color: themeTokens.fg,
-				width: 'min(900px, 100%)',
-				borderRadius: '8px',
-				overflow: 'hidden',
-				fontFamily: 'Inter, system-ui, sans-serif',
-				animation: 'pm-slide .35s cubic-bezier(.2,.7,.2,1)',
-				boxShadow: '0 30px 80px rgba(0,0,0,0.35)',
-				border: `1px solid ${themeTokens.border}`,
-			}"
+			class="pm-slide w-[min(900px,100%)] overflow-hidden rounded-lg border border-border bg-bg font-sans text-fg shadow-[0_30px_80px_rgba(0,0,0,0.35)]"
 			@click.stop
 		>
 			<div
-				class="v2-modal-header"
-				:style="{
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'space-between',
-					padding: '20px 28px',
-					borderBottom: `1px solid ${themeTokens.border}`,
-					font: `500 12px/1 ${MONO_STACK}`,
-					color: themeTokens.dim,
-					letterSpacing: '1px',
-					textTransform: 'uppercase',
-				}"
+				class="@max-[720px]:px-[18px] @max-[720px]:py-3.5 flex items-center justify-between border-b border-border px-7 py-5 font-mono text-xs font-medium uppercase leading-none tracking-widest text-dim"
 			>
 				<span>./projects/{{ project.index }} · {{ project.year }}</span>
 				<button
-					:style="{
-						all: 'unset',
-						cursor: 'pointer',
-						width: '32px',
-						height: '32px',
-						borderRadius: '50%',
-						display: 'inline-flex',
-						alignItems: 'center',
-						justifyContent: 'center',
-						color: themeTokens.fg,
-						transition: 'background .2s',
-					}"
+					type="button"
+					class="inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-transparent text-fg transition-colors duration-200 hover:bg-border"
 					aria-label="close"
-					@mouseenter="(e) => ((e.currentTarget as HTMLElement).style.background = themeTokens.border)"
-					@mouseleave="(e) => ((e.currentTarget as HTMLElement).style.background = 'transparent')"
 					@click="emit('close')"
 				>
 					<svg
@@ -127,182 +80,70 @@ watch(
 
 			<div
 				v-if="project.image"
-				:style="{
-					position: 'relative',
-					background: isDark ? PAL.cream : PAL.ink,
-					color: isDark ? PAL.ink : PAL.cream,
-					overflow: 'hidden',
-					aspectRatio: '16 / 9',
-				}"
+				class="relative aspect-[16/9] overflow-hidden bg-ink text-cream dark:bg-cream dark:text-ink"
 			>
-				<img
-					:src="project.image"
-					:alt="t(project.titleKey)"
-					:style="{
-						display: 'block',
-						width: '100%',
-						height: '100%',
-						objectFit: 'cover',
-						objectPosition: 'top center',
-					}"
-				/>
+				<img :src="project.image" :alt="t(project.titleKey)" class="block h-full w-full object-cover object-top" />
 				<div
-					:style="{
-						position: 'absolute',
-						top: '18px',
-						left: '20px',
-						font: `500 11px/1 ${MONO_STACK}`,
-						letterSpacing: '0.8px',
-						textTransform: 'uppercase',
-						color: '#fff',
-						background: 'rgba(0,0,0,0.55)',
-						padding: '6px 10px',
-						borderRadius: '3px',
-						backdropFilter: 'blur(4px)',
-					}"
+					class="absolute left-5 top-[18px] rounded-[3px] bg-black/55 px-2.5 py-1.5 font-mono text-[11px] font-medium uppercase leading-none tracking-wider text-white backdrop-blur-[4px]"
 				>
 					./{{ project.id }}
 				</div>
 			</div>
 
 			<div
-				class="v2-modal-body"
-				:style="{
-					padding: project.image ? '40px 48px 48px' : '36px 48px 48px',
-				}"
+				class="@max-[720px]:px-5 @max-[720px]:pb-8 @max-[720px]:pt-7 px-12 pb-12"
+				:class="project.image ? 'pt-10' : 'pt-9'"
 			>
-				<div
-					:style="{
-						font: `500 12px/1 ${MONO_STACK}`,
-						color: PAL.gold,
-						letterSpacing: '2px',
-						textTransform: 'uppercase',
-						marginBottom: '16px',
-					}"
-				>
+				<div class="mb-4 font-mono text-xs font-medium uppercase leading-none tracking-[2px] text-gold">
 					{{ t(project.taglineKey) }}
 				</div>
 				<h2
-					class="v2-modal-title"
-					:style="{
-						margin: 0,
-						font: '700 clamp(28px, 5vw, 52px)/1.1 Inter, sans-serif',
-						letterSpacing: '-1px',
-						color: themeTokens.fg,
-						display: 'flex',
-						alignItems: 'baseline',
-						gap: '14px',
-						flexWrap: 'wrap',
-					}"
+					class="@max-[720px]:break-words @max-[720px]:text-[26px] @max-[720px]:leading-[1.15] @max-[720px]:tracking-[-0.5px] m-0 flex flex-wrap items-baseline gap-3.5 font-sans font-bold leading-[1.1] tracking-[-1px] text-fg"
+					style="font-size: clamp(28px, 5vw, 52px)"
 				>
 					<span>{{ t(project.titleKey) }}</span>
 					<span
 						v-if="t(project.subtitleKey)"
-						:style="{
-							font: '500 clamp(14px, 1.6vw, 18px)/1.2 Inter, sans-serif',
-							color: themeTokens.dim,
-							letterSpacing: 0,
-							opacity: 0.8,
-						}"
+						class="text-dim/80 font-sans font-medium leading-snug tracking-normal"
+						style="font-size: clamp(14px, 1.6vw, 18px)"
 						>{{ t(project.subtitleKey) }}</span
 					>
 				</h2>
 
-				<div
-					:style="{
-						display: 'flex',
-						gap: '8px',
-						flexWrap: 'wrap',
-						marginTop: '28px',
-					}"
-				>
+				<div class="mt-7 flex flex-wrap gap-2">
 					<template v-for="s in project.stack" :key="s">
 						<a
 							v-if="getTechHome(s)"
 							:href="getTechHome(s)"
 							target="_blank"
 							rel="noopener noreferrer"
-							:style="{
-								display: 'inline-flex',
-								alignItems: 'center',
-								gap: '8px',
-								padding: '6px 10px',
-								border: `1px solid ${themeTokens.border}`,
-								borderRadius: '3px',
-								font: `500 12px/1 ${MONO_STACK}`,
-								letterSpacing: '0.3px',
-								textDecoration: 'none',
-								transition: 'border-color .15s',
-							}"
-							@mouseenter="(e) => ((e.currentTarget as HTMLElement).style.borderColor = PAL.gold)"
-							@mouseleave="(e) => ((e.currentTarget as HTMLElement).style.borderColor = themeTokens.border)"
+							class="inline-flex items-center gap-2 rounded-[3px] border border-border px-2.5 py-1.5 font-mono text-xs font-medium leading-none tracking-wide no-underline transition-colors duration-150 hover:border-gold"
 						>
 							<TechIcon :name="s" :size="18" />
-							<span
-								:style="{
-									color: PAL.gold,
-									textDecoration: 'underline',
-									textUnderlineOffset: '3px',
-									textDecorationThickness: '1px',
-								}"
-								>{{ s.toLowerCase() }}</span
-							>
+							<span class="text-gold underline decoration-1 underline-offset-[3px]">{{ s.toLowerCase() }}</span>
 						</a>
 						<span
 							v-else
-							:style="{
-								display: 'inline-flex',
-								alignItems: 'center',
-								gap: '8px',
-								padding: '6px 10px',
-								border: `1px solid ${themeTokens.border}`,
-								borderRadius: '3px',
-								font: `500 12px/1 ${MONO_STACK}`,
-								letterSpacing: '0.3px',
-							}"
+							class="inline-flex items-center gap-2 rounded-[3px] border border-border px-2.5 py-1.5 font-mono text-xs font-medium leading-none tracking-wide"
 						>
 							<TechIcon :name="s" :size="18" />
-							<span :style="{ color: PAL.gold }">{{ s.toLowerCase() }}</span>
+							<span class="text-gold">{{ s.toLowerCase() }}</span>
 						</span>
 					</template>
 				</div>
 
 				<p
-					:style="{
-						margin: '32px 0 0',
-						maxWidth: '640px',
-						font: '400 17px/1.65 Inter, sans-serif',
-						color: themeTokens.fg,
-						opacity: 0.92,
-					}"
+					class="text-fg/90 @max-[720px]:text-[15px] @max-[720px]:leading-[1.6] m-0 mt-8 max-w-[640px] text-[17px] font-normal leading-[1.65]"
 				>
 					{{ t(project.bodyKey) }}
 				</p>
 
-				<div
-					v-if="project.url"
-					:style="{
-						marginTop: '40px',
-						display: 'flex',
-						gap: '16px',
-						flexWrap: 'wrap',
-					}"
-				>
+				<div v-if="project.url" class="mt-10 flex flex-wrap gap-4">
 					<a
 						:href="project.url"
 						target="_blank"
 						rel="noopener noreferrer"
-						:style="{
-							display: 'inline-flex',
-							alignItems: 'center',
-							gap: '10px',
-							padding: '14px 24px',
-							background: PAL.gold,
-							color: PAL.ink,
-							font: '600 14px/1 Inter, sans-serif',
-							borderRadius: '4px',
-							textDecoration: 'none',
-						}"
+						class="inline-flex items-center gap-2.5 rounded bg-gold px-6 py-3.5 font-sans text-sm font-semibold leading-none text-ink no-underline"
 					>
 						{{ t("modal.visit") }} <TerminalIcon name="arrowUR" :size="14" />
 					</a>
@@ -312,7 +153,13 @@ watch(
 	</div>
 </template>
 
-<style>
+<style scoped>
+.pm-fade {
+	animation: pm-fade 0.25s ease;
+}
+.pm-slide {
+	animation: pm-slide 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
 @keyframes pm-fade {
 	from {
 		opacity: 0;

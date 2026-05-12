@@ -1,7 +1,5 @@
 <script lang="ts" setup>
 import { useI18n } from "vue-i18n";
-import { PAL, MONO_STACK, TAG_COLORS } from "../lib/palette";
-import { themeTokens, isDark } from "../lib/theme";
 import { PORTFOLIO } from "../lib/portfolio";
 import { getTechHome } from "../lib/techRegistry";
 import { setFilter, scrollToProjects } from "../lib/filters";
@@ -15,174 +13,65 @@ const filterByTech = (tech: string) => {
 	setFilter([tech]);
 	scrollToProjects();
 };
+
+// CSS-friendly token name for each tag's tailwind color triple
+const tagClass = {
+	daily: { dot: "bg-tag-daily", text: "text-tag-daily" },
+	shipped: { dot: "bg-tag-shipped", text: "text-tag-shipped" },
+	touched: { dot: "bg-tag-touched", text: "text-tag-touched" },
+	learning: { dot: "bg-tag-learning", text: "text-tag-learning" },
+} as const;
 </script>
 
 <template>
-	<section
-		:style="{
-			padding: '64px 48px',
-			borderBottom: `1px solid ${themeTokens.border}`,
-		}"
-	>
-		<div
-			:style="{
-				font: `500 12px/1 ${MONO_STACK}`,
-				color: themeTokens.dim,
-				marginBottom: '24px',
-			}"
-		>
-			<span :style="{ color: PAL.gold }">02</span> &nbsp;/&nbsp; stack.yaml
+	<section class="@max-[820px]:px-6 @max-[440px]:px-4 border-b border-border px-12 py-16">
+		<div class="mb-6 font-mono text-xs font-medium leading-none text-dim">
+			<span class="text-gold">02</span> &nbsp;/&nbsp; stack.yaml
 		</div>
 		<RevealOnScroll>
-			<h2
-				:style="{
-					margin: 0,
-					font: '700 36px/1.3 Inter, sans-serif',
-					color: themeTokens.fg,
-				}"
-			>
-				{{ t("stack.title") }}
-			</h2>
+			<h2 class="m-0 text-[36px] font-bold leading-snug text-fg">{{ t("stack.title") }}</h2>
 		</RevealOnScroll>
 
-		<div
-			class="v2-stack-grid"
-			:style="{
-				marginTop: '32px',
-				display: 'grid',
-				gridTemplateColumns: 'repeat(2, 1fr)',
-				gap: '24px',
-			}"
-		>
+		<div class="v2-stack-grid @max-[820px]:grid-cols-1 mt-8 grid grid-cols-2 gap-6">
 			<RevealOnScroll v-for="(c, i) in PORTFOLIO.competencies" :key="c.labelKey" :delay="i * 80">
-				<div
-					:style="{
-						border: `1px solid ${themeTokens.border}`,
-						background: themeTokens.panel,
-						padding: '24px',
-						borderRadius: '6px',
-					}"
-				>
-					<div
-						:style="{
-							display: 'flex',
-							alignItems: 'center',
-							gap: '10px',
-							marginBottom: '20px',
-						}"
-					>
-						<TerminalIcon :name="c.icon" :size="16" :stroke="PAL.gold" />
-						<span
-							:style="{
-								font: `500 12px/1 ${MONO_STACK}`,
-								color: PAL.gold,
-								letterSpacing: '1px',
-								textTransform: 'uppercase',
-							}"
-							>{{ t(c.labelKey) }}</span
-						>
+				<div class="rounded-md border border-border bg-panel p-6">
+					<div class="mb-5 flex items-center gap-2.5">
+						<TerminalIcon :name="c.icon" :size="16" stroke="rgb(199,167,99)" />
+						<span class="font-mono text-xs font-medium uppercase leading-none tracking-widest text-gold">{{
+							t(c.labelKey)
+						}}</span>
 					</div>
-					<ul
-						:style="{
-							listStyle: 'none',
-							margin: 0,
-							padding: 0,
-							display: 'flex',
-							flexDirection: 'column',
-							gap: '10px',
-						}"
-					>
+					<ul class="m-0 flex list-none flex-col gap-2.5 p-0">
 						<li v-for="it in c.items" :key="it.name">
 							<div
 								role="button"
 								tabindex="0"
 								:aria-label="`filter projects by ${it.name}`"
-								:style="{
-									cursor: 'pointer',
-									display: 'grid',
-									gridTemplateColumns: 'auto 1fr auto',
-									alignItems: 'center',
-									gap: '12px',
-									padding: '6px 8px',
-									margin: '0 -8px',
-									borderRadius: '4px',
-									transition: 'background .15s',
-								}"
+								class="-mx-2 grid cursor-pointer grid-cols-[auto_1fr_auto] items-center gap-3 rounded p-1.5 px-2 transition-colors duration-150 hover:bg-panel-hover-strong"
 								@click="filterByTech(it.name)"
 								@keydown.enter.prevent="filterByTech(it.name)"
 								@keydown.space.prevent="filterByTech(it.name)"
-								@mouseenter="
-									(e) =>
-										((e.currentTarget as HTMLElement).style.background = isDark
-											? 'rgba(199,167,99,0.10)'
-											: 'rgba(199,167,99,0.14)')
-								"
-								@mouseleave="(e) => ((e.currentTarget as HTMLElement).style.background = 'transparent')"
 							>
-								<!-- Logo + name route to the tech's homepage. Click here is
-								     captured before bubbling, so the parent filter action
-								     doesn't also fire. -->
 								<a
 									v-if="getTechHome(it.name)"
 									:href="getTechHome(it.name)"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="v2-tech-link"
-									:style="{
-										gridColumn: '1 / span 2',
-										justifySelf: 'start',
-										width: 'fit-content',
-										display: 'inline-flex',
-										alignItems: 'center',
-										gap: '12px',
-										textDecoration: 'none',
-										color: 'inherit',
-										minWidth: 0,
-									}"
+									class="v2-tech-link col-span-2 inline-flex w-fit min-w-0 items-center gap-3 justify-self-start text-inherit no-underline"
 									@click.stop
 								>
 									<TechIcon :name="it.name" :size="26" />
-									<span
-										class="v2-tech-name"
-										:style="{
-											font: '500 14px/1.2 Inter, sans-serif',
-											color: themeTokens.fg,
-										}"
-										>{{ it.name }}</span
-									>
+									<span class="v2-tech-name font-sans text-sm font-medium leading-tight text-fg">{{ it.name }}</span>
 								</a>
 								<template v-else>
 									<TechIcon :name="it.name" :size="26" />
-									<span
-										:style="{
-											font: '500 14px/1.2 Inter, sans-serif',
-											color: themeTokens.fg,
-										}"
-										>{{ it.name }}</span
-									>
+									<span class="font-sans text-sm font-medium leading-tight text-fg">{{ it.name }}</span>
 								</template>
 								<span
-									:style="{
-										display: 'inline-flex',
-										alignItems: 'center',
-										gap: '6px',
-										padding: '4px 8px',
-										borderRadius: '4px',
-										background: TAG_COLORS[it.tag] + '1f',
-										color: TAG_COLORS[it.tag],
-										font: `500 10px/1 ${MONO_STACK}`,
-										letterSpacing: '0.5px',
-										textTransform: 'uppercase',
-									}"
+									class="inline-flex items-center gap-1.5 px-2 py-1 font-mono text-[10px] font-medium uppercase leading-none tracking-wider"
+									:class="tagClass[it.tag].text"
 								>
-									<span
-										:style="{
-											width: '5px',
-											height: '5px',
-											borderRadius: '50%',
-											background: TAG_COLORS[it.tag],
-										}"
-									/>
+									<span class="h-[5px] w-[5px] rounded-full" :class="tagClass[it.tag].dot" />
 									{{ t(`stack.tag.${it.tag}`) }}
 								</span>
 							</div>

@@ -20,9 +20,7 @@ const fallbackMono = computed(() => {
 	return props.name.replace(/[^A-Za-z0-9]/g, "").slice(0, 2) || "?";
 });
 
-// Probe the CDN: if the slug doesn't resolve (e.g. tech is registered but
-// simple-icons doesn't ship it), fall back to the monogram tile so the
-// silhouette never silently disappears.
+// Probe the CDN: if the slug doesn't resolve, fall back to the monogram tile.
 const failed = ref(false);
 watch(
 	url,
@@ -49,46 +47,34 @@ const monoFg = computed(() => (entry.value && failed.value ? entry.value.fg || "
 		:title="name"
 		:aria-label="name"
 		role="img"
+		class="inline-flex shrink-0 items-center justify-center rounded-[5px] shadow-[0_0_0_0.5px_rgba(0,0,0,0.08)_inset]"
 		:style="{
 			width: size + 'px',
 			height: size + 'px',
-			borderRadius: '5px',
-			display: 'inline-flex',
-			alignItems: 'center',
-			justifyContent: 'center',
 			background: '#' + entry!.hex,
-			flexShrink: 0,
-			boxShadow: '0 0 0 0.5px rgba(0,0,0,0.08) inset',
 			padding: pad + 'px',
 		}"
 	>
 		<span
+			class="inline-block h-full w-full"
 			:style="{
-				width: '100%',
-				height: '100%',
 				background: entry!.fg || '#ffffff',
 				WebkitMask: `url(&quot;${url}&quot;) center / contain no-repeat`,
 				mask: `url(&quot;${url}&quot;) center / contain no-repeat`,
-				display: 'inline-block',
 			}"
 		/>
 	</span>
 	<span
 		v-else
 		:title="name"
+		class="inline-flex shrink-0 items-center justify-center rounded-[5px] font-mono font-bold tracking-tight shadow-[0_0_0_0.5px_rgba(0,0,0,0.08)_inset]"
 		:style="{
 			width: size + 'px',
 			height: size + 'px',
-			borderRadius: '5px',
-			display: 'inline-flex',
-			alignItems: 'center',
-			justifyContent: 'center',
 			background: monoBg,
 			color: monoFg,
-			font: `700 ${Math.round(size * 0.42)}px/1 ui-monospace, Menlo, monospace`,
-			letterSpacing: '-0.3px',
-			flexShrink: 0,
-			boxShadow: '0 0 0 0.5px rgba(0,0,0,0.08) inset',
+			fontSize: Math.round(size * 0.42) + 'px',
+			lineHeight: 1,
 		}"
 	>
 		{{ fallbackMono }}

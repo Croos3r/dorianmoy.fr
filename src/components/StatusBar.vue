@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { PAL, MONO_STACK, TAG_COLORS } from "../lib/palette";
-import { themeTokens } from "../lib/theme";
 import TerminalIcon from "./TerminalIcon.vue";
 
 defineProps<{
@@ -14,95 +12,21 @@ defineProps<{
 
 <template>
 	<footer
-		class="v2-statusbar"
-		:style="{
-			display: 'flex',
-			alignItems: 'stretch',
-			padding: 0,
-			borderTop: `1px solid ${themeTokens.border}`,
-			background: themeTokens.panel,
-			font: `600 11px/1 ${MONO_STACK}`,
-			color: themeTokens.dim,
-		}"
+		class="v2-statusbar @max-[820px]:flex-wrap @max-[820px]:gap-0 @max-[820px]:p-0 @max-[820px]:text-[10px] @max-[820px]:*:py-1.5 flex items-stretch border-t border-border bg-panel font-mono text-[11px] font-semibold leading-none text-dim"
 	>
 		<span
-			class="v2-sb-mode"
-			:style="{
-				padding: '0 14px',
-				display: 'inline-flex',
-				alignItems: 'center',
-				background: mode === 'INSERT' ? TAG_COLORS.daily : PAL.gold,
-				color: mode === 'INSERT' ? '#fff' : PAL.ink,
-				letterSpacing: '1px',
-				transition: 'background .15s, color .15s',
-			}"
+			class="inline-flex items-center px-3.5 tracking-widest transition-colors duration-150"
+			:class="mode === 'INSERT' ? 'bg-tag-daily text-white' : 'bg-gold text-ink'"
 			>{{ mode }}</span
 		>
-		<span
-			class="v2-sb-branch"
-			:style="{
-				padding: '0 12px',
-				display: 'inline-flex',
-				alignItems: 'center',
-				gap: '6px',
-				borderRight: `1px solid ${themeTokens.border}`,
-			}"
-		>
+		<span class="inline-flex items-center gap-1.5 border-r border-border px-3">
 			<TerminalIcon name="branch" :size="11" stroke="currentColor" />main
 		</span>
-		<span
-			class="v2-sb-file"
-			:style="{
-				padding: '0 12px',
-				display: 'inline-flex',
-				alignItems: 'center',
-				color: themeTokens.fg,
-				fontWeight: 500,
-			}"
-			>{{ fileName }}</span
-		>
-		<span class="v2-sb-spacer" :style="{ flex: 1 }" />
-		<span
-			class="v2-sb-type"
-			:style="{
-				padding: '0 12px',
-				display: 'inline-flex',
-				alignItems: 'center',
-				borderLeft: `1px solid ${themeTokens.border}`,
-			}"
-			>{{ fileType }}</span
-		>
-		<span
-			class="v2-sb-enc"
-			:style="{
-				padding: '0 12px',
-				display: 'inline-flex',
-				alignItems: 'center',
-				borderLeft: `1px solid ${themeTokens.border}`,
-			}"
-			>utf-8</span
-		>
-		<span
-			class="v2-sb-eol"
-			:style="{
-				padding: '0 12px',
-				display: 'inline-flex',
-				alignItems: 'center',
-				borderLeft: `1px solid ${themeTokens.border}`,
-			}"
-			>LF</span
-		>
-		<span
-			class="v2-sb-pos"
-			:style="{
-				padding: '0 14px',
-				display: 'inline-flex',
-				alignItems: 'center',
-				background: PAL.gold,
-				color: PAL.ink,
-				letterSpacing: '0.5px',
-			}"
-			>{{ activeIdx + 1 }}/{{ total }}</span
-		>
+		<span class="inline-flex items-center px-3 font-medium text-fg">{{ fileName }}</span>
+		<span class="flex-1" />
+		<span class="inline-flex items-center border-l border-border px-3">{{ fileType }}</span>
+		<span class="@max-[560px]:hidden inline-flex items-center border-l border-border px-3">utf-8</span>
+		<span class="@max-[560px]:hidden inline-flex items-center border-l border-border px-3">LF</span>
+		<span class="inline-flex items-center bg-gold px-3.5 tracking-wider text-ink">{{ activeIdx + 1 }}/{{ total }}</span>
 	</footer>
 </template>

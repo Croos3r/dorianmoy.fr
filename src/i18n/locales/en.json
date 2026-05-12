@@ -189,9 +189,11 @@
 		"ready": "ready",
 		"chars": "{n} chars",
 		"send": "send",
-		"queued": "Message queued.",
-		"queuedBody": "Your mail client should have opened. If not,",
-		"emailMe": "email me",
-		"sendAnother": "send another →"
+		"sentTitle": "Message sent.",
+		"sentBody": "Thanks for reaching out. I'll get back to you as soon as I can.",
+		"sendAnother": "send another →",
+		"errorTitle": "Couldn't send the message.",
+		"errorBody": "Something went wrong on my end. Try again in a moment, or reach me directly at",
+		"retry": "try again →"
 	}
 }

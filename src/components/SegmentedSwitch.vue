@@ -1,7 +1,5 @@
 <script lang="ts" setup>
 import { computed } from "vue";
-import { PAL, MONO_STACK } from "../lib/palette";
-import { themeTokens, isDark } from "../lib/theme";
 
 export type SegmentedOption = {
 	id: string;
@@ -29,7 +27,6 @@ const idx = computed(() =>
 
 const onClick = (opt: SegmentedOption) => {
 	if (opt.id === props.value) {
-		// cycle to next slot (matches mobile pill behavior of design)
 		const next = props.options[(idx.value + 1) % props.options.length];
 		emit("update:value", next.id);
 	} else {
@@ -42,71 +39,42 @@ const onClick = (opt: SegmentedOption) => {
 	<div
 		role="group"
 		:aria-label="groupLabel"
-		class="v2-switch"
-		:style="{
-			position: 'relative',
-			display: 'inline-flex',
-			alignItems: 'center',
-			padding: '2px',
-			border: `1px solid ${themeTokens.border}`,
-			borderRadius: '4px',
-			background: themeTokens.switchBg,
-			['--slot-w' as string]: slotWidth + 'px',
-		}"
+		class="v2-switch relative inline-flex items-center rounded border border-border bg-switch-bg p-0.5"
+		:style="{ ['--slot-w' as string]: slotWidth + 'px' }"
 	>
+		<!-- Animated gold thumb behind the active slot. Hidden on phones where
+		     the inactive slots collapse to nothing and the active slot becomes
+		     a standalone pill. -->
 		<span
 			aria-hidden="true"
-			class="v2-switch-thumb"
+			class="v2-switch-thumb @max-[560px]:hidden absolute bottom-0.5 left-0.5 top-0.5 rounded-[3px] bg-gold transition-[transform,width] duration-300 ease-[cubic-bezier(.4,0,.2,1)] will-change-transform"
 			:style="{
-				position: 'absolute',
-				top: '2px',
-				bottom: '2px',
-				left: '2px',
 				width: 'var(--slot-w)',
-				background: PAL.gold,
-				borderRadius: '3px',
 				transform: `translateX(calc(var(--slot-w) * ${idx}))`,
-				transition: 'transform .28s cubic-bezier(.4,.0,.2,1), width .2s ease',
-				willChange: 'transform',
 			}"
 		/>
 		<button
 			v-for="opt in options"
 			:key="opt.id"
-			class="v2-switch-slot"
+			type="button"
+			class="v2-switch-slot @max-[560px]:px-2.5 @max-[560px]:py-1 @max-[560px]:aria-[pressed=false]:hidden @max-[560px]:aria-[pressed=true]:rounded-[3px] @max-[560px]:aria-[pressed=true]:bg-gold @max-[560px]:aria-[pressed=true]:text-ink relative inline-flex cursor-pointer items-center justify-center gap-1.5 border-0 bg-transparent px-0 py-1 font-mono text-[11px] font-medium leading-none tracking-wider transition-colors duration-200 aria-[pressed=false]:text-dim aria-[pressed=true]:text-ink aria-[pressed=false]:hover:text-ink dark:aria-[pressed=false]:hover:text-cream"
 			:aria-pressed="opt.id === value"
 			:title="opt.title || opt.label"
 			:aria-label="opt.title || opt.label"
-			:style="{
-				all: 'unset',
-				cursor: 'pointer',
-				position: 'relative',
-				width: 'var(--slot-w)',
-				boxSizing: 'border-box',
-				display: 'inline-flex',
-				alignItems: 'center',
-				justifyContent: 'center',
-				gap: '6px',
-				padding: '4px 0',
-				font: `500 11px/1 ${MONO_STACK}`,
-				letterSpacing: '0.5px',
-				color: opt.id === value ? PAL.ink : themeTokens.dim,
-				transition: 'color .2s, width .2s ease',
-			}"
+			:style="{ width: 'var(--slot-w)' }"
 			@click="onClick(opt)"
-			@mouseenter="
-				(e) => {
-					if (opt.id !== value) (e.currentTarget as HTMLElement).style.color = isDark ? PAL.cream : PAL.ink;
-				}
-			"
-			@mouseleave="
-				(e) => {
-					if (opt.id !== value) (e.currentTarget as HTMLElement).style.color = themeTokens.dim;
-				}
-			"
 		>
 			<slot name="icon" :option="opt" />
-			<span class="v2-switch-label">{{ opt.label }}</span>
+			<span class="v2-switch-label @max-[560px]:hidden">{{ opt.label }}</span>
 		</button>
 	</div>
 </template>
+
+<style scoped>
+/* The mobile pill drops the fixed slot width so the active slot hugs its content. */
+@container (max-width: 560px) {
+	.v2-switch-slot {
+		width: auto !important;
+	}
+}
+</style>

@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
-import { PAL, MONO_STACK } from "../lib/palette";
-import { themeTokens, isDark } from "../lib/theme";
 import { PORTFOLIO, type Project } from "../lib/portfolio";
 import { getTechHome } from "../lib/techRegistry";
 import { selectedTechs } from "../lib/filters";
@@ -17,17 +15,12 @@ const open = (p: Project) => emit("open-project", p);
 const INITIAL_COUNT = 5;
 const expanded = ref(false);
 
-// Sorted, de-duped list of every tech that appears across the projects'
-// stacks. Drives the filter chip row.
 const allTechs = computed(() => {
 	const set = new Set<string>();
 	for (const p of PORTFOLIO.projects) for (const s of p.stack) set.add(s);
 	return [...set].sort((a, b) => a.localeCompare(b));
 });
 
-// Multi-select filter: a project must include EVERY selected tech. The ref
-// is shared via lib/filters so other sections can pre-fill it (e.g. clicking
-// a competency in the stack section).
 const query = ref("");
 const open_ = ref(false);
 
@@ -62,59 +55,23 @@ const clearAll = () => {
 	query.value = "";
 };
 
-// Close the suggestion popover when focus leaves the field. Defer so a click
-// on a suggestion still registers.
 const onBlur = () => setTimeout(() => (open_.value = false), 120);
 </script>
 
 <template>
-	<section
-		:style="{
-			padding: '64px 48px',
-			borderBottom: `1px solid ${themeTokens.border}`,
-		}"
-	>
-		<div
-			:style="{
-				font: `500 12px/1 ${MONO_STACK}`,
-				color: themeTokens.dim,
-				marginBottom: '24px',
-			}"
-		>
-			<span :style="{ color: PAL.gold }">03</span> &nbsp;/&nbsp; projects/
+	<section class="@max-[820px]:px-6 @max-[440px]:px-4 border-b border-border px-12 py-16">
+		<div class="mb-6 font-mono text-xs font-medium leading-none text-dim">
+			<span class="text-gold">03</span> &nbsp;/&nbsp; projects/
 		</div>
 		<RevealOnScroll>
-			<h2
-				:style="{
-					margin: 0,
-					font: '700 36px/1.3 Inter, sans-serif',
-					color: themeTokens.fg,
-				}"
-			>
-				{{ t("projects.title") }}
-			</h2>
+			<h2 class="m-0 text-[36px] font-bold leading-snug text-fg">{{ t("projects.title") }}</h2>
 		</RevealOnScroll>
+
 		<!-- ── Multi-tech filter ────────────────────────────────────── -->
-		<div
-			:style="{
-				marginTop: '24px',
-				position: 'relative',
-				maxWidth: '640px',
-			}"
-		>
+		<div class="relative mt-6 max-w-[640px]">
 			<div
-				:style="{
-					display: 'flex',
-					flexWrap: 'wrap',
-					alignItems: 'center',
-					gap: '6px',
-					padding: '8px 10px',
-					border: `1px solid ${open_ ? PAL.gold : themeTokens.border}`,
-					borderRadius: '4px',
-					background: themeTokens.panel,
-					transition: 'border-color .15s, box-shadow .15s',
-					boxShadow: open_ ? `0 0 0 3px ${PAL.gold}1f` : 'none',
-				}"
+				class="flex flex-wrap items-center gap-1.5 rounded border bg-panel px-2.5 py-2 transition-[border-color,box-shadow] duration-150"
+				:class="open_ ? 'border-gold shadow-[0_0_0_3px_rgba(199,167,99,0.12)]' : 'border-border'"
 				@click="
 					(e) => {
 						open_ = true;
@@ -123,51 +80,22 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 					}
 				"
 			>
-				<span
-					:style="{
-						font: `500 11px/1 ${MONO_STACK}`,
-						color: PAL.gold,
-						letterSpacing: '1px',
-						textTransform: 'uppercase',
-						alignSelf: 'center',
-					}"
-					>:filter</span
-				>
+				<span class="self-center font-mono text-[11px] font-medium uppercase leading-none tracking-widest text-gold">
+					:filter
+				</span>
 				<span
 					v-for="tech in selectedTechs"
 					:key="tech"
-					:style="{
-						display: 'inline-flex',
-						alignItems: 'center',
-						gap: '6px',
-						padding: '3px 4px 3px 8px',
-						borderRadius: '3px',
-						background: PAL.gold + '22',
-						border: `1px solid ${PAL.gold}55`,
-						font: `500 11px/1 ${MONO_STACK}`,
-						color: PAL.gold,
-					}"
+					class="inline-flex items-center gap-1.5 rounded-[3px] border border-gold/40 bg-gold/[0.13] py-[3px] pl-2 pr-1 font-mono text-[11px] font-medium leading-none text-gold"
 					@click.stop
 				>
 					<TechIcon :name="tech" :size="14" />
 					{{ tech }}
 					<button
-						:style="{
-							all: 'unset',
-							cursor: 'pointer',
-							width: '16px',
-							height: '16px',
-							display: 'inline-flex',
-							alignItems: 'center',
-							justifyContent: 'center',
-							borderRadius: '2px',
-							color: PAL.gold,
-							fontSize: '12px',
-						}"
+						type="button"
+						class="inline-flex h-4 w-4 cursor-pointer items-center justify-center rounded-[2px] bg-transparent text-xs text-gold hover:bg-gold/20"
 						:aria-label="`remove ${tech}`"
 						@click.stop="removeTech(tech)"
-						@mouseenter="(e) => ((e.currentTarget as HTMLElement).style.background = PAL.gold + '33')"
-						@mouseleave="(e) => ((e.currentTarget as HTMLElement).style.background = 'transparent')"
 					>
 						✕
 					</button>
@@ -177,14 +105,7 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 					type="text"
 					autocomplete="off"
 					:placeholder="selectedTechs.length ? '' : t('projects.filter.placeholder')"
-					:style="{
-						all: 'unset',
-						flex: 1,
-						minWidth: '120px',
-						padding: '4px 2px',
-						font: `500 12px/1 ${MONO_STACK}`,
-						color: themeTokens.fg,
-					}"
+					class="block min-w-[120px] flex-1 border-0 bg-transparent px-0.5 py-1 font-mono text-xs font-medium leading-none text-fg outline-none placeholder:text-dim"
 					@focus="open_ = true"
 					@blur="onBlur"
 					@keydown.enter.prevent="suggestions.length > 0 && addTech(suggestions[0])"
@@ -194,18 +115,9 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 				/>
 				<button
 					v-if="selectedTechs.length"
-					:style="{
-						all: 'unset',
-						cursor: 'pointer',
-						padding: '4px 8px',
-						font: `500 11px/1 ${MONO_STACK}`,
-						color: themeTokens.dim,
-						letterSpacing: '0.3px',
-						textTransform: 'uppercase',
-					}"
+					type="button"
+					class="cursor-pointer bg-transparent px-2 py-1 font-mono text-[11px] font-medium uppercase leading-none tracking-wide text-dim transition-colors duration-150 hover:text-gold"
 					@click.stop="clearAll"
-					@mouseenter="(e) => ((e.currentTarget as HTMLElement).style.color = PAL.gold)"
-					@mouseleave="(e) => ((e.currentTarget as HTMLElement).style.color = themeTokens.dim)"
 				>
 					{{ t("projects.filter.clear") }}
 				</button>
@@ -214,45 +126,14 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 			<!-- ── Suggestions popover ─────────────────────────────── -->
 			<div
 				v-if="open_ && suggestions.length > 0"
-				:style="{
-					position: 'absolute',
-					top: 'calc(100% + 4px)',
-					left: 0,
-					right: 0,
-					maxHeight: '240px',
-					overflowY: 'auto',
-					background: themeTokens.bg,
-					border: `1px solid ${themeTokens.border}`,
-					borderRadius: '4px',
-					boxShadow: '0 10px 30px rgba(0,0,0,0.18)',
-					zIndex: 10,
-					padding: '4px',
-				}"
+				class="absolute inset-x-0 top-[calc(100%+4px)] z-10 max-h-[240px] overflow-y-auto rounded border border-border bg-bg p-1 shadow-[0_10px_30px_rgba(0,0,0,0.18)]"
 			>
 				<button
 					v-for="tech in suggestions"
 					:key="tech"
-					:style="{
-						all: 'unset',
-						cursor: 'pointer',
-						display: 'flex',
-						alignItems: 'center',
-						gap: '8px',
-						padding: '6px 10px',
-						borderRadius: '3px',
-						font: `500 12px/1 ${MONO_STACK}`,
-						color: themeTokens.fg,
-						width: '100%',
-						boxSizing: 'border-box',
-					}"
+					type="button"
+					class="flex w-full cursor-pointer items-center gap-2 rounded-[3px] px-2.5 py-1.5 font-mono text-xs font-medium leading-none text-fg transition-colors duration-150 hover:bg-panel-hover"
 					@mousedown.prevent="addTech(tech)"
-					@mouseenter="
-						(e) =>
-							((e.currentTarget as HTMLElement).style.background = isDark
-								? 'rgba(199,167,99,0.10)'
-								: 'rgba(199,167,99,0.16)')
-					"
-					@mouseleave="(e) => ((e.currentTarget as HTMLElement).style.background = 'transparent')"
 				>
 					<TechIcon :name="tech" :size="16" />
 					{{ tech }}
@@ -262,103 +143,40 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 
 		<div
 			v-if="visibleProjects.length === 0"
-			:style="{
-				marginTop: '24px',
-				padding: '32px 28px',
-				border: `1px dashed ${themeTokens.border}`,
-				borderRadius: '6px',
-				font: `500 13px/1.5 ${MONO_STACK}`,
-				color: themeTokens.dim,
-				textAlign: 'center',
-			}"
+			class="mt-6 rounded-md border border-dashed border-border px-7 py-8 text-center font-mono text-[13px] font-medium leading-normal text-dim"
 		>
 			{{ t("projects.filter.empty", { tech: selectedTechs.join(" + ") }) }}
 		</div>
 
-		<div
-			v-else
-			:style="{
-				marginTop: '24px',
-				display: 'flex',
-				flexDirection: 'column',
-				gap: '1px',
-				border: `1px solid ${themeTokens.border}`,
-				borderRadius: '6px',
-				overflow: 'hidden',
-			}"
-		>
+		<div v-else class="mt-6 flex flex-col gap-px overflow-hidden rounded-md border border-border">
 			<RevealOnScroll v-for="(p, i) in visibleProjects" :key="p.id" :delay="i * 60">
 				<div
-					class="v2-proj-row"
+					class="v2-proj-row @max-[640px]:grid-cols-[1fr_auto] @max-[440px]:grid-cols-1 group grid w-full cursor-pointer grid-cols-[1fr_auto_auto] items-center gap-6 bg-panel py-6 pl-7 pr-9 outline-none transition-all duration-200 hover:bg-panel-hover-strong hover:pl-9 hover:pr-7"
+					:class="i < visibleProjects.length - 1 ? 'border-b border-border' : ''"
 					role="button"
 					tabindex="0"
-					:style="{
-						cursor: 'pointer',
-						display: 'grid',
-						gridTemplateColumns: '1fr auto auto',
-						gap: '24px',
-						alignItems: 'center',
-						padding: '24px 28px',
-						width: '100%',
-						boxSizing: 'border-box',
-						background: themeTokens.panel,
-						transition: 'background .2s, padding-left .25s',
-						borderBottom: i < visibleProjects.length - 1 ? `1px solid ${themeTokens.border}` : 'none',
-						outline: 'none',
-					}"
 					@click="open(p)"
 					@keydown.enter.prevent="open(p)"
 					@keydown.space.prevent="open(p)"
-					@mouseenter="
-						(e) => {
-							const el = e.currentTarget as HTMLElement;
-							el.style.background = isDark ? 'rgba(199,167,99,0.12)' : 'rgba(199,167,99,0.18)';
-							el.style.paddingLeft = '36px';
-						}
-					"
-					@mouseleave="
-						(e) => {
-							const el = e.currentTarget as HTMLElement;
-							el.style.background = themeTokens.panel;
-							el.style.paddingLeft = '28px';
-						}
-					"
 				>
-					<span :style="{ minWidth: 0 }">
+					<span class="min-w-0">
 						<div
-							class="v2-proj-title"
-							:style="{
-								font: '600 22px/1.2 Inter, sans-serif',
-								color: themeTokens.fg,
-								marginBottom: '4px',
-								display: 'flex',
-								alignItems: 'baseline',
-								gap: '10px',
-								flexWrap: 'wrap',
-							}"
+							class="v2-proj-title @max-[640px]:break-words @max-[640px]:text-[17px] @max-[640px]:leading-snug mb-1 flex flex-wrap items-baseline gap-2.5 text-[22px] font-semibold leading-snug text-fg"
 						>
 							<span>{{ t(p.titleKey) }}</span>
-							<span
-								v-if="t(p.subtitleKey)"
-								:style="{
-									font: '500 13px/1.2 Inter, sans-serif',
-									color: themeTokens.dim,
-									opacity: 0.8,
-								}"
-								>{{ t(p.subtitleKey) }}</span
-							>
+							<span v-if="t(p.subtitleKey)" class="text-[13px] font-medium leading-snug text-fg/40">{{
+								t(p.subtitleKey)
+							}}</span>
 						</div>
 						<div
-							class="v2-proj-tagline"
-							:style="{
-								font: '400 15px/1.4 Inter, sans-serif',
-								color: themeTokens.dim,
-							}"
+							class="v2-proj-tagline @max-[640px]:line-clamp-2 min-w-0 text-[15px] font-normal leading-snug text-dim"
 						>
 							{{ t(p.taglineKey) }}
 						</div>
 					</span>
-					<span class="v2-proj-stack" :style="{ display: 'flex', gap: '6px', alignItems: 'center' }">
+					<span
+						class="v2-proj-stack @max-[440px]:col-start-1 @max-[440px]:justify-self-start flex items-center gap-1.5"
+					>
 						<template v-for="s in p.stack.slice(0, 4)" :key="s">
 							<a
 								v-if="getTechHome(s)"
@@ -367,78 +185,32 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 								rel="noopener noreferrer"
 								:title="s"
 								:aria-label="s"
-								:style="{ display: 'inline-flex', textDecoration: 'none' }"
+								class="inline-flex no-underline"
 								@click.stop
 							>
 								<TechIcon :name="s" :size="22" />
 							</a>
 							<TechIcon v-else :name="s" :size="22" />
 						</template>
-						<span
-							v-if="p.stack.length > 4"
-							:style="{
-								font: `500 11px/1 ${MONO_STACK}`,
-								color: themeTokens.dim,
-								marginLeft: '2px',
-							}"
+						<span v-if="p.stack.length > 4" class="ml-0.5 font-mono text-[11px] font-medium leading-none text-dim"
 							>+{{ p.stack.length - 4 }}</span
 						>
 					</span>
-					<span
-						class="v2-proj-year"
-						:style="{
-							font: `500 13px/1 ${MONO_STACK}`,
-							color: themeTokens.dim,
-						}"
-						>{{ p.year }}</span
-					>
+					<span class="v2-proj-year @max-[640px]:hidden font-mono text-[13px] font-medium leading-none text-dim">{{
+						p.year
+					}}</span>
 				</div>
 			</RevealOnScroll>
 		</div>
 
-		<div
-			v-if="hasMore"
-			:style="{
-				marginTop: '24px',
-				display: 'flex',
-				justifyContent: 'center',
-			}"
-		>
+		<div v-if="hasMore" class="mt-6 flex justify-center">
 			<button
-				:style="{
-					all: 'unset',
-					cursor: 'pointer',
-					display: 'inline-flex',
-					alignItems: 'center',
-					gap: '10px',
-					padding: '10px 18px',
-					border: `1px solid ${themeTokens.border}`,
-					borderRadius: '4px',
-					font: `500 12px/1 ${MONO_STACK}`,
-					color: PAL.gold,
-					letterSpacing: '0.5px',
-					textTransform: 'uppercase',
-					background: themeTokens.panel,
-					transition: 'background .15s, border-color .15s',
-				}"
-				@mouseenter="
-					(e) => {
-						const el = e.currentTarget as HTMLElement;
-						el.style.background = isDark ? 'rgba(199,167,99,0.10)' : 'rgba(199,167,99,0.16)';
-						el.style.borderColor = PAL.gold;
-					}
-				"
-				@mouseleave="
-					(e) => {
-						const el = e.currentTarget as HTMLElement;
-						el.style.background = themeTokens.panel;
-						el.style.borderColor = themeTokens.border;
-					}
-				"
+				type="button"
+				class="inline-flex cursor-pointer items-center gap-2.5 rounded border border-border bg-panel px-[18px] py-2.5 font-mono text-xs font-medium uppercase leading-none tracking-wider text-gold transition-[background-color,border-color] duration-150 hover:border-gold hover:bg-panel-hover-strong"
 				@click="expanded = !expanded"
 			>
 				{{ expanded ? t("projects.seeLess") : t("projects.seeMore", { n: PORTFOLIO.projects.length - INITIAL_COUNT }) }}
-				<span :style="{ transform: expanded ? 'rotate(180deg)' : 'none', transition: 'transform .2s' }">▾</span>
+				<span class="inline-block transition-transform duration-200" :class="expanded ? 'rotate-180' : ''">▾</span>
 			</button>
 		</div>
 	</section>
