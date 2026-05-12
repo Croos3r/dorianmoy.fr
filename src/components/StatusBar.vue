@@ -12,7 +12,7 @@ defineProps<{
 
 <template>
 	<footer
-		class="v2-statusbar @max-[820px]:flex-wrap @max-[820px]:gap-0 @max-[820px]:p-0 @max-[820px]:text-[10px] @max-[820px]:*:py-1.5 flex items-stretch border-t border-border bg-panel font-mono text-[11px] font-semibold leading-none text-dim"
+		class="v2-statusbar flex items-stretch border-t border-border bg-panel font-mono text-[11px] font-semibold leading-none text-dim @max-[820px]:flex-wrap @max-[820px]:gap-0 @max-[820px]:p-0 @max-[820px]:text-[10px] @max-[820px]:*:py-1.5"
 	>
 		<span
 			class="inline-flex items-center px-3.5 tracking-widest transition-colors duration-150"
@@ -25,8 +25,8 @@ defineProps<{
 		<span class="inline-flex items-center px-3 font-medium text-fg">{{ fileName }}</span>
 		<span class="flex-1" />
 		<span class="inline-flex items-center border-l border-border px-3">{{ fileType }}</span>
-		<span class="@max-[560px]:hidden inline-flex items-center border-l border-border px-3">utf-8</span>
-		<span class="@max-[560px]:hidden inline-flex items-center border-l border-border px-3">LF</span>
+		<span class="inline-flex items-center border-l border-border px-3 @max-[560px]:hidden">utf-8</span>
+		<span class="inline-flex items-center border-l border-border px-3 @max-[560px]:hidden">LF</span>
 		<span class="inline-flex items-center bg-gold px-3.5 tracking-wider text-ink">{{ activeIdx + 1 }}/{{ total }}</span>
 	</footer>
 </template>

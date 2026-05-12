@@ -24,7 +24,7 @@ const tagClass = {
 </script>
 
 <template>
-	<section class="@max-[820px]:px-6 @max-[440px]:px-4 border-b border-border px-12 py-16">
+	<section class="border-b border-border px-12 py-16 @max-[440px]:px-4 @max-[820px]:px-6">
 		<div class="mb-6 font-mono text-xs font-medium leading-none text-dim">
 			<span class="text-gold">02</span> &nbsp;/&nbsp; stack.yaml
 		</div>
@@ -32,7 +32,7 @@ const tagClass = {
 			<h2 class="m-0 text-[36px] font-bold leading-snug text-fg">{{ t("stack.title") }}</h2>
 		</RevealOnScroll>
 
-		<div class="v2-stack-grid @max-[820px]:grid-cols-1 mt-8 grid grid-cols-2 gap-6">
+		<div class="v2-stack-grid mt-8 grid grid-cols-2 gap-6 @max-[820px]:grid-cols-1">
 			<RevealOnScroll v-for="(c, i) in PORTFOLIO.competencies" :key="c.labelKey" :delay="i * 80">
 				<div class="rounded-md border border-border bg-panel p-6">
 					<div class="mb-5 flex items-center gap-2.5">

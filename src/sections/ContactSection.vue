@@ -8,7 +8,7 @@ const { t } = useI18n();
 </script>
 
 <template>
-	<section class="@max-[820px]:px-6 @max-[440px]:px-4 px-12 py-16">
+	<section class="px-12 py-16 @max-[440px]:px-4 @max-[820px]:px-6">
 		<div class="mb-6 font-mono text-xs font-medium leading-none text-dim">
 			<span class="text-gold">04</span> &nbsp;/&nbsp; contact.ts
 		</div>

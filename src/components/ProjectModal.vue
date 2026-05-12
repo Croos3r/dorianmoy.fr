@@ -53,7 +53,7 @@ watch(
 			@click.stop
 		>
 			<div
-				class="@max-[720px]:px-[18px] @max-[720px]:py-3.5 flex items-center justify-between border-b border-border px-7 py-5 font-mono text-xs font-medium uppercase leading-none tracking-widest text-dim"
+				class="flex items-center justify-between border-b border-border px-7 py-5 font-mono text-xs font-medium uppercase leading-none tracking-widest text-dim @max-[720px]:px-[18px] @max-[720px]:py-3.5"
 			>
 				<span>./projects/{{ project.index }} · {{ project.year }}</span>
 				<button
@@ -91,20 +91,20 @@ watch(
 			</div>
 
 			<div
-				class="@max-[720px]:px-5 @max-[720px]:pb-8 @max-[720px]:pt-7 px-12 pb-12"
+				class="px-12 pb-12 @max-[720px]:px-5 @max-[720px]:pb-8 @max-[720px]:pt-7"
 				:class="project.image ? 'pt-10' : 'pt-9'"
 			>
 				<div class="mb-4 font-mono text-xs font-medium uppercase leading-none tracking-[2px] text-gold">
 					{{ t(project.taglineKey) }}
 				</div>
 				<h2
-					class="@max-[720px]:break-words @max-[720px]:text-[26px] @max-[720px]:leading-[1.15] @max-[720px]:tracking-[-0.5px] m-0 flex flex-wrap items-baseline gap-3.5 font-sans font-bold leading-[1.1] tracking-[-1px] text-fg"
+					class="m-0 flex flex-wrap items-baseline gap-3.5 font-sans font-bold leading-[1.1] tracking-[-1px] text-fg @max-[720px]:break-words @max-[720px]:text-[26px] @max-[720px]:leading-[1.15] @max-[720px]:tracking-[-0.5px]"
 					style="font-size: clamp(28px, 5vw, 52px)"
 				>
 					<span>{{ t(project.titleKey) }}</span>
 					<span
 						v-if="t(project.subtitleKey)"
-						class="text-dim/80 font-sans font-medium leading-snug tracking-normal"
+						class="font-sans font-medium leading-snug tracking-normal text-dim/80"
 						style="font-size: clamp(14px, 1.6vw, 18px)"
 						>{{ t(project.subtitleKey) }}</span
 					>
@@ -133,7 +133,7 @@ watch(
 				</div>
 
 				<p
-					class="text-fg/90 @max-[720px]:text-[15px] @max-[720px]:leading-[1.6] m-0 mt-8 max-w-[640px] text-[17px] font-normal leading-[1.65]"
+					class="m-0 mt-8 max-w-[640px] text-[17px] font-normal leading-[1.65] text-fg/90 @max-[720px]:text-[15px] @max-[720px]:leading-[1.6]"
 				>
 					{{ t(project.bodyKey) }}
 				</p>

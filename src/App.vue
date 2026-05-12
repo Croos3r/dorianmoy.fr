@@ -295,7 +295,7 @@ onBeforeUnmount(() => {
 	>
 		<TitleBar />
 
-		<div class="v2-body @max-[820px]:grid-cols-1 grid min-h-0 grid-cols-[240px_1fr]">
+		<div class="v2-body grid min-h-0 grid-cols-[240px_1fr] @max-[820px]:grid-cols-1">
 			<SideBar :files="files" :active="active" :sel-idx="selIdx" @navigate="navigate" />
 			<main ref="mainEl" class="v2-main overflow-y-auto overflow-x-hidden">
 				<HeroSection />

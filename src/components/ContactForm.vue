@@ -170,9 +170,9 @@ const onBlur = (k: string) => () => {
 			/>
 		</div>
 
-		<div class="@max-[560px]:justify-center flex flex-wrap items-center justify-between gap-3 pt-1">
+		<div class="flex flex-wrap items-center justify-between gap-3 pt-1 @max-[560px]:justify-center">
 			<span
-				class="@max-[560px]:basis-full @max-[560px]:text-center font-mono text-[11px] font-medium leading-none text-dim"
+				class="font-mono text-[11px] font-medium leading-none text-dim @max-[560px]:basis-full @max-[560px]:text-center"
 			>
 				<template v-if="status === 'sending'"><span class="text-amber">●</span> {{ t("form.sending") }}</template>
 				<template v-else
@@ -183,7 +183,7 @@ const onBlur = (k: string) => () => {
 			<button
 				type="submit"
 				:disabled="status === 'sending'"
-				class="@max-[560px]:px-3.5 @max-[560px]:py-2.5 @max-[560px]:text-xs inline-flex items-center gap-2.5 rounded bg-gold px-5 py-3 font-mono text-[13px] font-semibold uppercase leading-none tracking-wider text-ink transition-[transform,opacity] duration-200 hover:-translate-y-px disabled:cursor-wait disabled:opacity-60 disabled:hover:translate-y-0"
+				class="inline-flex items-center gap-2.5 rounded bg-gold px-5 py-3 font-mono text-[13px] font-semibold uppercase leading-none tracking-wider text-ink transition-[transform,opacity] duration-200 hover:-translate-y-px disabled:cursor-wait disabled:opacity-60 disabled:hover:translate-y-0 @max-[560px]:px-3.5 @max-[560px]:py-2.5 @max-[560px]:text-xs"
 			>
 				{{ t("form.send") }} <TerminalIcon name="send" :size="14" />
 			</button>

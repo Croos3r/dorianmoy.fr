@@ -59,7 +59,7 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 </script>
 
 <template>
-	<section class="@max-[820px]:px-6 @max-[440px]:px-4 border-b border-border px-12 py-16">
+	<section class="border-b border-border px-12 py-16 @max-[440px]:px-4 @max-[820px]:px-6">
 		<div class="mb-6 font-mono text-xs font-medium leading-none text-dim">
 			<span class="text-gold">03</span> &nbsp;/&nbsp; projects/
 		</div>
@@ -151,7 +151,7 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 		<div v-else class="mt-6 flex flex-col gap-px overflow-hidden rounded-md border border-border">
 			<RevealOnScroll v-for="(p, i) in visibleProjects" :key="p.id" :delay="i * 60">
 				<div
-					class="v2-proj-row @max-[640px]:grid-cols-[1fr_auto] @max-[440px]:grid-cols-1 group grid w-full cursor-pointer grid-cols-[1fr_auto_auto] items-center gap-6 bg-panel py-6 pl-7 pr-9 outline-none transition-all duration-200 hover:bg-panel-hover-strong hover:pl-9 hover:pr-7"
+					class="v2-proj-row group grid w-full cursor-pointer grid-cols-[1fr_auto_auto] items-center gap-6 bg-panel py-6 pl-7 pr-9 outline-none transition-all duration-200 hover:bg-panel-hover-strong hover:pl-9 hover:pr-7 @max-[440px]:grid-cols-1 @max-[640px]:grid-cols-[1fr_auto]"
 					:class="i < visibleProjects.length - 1 ? 'border-b border-border' : ''"
 					role="button"
 					tabindex="0"
@@ -161,7 +161,7 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 				>
 					<span class="min-w-0">
 						<div
-							class="v2-proj-title @max-[640px]:break-words @max-[640px]:text-[17px] @max-[640px]:leading-snug mb-1 flex flex-wrap items-baseline gap-2.5 text-[22px] font-semibold leading-snug text-fg"
+							class="v2-proj-title mb-1 flex flex-wrap items-baseline gap-2.5 text-[22px] font-semibold leading-snug text-fg @max-[640px]:break-words @max-[640px]:text-[17px] @max-[640px]:leading-snug"
 						>
 							<span>{{ t(p.titleKey) }}</span>
 							<span v-if="t(p.subtitleKey)" class="text-[13px] font-medium leading-snug text-fg/40">{{
@@ -169,13 +169,13 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 							}}</span>
 						</div>
 						<div
-							class="v2-proj-tagline @max-[640px]:line-clamp-2 min-w-0 text-[15px] font-normal leading-snug text-dim"
+							class="v2-proj-tagline min-w-0 text-[15px] font-normal leading-snug text-dim @max-[640px]:line-clamp-2"
 						>
 							{{ t(p.taglineKey) }}
 						</div>
 					</span>
 					<span
-						class="v2-proj-stack @max-[440px]:col-start-1 @max-[440px]:justify-self-start flex items-center gap-1.5"
+						class="v2-proj-stack flex items-center gap-1.5 @max-[440px]:col-start-1 @max-[440px]:justify-self-start"
 					>
 						<template v-for="s in p.stack.slice(0, 4)" :key="s">
 							<a
@@ -196,7 +196,7 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 							>+{{ p.stack.length - 4 }}</span
 						>
 					</span>
-					<span class="v2-proj-year @max-[640px]:hidden font-mono text-[13px] font-medium leading-none text-dim">{{
+					<span class="v2-proj-year font-mono text-[13px] font-medium leading-none text-dim @max-[640px]:hidden">{{
 						p.year
 					}}</span>
 				</div>

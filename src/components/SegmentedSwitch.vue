@@ -47,7 +47,7 @@ const onClick = (opt: SegmentedOption) => {
 		     a standalone pill. -->
 		<span
 			aria-hidden="true"
-			class="v2-switch-thumb @max-[560px]:hidden absolute bottom-0.5 left-0.5 top-0.5 rounded-[3px] bg-gold transition-[transform,width] duration-300 ease-[cubic-bezier(.4,0,.2,1)] will-change-transform"
+			class="v2-switch-thumb absolute bottom-0.5 left-0.5 top-0.5 rounded-[3px] bg-gold transition-[transform,width] duration-300 ease-[cubic-bezier(.4,0,.2,1)] will-change-transform @max-[560px]:hidden"
 			:style="{
 				width: 'var(--slot-w)',
 				transform: `translateX(calc(var(--slot-w) * ${idx}))`,
@@ -57,7 +57,7 @@ const onClick = (opt: SegmentedOption) => {
 			v-for="opt in options"
 			:key="opt.id"
 			type="button"
-			class="v2-switch-slot @max-[560px]:px-2.5 @max-[560px]:py-1 @max-[560px]:aria-[pressed=false]:hidden @max-[560px]:aria-[pressed=true]:rounded-[3px] @max-[560px]:aria-[pressed=true]:bg-gold @max-[560px]:aria-[pressed=true]:text-ink relative inline-flex cursor-pointer items-center justify-center gap-1.5 border-0 bg-transparent px-0 py-1 font-mono text-[11px] font-medium leading-none tracking-wider transition-colors duration-200 aria-[pressed=false]:text-dim aria-[pressed=true]:text-ink aria-[pressed=false]:hover:text-ink dark:aria-[pressed=false]:hover:text-cream"
+			class="v2-switch-slot relative inline-flex cursor-pointer items-center justify-center gap-1.5 border-0 bg-transparent px-0 py-1 font-mono text-[11px] font-medium leading-none tracking-wider transition-colors duration-200 aria-[pressed=false]:text-dim aria-[pressed=true]:text-ink aria-[pressed=false]:hover:text-ink @max-[560px]:px-2.5 @max-[560px]:py-1 @max-[560px]:aria-[pressed=false]:hidden @max-[560px]:aria-[pressed=true]:rounded-[3px] @max-[560px]:aria-[pressed=true]:bg-gold @max-[560px]:aria-[pressed=true]:text-ink dark:aria-[pressed=false]:hover:text-cream"
 			:aria-pressed="opt.id === value"
 			:title="opt.title || opt.label"
 			:aria-label="opt.title || opt.label"

@@ -19,16 +19,16 @@ const { t } = useI18n();
 	  - ≤560: label visible left (ellipsis), switches grouped right; pill-mode handled by SegmentedSwitch
 	-->
 	<header
-		class="v2-titlebar @max-[1440px]:flex @max-[1440px]:justify-between @max-[720px]:justify-between @max-[560px]:gap-1.5 @max-[440px]:px-4 grid grid-cols-[1fr_auto_1fr] items-center gap-4 border-b border-border px-4 font-mono text-xs font-medium leading-none text-dim"
+		class="v2-titlebar grid grid-cols-[1fr_auto_1fr] items-center gap-4 border-b border-border px-4 font-mono text-xs font-medium leading-none text-dim @max-[1440px]:flex @max-[1440px]:justify-between @max-[720px]:justify-between @max-[560px]:gap-1.5 @max-[440px]:px-4"
 	>
 		<span aria-hidden="true" class="@max-[1440px]:hidden" />
 		<span
-			class="v2-titlebar-label @max-[1440px]:text-left @max-[720px]:hidden @max-[560px]:inline-block @max-[560px]:min-w-0 @max-[560px]:flex-[0_1_auto] @max-[560px]:overflow-hidden @max-[560px]:text-ellipsis @max-[560px]:text-left whitespace-nowrap text-center"
+			class="v2-titlebar-label whitespace-nowrap text-center @max-[560px]:inline-block @max-[720px]:hidden @max-[560px]:min-w-0 @max-[560px]:flex-[0_1_auto] @max-[560px]:overflow-hidden @max-[560px]:text-ellipsis @max-[1440px]:text-left @max-[560px]:text-left"
 		>
 			~/portfolio - {{ PORTFOLIO.handle }}
 		</span>
 		<div
-			class="v2-titlebar-switches @max-[1440px]:justify-self-auto @max-[720px]:w-full @max-[720px]:justify-between @max-[560px]:w-auto @max-[560px]:shrink-0 @max-[560px]:justify-end inline-flex items-center gap-2 justify-self-end"
+			class="v2-titlebar-switches inline-flex items-center gap-2 justify-self-end @max-[560px]:w-auto @max-[720px]:w-full @max-[560px]:shrink-0 @max-[560px]:justify-end @max-[720px]:justify-between @max-[1440px]:justify-self-auto"
 		>
 			<SegmentedSwitch
 				:options="[
