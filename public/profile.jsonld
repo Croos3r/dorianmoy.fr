@@ -1,0 +1,21 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "url": "https://dorianmoy.fr/",
+  "dateModified": "2026-06-02",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Dorian Moy",
+    "jobTitle": "Fullstack Developer",
+    "description": "Junior French Fullstack Developer.",
+    "url": "https://dorianmoy.fr/",
+    "email": "mailto:contact@dorianmoy.fr",
+    "image": "https://dorianmoy.fr/portrait.webp",
+    "nationality": "French",
+    "knowsLanguage": ["fr", "en"],
+    "sameAs": [
+      "https://github.com/Croos3r",
+      "https://www.linkedin.com/in/dorian-moy/"
+    ]
+  }
+}

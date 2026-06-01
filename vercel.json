@@ -5,5 +5,25 @@
       "destination": "https://ra.co/dj/csr.",
       "permanent": false
     }
+  ],
+  "headers": [
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</profile.jsonld>; rel=\"describedby\"; type=\"application/ld+json\""
+        }
+      ]
+    },
+    {
+      "source": "/profile.jsonld",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/ld+json; charset=utf-8"
+        }
+      ]
+    }
   ]
 }
