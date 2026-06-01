@@ -13,7 +13,7 @@ const props = withDefaults(
 const entry = computed(() => TECH_REGISTRY[props.name]);
 const pad = computed(() => Math.max(3, Math.round(props.size * 0.16)));
 const url = computed(() =>
-	entry.value ? `https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/${entry.value.slug}.svg` : "",
+	entry.value?.slug ? `https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/${entry.value.slug}.svg` : "",
 );
 const fallbackMono = computed(() => {
 	if (entry.value?.mono) return entry.value.mono;
@@ -38,9 +38,10 @@ watch(
 	{ immediate: true },
 );
 
-const useMonogram = computed(() => !entry.value || failed.value);
-const monoBg = computed(() => (entry.value && failed.value ? "#" + entry.value.hex : "rgb(120,120,120)"));
-const monoFg = computed(() => (entry.value && failed.value ? entry.value.fg || "#fff" : "#fff"));
+// No entry, no known icon slug, or a failed probe → render the monogram tile.
+const useMonogram = computed(() => !entry.value || !entry.value.slug || failed.value);
+const monoBg = computed(() => (entry.value ? "#" + entry.value.hex : "rgb(120,120,120)"));
+const monoFg = computed(() => entry.value?.fg || "#fff");
 </script>
 
 <template>
