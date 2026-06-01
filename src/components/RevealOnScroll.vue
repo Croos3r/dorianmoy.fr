@@ -16,13 +16,23 @@ let ob: IntersectionObserver | null = null;
 // Find the nearest scrolling ancestor — the page's main pane scrolls, not the
 // document, so an observer with `root: null` would see every element as already
 // intersecting and reveal everything on mount instead of as the user scrolls.
-const findScrollRoot = (start: HTMLElement): Element | null => {
+//
+// The scroll root is the same shared pane for every RevealOnScroll instance, so
+// the DOM walk + getComputedStyle (a forced style/layout read) is memoized at
+// module scope and runs at most once instead of once per instance on mount.
+let cachedScrollRoot: Element | null | undefined;
+const resolveScrollRoot = (start: HTMLElement): Element | null => {
+	if (cachedScrollRoot !== undefined) return cachedScrollRoot;
 	let cur: HTMLElement | null = start.parentElement;
 	while (cur) {
 		const overflowY = getComputedStyle(cur).overflowY;
-		if (overflowY === "auto" || overflowY === "scroll") return cur;
+		if (overflowY === "auto" || overflowY === "scroll") {
+			cachedScrollRoot = cur;
+			return cur;
+		}
 		cur = cur.parentElement;
 	}
+	cachedScrollRoot = null;
 	return null;
 };
 
@@ -36,7 +46,7 @@ onMounted(() => {
 			}
 		},
 		{
-			root: findScrollRoot(el.value),
+			root: resolveScrollRoot(el.value),
 			threshold: 0.15,
 			rootMargin: "0px 0px -5% 0px",
 		},

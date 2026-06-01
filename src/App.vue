@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import { computed, defineAsyncComponent, onBeforeUnmount, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import TitleBar from "./components/TitleBar.vue";
 import SideBar, { type FileEntry } from "./components/SideBar.vue";
@@ -9,8 +9,10 @@ import AboutSection from "./sections/AboutSection.vue";
 import StackSection from "./sections/StackSection.vue";
 import ProjectsSection from "./sections/ProjectsSection.vue";
 import ContactSection from "./sections/ContactSection.vue";
-import ProjectModal from "./components/ProjectModal.vue";
-import VimErrorModal from "./components/VimErrorModal.vue";
+// Interaction-gated modals: lazy-loaded so their code isn't parsed/executed
+// during the initial mount (shrinks the long main-thread task + initial chunk).
+const ProjectModal = defineAsyncComponent(() => import("./components/ProjectModal.vue"));
+const VimErrorModal = defineAsyncComponent(() => import("./components/VimErrorModal.vue"));
 
 type VimError = { code: string; message: string };
 const E45: VimError = {
@@ -225,6 +227,9 @@ const onKey = (e: KeyboardEvent) => {
 // ── Scrollspy ──
 let observer: IntersectionObserver | null = null;
 let onScroll: (() => void) | null = null;
+// Re-entrancy guard so layout reads in the scroll handler are batched into a
+// single rAF callback instead of running (and forcing a reflow) per event.
+let scrollTicking = false;
 
 onMounted(() => {
 	document.addEventListener("focusin", onFocusIn);
@@ -273,7 +278,14 @@ onMounted(() => {
 				observer.observe(el);
 			}
 		}
-		onScroll = () => pickActive();
+		onScroll = () => {
+			if (scrollTicking) return;
+			scrollTicking = true;
+			requestAnimationFrame(() => {
+				scrollTicking = false;
+				pickActive();
+			});
+		};
 		root.addEventListener("scroll", onScroll, { passive: true });
 	}
 });
