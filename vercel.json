@@ -6,13 +6,6 @@
       "permanent": false
     }
   ],
-  "rewrites": [
-    {
-      "source": "/",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
-      "destination": "/index.md"
-    }
-  ],
   "headers": [
     {
       "source": "/",
@@ -22,14 +15,6 @@
           "value": "</profile.jsonld>; rel=\"describedby\"; type=\"application/ld+json\""
         },
         { "key": "Vary", "value": "Accept" }
-      ]
-    },
-    {
-      "source": "/",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
-      "headers": [
-        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
-        { "key": "x-markdown-tokens", "value": "2712" }
       ]
     },
     {
