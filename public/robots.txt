@@ -8,3 +8,6 @@ Disallow: /dj
 
 # Host
 Host: https://dorianmoy.fr
+
+# Sitemap
+Sitemap: https://dorianmoy.fr/sitemap.xml
