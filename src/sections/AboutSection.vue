@@ -38,9 +38,11 @@ const { t } = useI18n();
 				>
 					<img
 						src="/portrait.webp"
+						srcset="/portrait-300.webp 300w, /portrait-600.webp 600w, /portrait-900.webp 900w"
+						sizes="300px"
 						:alt="PORTFOLIO.name"
-						width="2570"
-						height="3213"
+						width="900"
+						height="1125"
 						fetchpriority="high"
 						decoding="async"
 						class="block h-full w-full object-cover object-center"
