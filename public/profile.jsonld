@@ -6,6 +6,7 @@
   "mainEntity": {
     "@type": "Person",
     "name": "Dorian Moy",
+    "alternateName": "Crooser",
     "jobTitle": "Fullstack Developer",
     "description": "Junior French Fullstack Developer.",
     "url": "https://dorianmoy.fr/",
@@ -13,6 +14,29 @@
     "image": "https://dorianmoy.fr/portrait.webp",
     "nationality": "French",
     "knowsLanguage": ["fr", "en"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Paris",
+      "addressCountry": "FR"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Epitech"
+    },
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Epitech"
+    },
+    "knowsAbout": [
+      "TypeScript",
+      "Web3",
+      "Offensive Cybersecurity",
+      "Fullstack Development"
+    ],
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Fullstack Developer"
+    },
     "sameAs": [
       "https://github.com/Croos3r",
       "https://www.linkedin.com/in/dorian-moy/"
