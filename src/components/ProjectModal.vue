@@ -82,7 +82,15 @@ watch(
 				v-if="project.image"
 				class="relative aspect-[16/9] overflow-hidden bg-ink text-cream dark:bg-cream dark:text-ink"
 			>
-				<img :src="project.image" :alt="t(project.titleKey)" class="block h-full w-full object-cover object-top" />
+				<img
+					:src="project.image"
+					:alt="t(project.titleKey)"
+					width="1000"
+					height="563"
+					loading="lazy"
+					decoding="async"
+					class="block h-full w-full object-cover object-top"
+				/>
 				<div
 					class="absolute left-5 top-[18px] rounded-[3px] bg-black/55 px-2.5 py-1.5 font-mono text-[11px] font-medium uppercase leading-none tracking-wider text-white backdrop-blur-[4px]"
 				>

@@ -36,7 +36,15 @@ const { t } = useI18n();
 				<div
 					class="v2-portrait relative aspect-[4/5] w-full overflow-hidden rounded-md border border-border bg-panel @max-[560px]:max-w-[300px] @max-[560px]:justify-self-start"
 				>
-					<img src="/portrait.webp" :alt="PORTFOLIO.name" class="block h-full w-full object-cover object-center" />
+					<img
+						src="/portrait.webp"
+						:alt="PORTFOLIO.name"
+						width="2570"
+						height="3213"
+						fetchpriority="high"
+						decoding="async"
+						class="block h-full w-full object-cover object-center"
+					/>
 					<div
 						class="absolute left-3 top-2.5 rounded-[3px] bg-black/55 px-2 py-1 font-mono text-[11px] font-medium leading-none tracking-wider text-gold backdrop-blur-[4px]"
 					>
