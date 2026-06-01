@@ -57,6 +57,7 @@ const tagClass = {
 									:href="getTechHome(it.name)"
 									target="_blank"
 									rel="noopener noreferrer"
+									:aria-label="`${it.name} — official website (opens in a new tab)`"
 									class="v2-tech-link col-span-2 inline-flex w-fit min-w-0 items-center gap-3 justify-self-start text-inherit no-underline"
 									@click.stop
 								>
