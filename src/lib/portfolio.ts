@@ -101,7 +101,7 @@ export const PORTFOLIO = {
 			year: "2026",
 			stack: ["Vue", "TypeScript", "Tailwind", "Claude Code"],
 			url: "https://dorianmoy.fr",
-			image: "/dorianmoy_fr.png",
+			image: "/dorianmoy_fr.webp",
 		},
 		{
 			id: "sorting-viz",
@@ -122,7 +122,7 @@ export const PORTFOLIO = {
 			bodyKey: "projects.list.0.body",
 			year: "2025",
 			stack: ["Adonis", "TypeScript", "Postgres", "Tailwind", "Docker", "Claude Code"],
-			image: "/pigeactive_fr.png",
+			image: "/pigeactive_fr.webp",
 		},
 		{
 			id: "bedrock-app",
@@ -144,7 +144,7 @@ export const PORTFOLIO = {
 				"Docker",
 				"Claude Code",
 			],
-			image: "/app_bedrock_im.png",
+			image: "/app_bedrock_im.webp",
 		},
 		{
 			id: "cryptio-scroll-indexer",
@@ -166,7 +166,7 @@ export const PORTFOLIO = {
 			year: "2024",
 			stack: ["Vue", "TypeScript", "Tailwind"],
 			url: "https://libertai.io",
-			image: "/libertai_io.png",
+			image: "/libertai_io.webp",
 		},
 		{
 			id: "thales-xsd-hmi",
@@ -198,7 +198,7 @@ export const PORTFOLIO = {
 			year: "2023",
 			stack: ["React", "TypeScript", "Vite", "Tailwind"],
 			url: "https://old.bedrock.im",
-			image: "/old_bedrock_im.png",
+			image: "/old_bedrock_im.webp",
 		},
 		{
 			id: "area",
@@ -210,7 +210,7 @@ export const PORTFOLIO = {
 			year: "2023",
 			stack: ["NestJS", "TypeScript", "Next.js", "Flutter", "Dart", "Go", "gRPC", "Docker", "Postgres"],
 			url: "https://github.com/RezaRahemtola/Area",
-			image: "/area_github.png",
+			image: "/area_github.webp",
 		},
 		{
 			id: "glados",
@@ -232,7 +232,7 @@ export const PORTFOLIO = {
 			year: "2022",
 			stack: ["NestJS", "React-Native", "TypeScript", "Docker", "Postgres"],
 			url: "https://github.com/RezaRahemtola/Survivor",
-			image: "/trombiday_github.png",
+			image: "/trombiday_github.webp",
 		},
 		{
 			id: "zozio-battery",
