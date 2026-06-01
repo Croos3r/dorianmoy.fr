@@ -8,5 +8,13 @@ import "./lib/language";
 
 const app = createApp(App);
 app.use(i18n);
-inject();
 app.mount("#app");
+
+// Defer analytics off the critical render path so it doesn't compete with
+// first paint. requestIdleCallback when available, setTimeout otherwise.
+const loadAnalytics = () => inject();
+if ("requestIdleCallback" in window) {
+	requestIdleCallback(loadAnalytics);
+} else {
+	setTimeout(loadAnalytics, 1);
+}
