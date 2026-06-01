@@ -1,0 +1,10 @@
+# robots.txt for dorianmoy.fr
+# https://www.rfc-editor.org/rfc/rfc9309
+
+# Default rules for all crawlers and agents
+User-agent: *
+Allow: /
+Disallow: /dj
+
+# Host
+Host: https://dorianmoy.fr
