@@ -54,4 +54,15 @@ function sitemap(): Plugin {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(), sitemap()],
+  build: {
+    rollupOptions: {
+      output: {
+        // Split large, rarely-changing vendor deps into a separate chunk so
+        // they cache independently of app code and shrink the main bundle.
+        manualChunks: {
+          vendor: ['vue', 'vue-i18n', '@vercel/analytics'],
+        },
+      },
+    },
+  },
 })

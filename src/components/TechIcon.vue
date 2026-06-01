@@ -28,6 +28,8 @@ watch(
 		failed.value = false;
 		if (!u) return;
 		const img = new Image();
+		img.loading = "lazy";
+		img.decoding = "async";
 		img.onerror = () => {
 			failed.value = true;
 		};
