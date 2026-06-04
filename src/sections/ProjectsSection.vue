@@ -2,10 +2,11 @@
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { PORTFOLIO, type Project } from "../lib/portfolio";
-import { getTechHome, type TechName } from "../lib/techRegistry";
+import type { TechName } from "../lib/techRegistry";
 import { selectedTechs } from "../lib/filters";
 import RevealOnScroll from "../components/RevealOnScroll.vue";
 import TechIcon from "../components/TechIcon.vue";
+import TechHomeLink from "../components/TechHomeLink.vue";
 
 const { t } = useI18n();
 
@@ -179,21 +180,17 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 					<span
 						class="v2-proj-stack flex items-center gap-1.5 @max-[440px]:col-start-1 @max-[440px]:justify-self-start"
 					>
-						<template v-for="s in p.stack.slice(0, 4)" :key="s">
-							<a
-								v-if="getTechHome(s)"
-								:href="getTechHome(s)"
-								target="_blank"
-								rel="noopener noreferrer"
-								:title="s"
-								:aria-label="s"
-								class="inline-flex no-underline"
-								@click.stop
-							>
-								<TechIcon :name="s" :size="22" />
-							</a>
-							<TechIcon v-else :name="s" :size="22" />
-						</template>
+						<TechHomeLink
+							v-for="s in p.stack.slice(0, 4)"
+							:key="s"
+							:name="s"
+							:title="s"
+							:aria-label="s"
+							class="inline-flex no-underline"
+							@click.stop
+						>
+							<TechIcon :name="s" :size="22" />
+						</TechHomeLink>
 						<span v-if="p.stack.length > 4" class="ml-0.5 font-mono text-[11px] font-medium leading-none text-dim"
 							>+{{ p.stack.length - 4 }}</span
 						>

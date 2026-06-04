@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { computed, onBeforeUnmount, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
-import { getTechHome } from "../lib/techRegistry";
 import type { Project } from "../lib/portfolio";
 import { useBodyScrollLock } from "../composables/useBodyScrollLock";
 import TerminalIcon from "./TerminalIcon.vue";
 import TechIcon from "./TechIcon.vue";
+import TechHomeLink from "./TechHomeLink.vue";
 
 const props = defineProps<{ project: Project | null }>();
 const emit = defineEmits<{ close: [] }>();
@@ -113,25 +113,21 @@ useBodyScrollLock(computed(() => props.project !== null));
 				</h2>
 
 				<div class="mt-7 flex flex-wrap gap-2">
-					<template v-for="s in project.stack" :key="s">
-						<a
-							v-if="getTechHome(s)"
-							:href="getTechHome(s)"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="inline-flex items-center gap-2 rounded-[3px] border border-border px-2.5 py-1.5 font-mono text-xs font-medium leading-none tracking-wide no-underline transition-colors duration-150 hover:border-gold"
-						>
+					<TechHomeLink
+						v-for="s in project.stack"
+						:key="s"
+						:name="s"
+						class="inline-flex items-center gap-2 rounded-[3px] border border-border px-2.5 py-1.5 font-mono text-xs font-medium leading-none tracking-wide no-underline transition-colors duration-150 hover:border-gold"
+					>
+						<template #default="{ linked }">
 							<TechIcon :name="s" :size="18" />
-							<span class="text-gold underline decoration-1 underline-offset-[3px]">{{ s.toLowerCase() }}</span>
-						</a>
-						<span
-							v-else
-							class="inline-flex items-center gap-2 rounded-[3px] border border-border px-2.5 py-1.5 font-mono text-xs font-medium leading-none tracking-wide"
-						>
-							<TechIcon :name="s" :size="18" />
-							<span class="text-gold">{{ s.toLowerCase() }}</span>
-						</span>
-					</template>
+							<span
+								class="text-gold"
+								:class="linked ? 'underline decoration-1 underline-offset-[3px]' : ''"
+								>{{ s.toLowerCase() }}</span
+							>
+						</template>
+					</TechHomeLink>
 				</div>
 
 				<p

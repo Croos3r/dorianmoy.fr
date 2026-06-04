@@ -1,11 +1,12 @@
 <script lang="ts" setup>
 import { useI18n } from "vue-i18n";
 import { PORTFOLIO } from "../lib/portfolio";
-import { getTechHome, type TechName } from "../lib/techRegistry";
+import type { TechName } from "../lib/techRegistry";
 import { setFilter, scrollToProjects } from "../lib/filters";
 import RevealOnScroll from "../components/RevealOnScroll.vue";
 import TerminalIcon from "../components/TerminalIcon.vue";
 import TechIcon from "../components/TechIcon.vue";
+import TechHomeLink from "../components/TechHomeLink.vue";
 
 const { t } = useI18n();
 
@@ -52,22 +53,15 @@ const tagClass = {
 								@keydown.enter.prevent="filterByTech(it.name)"
 								@keydown.space.prevent="filterByTech(it.name)"
 							>
-								<a
-									v-if="getTechHome(it.name)"
-									:href="getTechHome(it.name)"
-									target="_blank"
-									rel="noopener noreferrer"
+								<TechHomeLink
+									:name="it.name"
 									:aria-label="`${it.name} — official website (opens in a new tab)`"
 									class="v2-tech-link col-span-2 inline-flex w-fit min-w-0 items-center gap-3 justify-self-start text-inherit no-underline"
 									@click.stop
 								>
 									<TechIcon :name="it.name" :size="26" />
 									<span class="v2-tech-name font-sans text-sm font-medium leading-tight text-fg">{{ it.name }}</span>
-								</a>
-								<template v-else>
-									<TechIcon :name="it.name" :size="26" />
-									<span class="font-sans text-sm font-medium leading-tight text-fg">{{ it.name }}</span>
-								</template>
+								</TechHomeLink>
 								<span
 									class="inline-flex items-center gap-1.5 px-2 py-1 font-mono text-[10px] font-medium uppercase leading-none tracking-wider"
 									:class="tagClass[it.tag].text"
