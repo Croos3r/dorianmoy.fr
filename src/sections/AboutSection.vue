@@ -2,6 +2,7 @@
 import { useI18n } from "vue-i18n";
 import { PORTFOLIO } from "../lib/portfolio";
 import RevealOnScroll from "../components/RevealOnScroll.vue";
+import RichText from "../components/RichText.vue";
 
 const { t } = useI18n();
 </script>
@@ -26,9 +27,9 @@ const { t } = useI18n();
 						:key="i"
 						:delay="i * 80"
 					>
-						<!-- eslint-disable vue/no-v-html -->
-						<p class="text-lg font-normal leading-relaxed text-fg/90" :class="i ? 'mt-4' : 'mt-0'" v-html="p" />
-						<!-- eslint-enable vue/no-v-html -->
+						<p class="text-lg font-normal leading-relaxed text-fg/90" :class="i ? 'mt-4' : 'mt-0'">
+							<RichText :text="p" />
+						</p>
 					</RevealOnScroll>
 				</div>
 			</div>

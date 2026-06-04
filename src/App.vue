@@ -37,6 +37,11 @@ const files: FileEntry[] = [
 	{ id: "contact", name: "contact.ts", type: "typescript" },
 ];
 
+// Two intentionally-independent cursors, vim-style: `active` is the section
+// currently in view (driven by the scrollspy, highlights the open "file" and
+// status bar), while `selIdx` is the keyboard selection cursor in the sidebar
+// (moved by j/k/g/G). Scrolling updates `active` but leaves the selection put;
+// pressing Enter on the selection syncs both via navigate().
 const active = ref("about");
 const selIdx = ref(0);
 const modalProject = ref<Project | null>(null);
