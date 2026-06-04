@@ -1,4 +1,6 @@
 import type { TagKey } from "./palette";
+import type { TechName } from "./techRegistry";
+import type { TerminalIconName } from "./icons";
 
 export type SocialLink = {
 	label: string;
@@ -6,13 +8,13 @@ export type SocialLink = {
 };
 
 export type CompetencyItem = {
-	name: string;
+	name: TechName;
 	tag: TagKey;
 };
 
 export type Competency = {
 	labelKey: string;
-	icon: string;
+	icon: TerminalIconName;
 	items: CompetencyItem[];
 };
 
@@ -24,7 +26,7 @@ export type Project = {
 	taglineKey: string;
 	bodyKey: string;
 	year: string;
-	stack: string[];
+	stack: TechName[];
 	url?: string;
 	image?: string;
 };

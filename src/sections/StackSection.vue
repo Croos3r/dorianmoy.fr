@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useI18n } from "vue-i18n";
 import { PORTFOLIO } from "../lib/portfolio";
-import { getTechHome } from "../lib/techRegistry";
+import { getTechHome, type TechName } from "../lib/techRegistry";
 import { setFilter, scrollToProjects } from "../lib/filters";
 import RevealOnScroll from "../components/RevealOnScroll.vue";
 import TerminalIcon from "../components/TerminalIcon.vue";
@@ -9,7 +9,7 @@ import TechIcon from "../components/TechIcon.vue";
 
 const { t } = useI18n();
 
-const filterByTech = (tech: string) => {
+const filterByTech = (tech: TechName) => {
 	setFilter([tech]);
 	scrollToProjects();
 };

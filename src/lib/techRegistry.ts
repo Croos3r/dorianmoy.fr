@@ -6,7 +6,10 @@ export type TechEntry = {
 	home: string;
 };
 
-export const TECH_REGISTRY: Record<string, TechEntry> = {
+// `satisfies` (instead of an explicit `Record<string, TechEntry>` annotation)
+// keeps the literal keys, so `TechName` below is the exact union of registered
+// technologies and stacks referencing an unknown tech fail to type-check.
+export const TECH_REGISTRY = {
 	TypeScript: { slug: "typescript", hex: "3178c6", mono: "TS", home: "https://www.typescriptlang.org" },
 	JavaScript: {
 		slug: "javascript",
@@ -30,6 +33,7 @@ export const TECH_REGISTRY: Record<string, TechEntry> = {
 	Dart: { slug: "dart", hex: "0175c2", mono: "Dt", home: "https://dart.dev" },
 	Go: { slug: "go", hex: "00add8", mono: "Go", home: "https://go.dev" },
 	NestJS: { slug: "nestjs", hex: "e0234e", mono: "Ns", home: "https://nestjs.com" },
+	Express: { slug: "express", hex: "000000", mono: "Ex", home: "https://expressjs.com" },
 	Tailwind: { slug: "tailwindcss", hex: "06b6d4", mono: "Tw", home: "https://tailwindcss.com" },
 	Vite: { slug: "vite", hex: "646cff", mono: "Vi", home: "https://vite.dev" },
 	Postgres: { slug: "postgresql", hex: "4169e1", mono: "Pg", home: "https://www.postgresql.org" },
@@ -55,6 +59,9 @@ export const TECH_REGISTRY: Record<string, TechEntry> = {
 	Dokploy: { slug: "", hex: "ec5d5e", mono: "Dk", home: "https://dokploy.com" },
 	"Claude Code": { slug: "claude", hex: "d97757", mono: "Cc", home: "https://claude.com/claude-code" },
 	CircleCI: { slug: "circleci", hex: "343434", mono: "Cr", home: "https://circleci.com" },
-};
+} satisfies Record<string, TechEntry>;
 
-export const getTechHome = (name: string) => TECH_REGISTRY[name]?.home;
+/** Every technology name the registry knows about. */
+export type TechName = keyof typeof TECH_REGISTRY;
+
+export const getTechHome = (name: TechName) => TECH_REGISTRY[name]?.home;

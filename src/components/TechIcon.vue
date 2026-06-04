@@ -1,47 +1,53 @@
 <script lang="ts" setup>
-import { computed, ref, watch } from "vue";
-import { TECH_REGISTRY } from "../lib/techRegistry";
+import { computed, ref, watchEffect, type Ref } from "vue";
+import { TECH_REGISTRY, type TechEntry, type TechName } from "../lib/techRegistry";
 
 const props = withDefaults(
 	defineProps<{
-		name: string;
+		name: TechName;
 		size?: number;
 	}>(),
 	{ size: 22 },
 );
 
-const entry = computed(() => TECH_REGISTRY[props.name]);
+// Annotated as the uniform TechEntry shape: `satisfies` on the registry keeps
+// each entry's precise literal type (so optional `fg` would otherwise be absent
+// on entries that omit it), but here we only care about the common interface.
+const entry = computed<TechEntry>(() => TECH_REGISTRY[props.name]);
 const pad = computed(() => Math.max(3, Math.round(props.size * 0.16)));
 const url = computed(() =>
-	entry.value?.slug ? `https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/${entry.value.slug}.svg` : "",
+	entry.value.slug ? `https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/${entry.value.slug}.svg` : "",
 );
-const fallbackMono = computed(() => {
-	if (entry.value?.mono) return entry.value.mono;
-	return props.name.replace(/[^A-Za-z0-9]/g, "").slice(0, 2) || "?";
+const fallbackMono = computed(() => entry.value.mono || props.name.replace(/[^A-Za-z0-9]/g, "").slice(0, 2) || "?");
+
+// simple-icons occasionally renames or removes slugs between releases (we pin
+// v13); if the pinned slug 404s we fall back to the monogram tile. The probe
+// result is memoized per URL at module scope so each unique slug is fetched
+// once for the whole page rather than once per TechIcon instance.
+const probeCache = new Map<string, Ref<boolean>>();
+const probeFailed = (u: string): Ref<boolean> => {
+	const cached = probeCache.get(u);
+	if (cached) return cached;
+	const failed = ref(false);
+	probeCache.set(u, failed);
+	const img = new Image();
+	img.decoding = "async";
+	img.onerror = () => (failed.value = true);
+	img.src = u;
+	return failed;
+};
+
+const failed = ref(false);
+watchEffect(() => {
+	// Reading the shared ref's `.value` keeps this effect subscribed, so a later
+	// async probe failure flips this instance over to the monogram too.
+	failed.value = url.value ? probeFailed(url.value).value : false;
 });
 
-// Probe the CDN: if the slug doesn't resolve, fall back to the monogram tile.
-const failed = ref(false);
-watch(
-	url,
-	(u) => {
-		failed.value = false;
-		if (!u) return;
-		const img = new Image();
-		img.loading = "lazy";
-		img.decoding = "async";
-		img.onerror = () => {
-			failed.value = true;
-		};
-		img.src = u;
-	},
-	{ immediate: true },
-);
-
-// No entry, no known icon slug, or a failed probe → render the monogram tile.
-const useMonogram = computed(() => !entry.value || !entry.value.slug || failed.value);
-const monoBg = computed(() => (entry.value ? "#" + entry.value.hex : "rgb(120,120,120)"));
-const monoFg = computed(() => entry.value?.fg || "#fff");
+// No icon slug, or a failed probe → render the monogram tile.
+const useMonogram = computed(() => !entry.value.slug || failed.value);
+const monoBg = computed(() => "#" + entry.value.hex);
+const monoFg = computed(() => entry.value.fg || "#fff");
 </script>
 
 <template>
@@ -54,14 +60,14 @@ const monoFg = computed(() => entry.value?.fg || "#fff");
 		:style="{
 			width: size + 'px',
 			height: size + 'px',
-			background: '#' + entry!.hex,
+			background: '#' + entry.hex,
 			padding: pad + 'px',
 		}"
 	>
 		<span
 			class="inline-block h-full w-full"
 			:style="{
-				background: entry!.fg || '#ffffff',
+				background: entry.fg || '#ffffff',
 				WebkitMask: `url(&quot;${url}&quot;) center / contain no-repeat`,
 				mask: `url(&quot;${url}&quot;) center / contain no-repeat`,
 			}"

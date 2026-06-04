@@ -2,7 +2,7 @@
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { PORTFOLIO, type Project } from "../lib/portfolio";
-import { getTechHome } from "../lib/techRegistry";
+import { getTechHome, type TechName } from "../lib/techRegistry";
 import { selectedTechs } from "../lib/filters";
 import RevealOnScroll from "../components/RevealOnScroll.vue";
 import TechIcon from "../components/TechIcon.vue";
@@ -16,7 +16,7 @@ const INITIAL_COUNT = 5;
 const expanded = ref(false);
 
 const allTechs = computed(() => {
-	const set = new Set<string>();
+	const set = new Set<TechName>();
 	for (const p of PORTFOLIO.projects) for (const s of p.stack) set.add(s);
 	return [...set].sort((a, b) => a.localeCompare(b));
 });
@@ -24,7 +24,7 @@ const allTechs = computed(() => {
 const query = ref("");
 const open_ = ref(false);
 
-const isSelected = (tech: string) => selectedTechs.value.includes(tech);
+const isSelected = (tech: TechName) => selectedTechs.value.includes(tech);
 
 const suggestions = computed(() => {
 	const q = query.value.trim().toLowerCase();
@@ -33,7 +33,9 @@ const suggestions = computed(() => {
 
 const filteredProjects = computed(() =>
 	selectedTechs.value.length
-		? PORTFOLIO.projects.filter((p) => selectedTechs.value.every((t) => p.stack.includes(t)))
+		? PORTFOLIO.projects.filter((p) =>
+				selectedTechs.value.every((tech) => (p.stack as readonly TechName[]).includes(tech)),
+			)
 		: PORTFOLIO.projects,
 );
 
@@ -43,11 +45,11 @@ const visibleProjects = computed(() => {
 });
 const hasMore = computed(() => selectedTechs.value.length === 0 && PORTFOLIO.projects.length > INITIAL_COUNT);
 
-const addTech = (tech: string) => {
+const addTech = (tech: TechName) => {
 	if (!isSelected(tech)) selectedTechs.value = [...selectedTechs.value, tech];
 	query.value = "";
 };
-const removeTech = (tech: string) => {
+const removeTech = (tech: TechName) => {
 	selectedTechs.value = selectedTechs.value.filter((t) => t !== tech);
 };
 const clearAll = () => {

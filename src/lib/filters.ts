@@ -1,15 +1,16 @@
 import { ref } from "vue";
+import type { TechName } from "./techRegistry";
 
 // Shared multi-tech filter state for the projects section. Other sections
 // (e.g. the competencies/stack section) push values into it to deep-link
 // users from a tech card straight to the matching projects.
-export const selectedTechs = ref<string[]>([]);
+export const selectedTechs = ref<TechName[]>([]);
 
-export const setFilter = (techs: string[]) => {
+export const setFilter = (techs: TechName[]) => {
 	selectedTechs.value = [...techs];
 };
 
-export const addToFilter = (tech: string) => {
+export const addToFilter = (tech: TechName) => {
 	if (!selectedTechs.value.includes(tech)) selectedTechs.value = [...selectedTechs.value, tech];
 };
 

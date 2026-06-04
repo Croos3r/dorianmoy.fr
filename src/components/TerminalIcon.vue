@@ -1,17 +1,15 @@
 <script lang="ts" setup>
-import { computed } from "vue";
+import type { TerminalIconName } from "../lib/icons";
 
-const props = withDefaults(
+withDefaults(
 	defineProps<{
-		name: string;
+		name: TerminalIconName;
 		size?: number;
 		stroke?: string;
 		sw?: number;
 	}>(),
 	{ size: 20, stroke: "currentColor", sw: 1.5 },
 );
-
-const fill = computed(() => (props.name === "github" ? "currentColor" : "none"));
 </script>
 
 <template>
@@ -19,7 +17,7 @@ const fill = computed(() => (props.name === "github" ? "currentColor" : "none"))
 		:width="size"
 		:height="size"
 		viewBox="0 0 24 24"
-		:fill="fill"
+		fill="none"
 		:stroke="stroke"
 		:stroke-width="sw"
 		stroke-linecap="round"
