@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
-import { PORTFOLIO, type Project } from "../lib/portfolio";
+import { PORTFOLIO, projectText, type Project } from "../lib/portfolio";
 import type { TechName } from "../lib/techRegistry";
 import { selectedTechs } from "../lib/filters";
 import RevealOnScroll from "../components/RevealOnScroll.vue";
@@ -166,15 +166,15 @@ const onBlur = () => setTimeout(() => (open_.value = false), 120);
 						<div
 							class="v2-proj-title mb-1 flex flex-wrap items-baseline gap-2.5 text-[22px] font-semibold leading-snug text-fg @max-[640px]:break-words @max-[640px]:text-[17px] @max-[640px]:leading-snug"
 						>
-							<span>{{ t(p.titleKey) }}</span>
-							<span v-if="t(p.subtitleKey)" class="text-[13px] font-medium leading-snug text-fg/40">{{
-								t(p.subtitleKey)
+							<span>{{ t(projectText(p, "title")) }}</span>
+							<span v-if="t(projectText(p, 'subtitle'))" class="text-[13px] font-medium leading-snug text-fg/40">{{
+								t(projectText(p, "subtitle"))
 							}}</span>
 						</div>
 						<div
 							class="v2-proj-tagline min-w-0 text-[15px] font-normal leading-snug text-dim @max-[640px]:line-clamp-2"
 						>
-							{{ t(p.taglineKey) }}
+							{{ t(projectText(p, "description")) }}
 						</div>
 					</span>
 					<span

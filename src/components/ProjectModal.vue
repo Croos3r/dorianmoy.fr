@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, onBeforeUnmount, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
-import type { Project } from "../lib/portfolio";
+import { projectText, type Project } from "../lib/portfolio";
 import { useBodyScrollLock } from "../composables/useBodyScrollLock";
 import TerminalIcon from "./TerminalIcon.vue";
 import TechIcon from "./TechIcon.vue";
@@ -78,7 +78,7 @@ useBodyScrollLock(computed(() => props.project !== null));
 			>
 				<img
 					:src="project.image"
-					:alt="t(project.titleKey)"
+					:alt="t(projectText(project, 'title'))"
 					width="1000"
 					height="563"
 					loading="lazy"
@@ -97,18 +97,18 @@ useBodyScrollLock(computed(() => props.project !== null));
 				:class="project.image ? 'pt-10' : 'pt-9'"
 			>
 				<div class="mb-4 font-mono text-xs font-medium uppercase leading-none tracking-[2px] text-gold">
-					{{ t(project.taglineKey) }}
+					{{ t(projectText(project, "description")) }}
 				</div>
 				<h2
 					class="m-0 flex flex-wrap items-baseline gap-3.5 font-sans font-bold leading-[1.1] tracking-[-1px] text-fg @max-[720px]:break-words @max-[720px]:text-[26px] @max-[720px]:leading-[1.15] @max-[720px]:tracking-[-0.5px]"
 					style="font-size: clamp(28px, 5vw, 52px)"
 				>
-					<span>{{ t(project.titleKey) }}</span>
+					<span>{{ t(projectText(project, "title")) }}</span>
 					<span
-						v-if="t(project.subtitleKey)"
+						v-if="t(projectText(project, 'subtitle'))"
 						class="font-sans font-medium leading-snug tracking-normal text-dim/80"
 						style="font-size: clamp(14px, 1.6vw, 18px)"
-						>{{ t(project.subtitleKey) }}</span
+						>{{ t(projectText(project, "subtitle")) }}</span
 					>
 				</h2>
 
@@ -133,7 +133,7 @@ useBodyScrollLock(computed(() => props.project !== null));
 				<p
 					class="m-0 mt-8 max-w-[640px] text-[17px] font-normal leading-[1.65] text-fg/90 @max-[720px]:text-[15px] @max-[720px]:leading-[1.6]"
 				>
-					{{ t(project.bodyKey) }}
+					{{ t(projectText(project, "body")) }}
 				</p>
 
 				<div v-if="project.url" class="mt-10 flex flex-wrap gap-4">

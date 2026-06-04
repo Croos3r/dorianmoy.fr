@@ -62,110 +62,110 @@
 			"clear": "Clear",
 			"empty": "No projects match {tech}."
 		},
-		"list": [
-			{
-				"title": "pigeactive.fr",
-				"subtitle": "Freelance",
-				"description": "A simple and efficient SaaS tool to allow french real estate agents to find and manage their leads.",
-				"body": "Built for independent agents who used to chase leads across half a dozen listing sites and spreadsheets. Pigeactive aggregates new listings, scores them, and routes the promising ones into a single inbox with one-click contact templates."
-			},
-			{
-				"title": "app.bedrock.im",
-				"subtitle": "School project",
-				"description": "My End of Studies project, an all-in-one suite for managing your personal and professional documents. The next decentralized and confidential Office 365/Google Suite.",
-				"body": "A full drive for personal and professional files: upload, organize, share and collaborate on documents, images, videos, notes and more, with previews and editing for the formats that matter. End-to-end encrypted, decentralized at the storage layer so no single provider holds the data."
-			},
-			{
+		"list": {
+			"dorianmoy": {
 				"title": "dorianmoy.fr",
 				"subtitle": "",
 				"description": "A simple portfolio for my personal use, the one you're currently browsing.",
 				"body": "The site you're looking at right now. A neovim-flavoured Vue 3 single-page app: container-query responsive, themed light/dark/system, fully bilingual (EN/FR) and driven by keyboard motions if you like that sort of thing."
 			},
-			{
-				"title": "libertai.io",
-				"subtitle": "Freelance",
-				"description": "The LibertAI website, explaining the project and its goals.",
-				"body": "Marketing site for LibertAI, an open and decentralized AI platform. Static-ish Next.js build focused on quick edits, smooth landing-page animations, and a no-tracking footprint."
-			},
-			{
-				"title": "bedrock.im",
-				"subtitle": "72h Hackathon Winner",
-				"description": "The first iteration of my End of Studies project, a confidential and decentralized version of Notion/Obsidian.",
-				"body": "Built in 72 hours during a hackathon and shipped to a working demo. Markdown-based note-taking with a block editor, end-to-end encryption, and decentralized sync between devices. Won first place and became the foundation for the full bedrock.im suite."
-			},
-			{
-				"title": "Area",
-				"subtitle": "School project",
-				"description": "Mobile and web fullstack application that automates communications and tasks between internet services.",
-				"body": "An IFTTT/Zapier clone built from scratch as an Epitech team project. Users wire \"actions\" from one service (a new GitHub issue, a Discord message) to \"reactions\" on another (an email, a calendar event). Web client, Flutter mobile client, and a NestJS backend with an extensible service-plugin system."
-			},
-			{
-				"title": "Trombiday",
-				"subtitle": "School project",
-				"description": "A small mobile application featuring a customisable dashboard composed of different widgets based on your geolocation.",
-				"body": "A widget-based homescreen for your phone: weather, transit, local news, anything tied to where you are at that moment. Drag-and-drop layout, offline-friendly data sync, and a clean widget API so new widget types are easy to add."
-			},
-			{
-				"title": "Scroll indexer",
-				"subtitle": "Freelance",
-				"description": "A high-throughput blockchain indexer for Scroll, written in Rust, for the Cryptio crypto-accounting platform.",
-				"body": "Built for Cryptio, a crypto-accounting platform that needs reliable on-chain data to reconcile client portfolios. The indexer ingests Scroll's full history, normalizes transactions, traces and logs into the shape Cryptio's pipelines consume, and keeps up with the chain head in real time. Written in Rust for the performance and the guarantees the type system gives around concurrent state."
-			},
-			{
-				"title": "Schema-driven HMI",
-				"subtitle": "Thales Internship",
-				"description": "A brand-new HMI for a Thales transversal component, generating forms from XML Schemas of military communication protocols.",
-				"body": "Thales has dozens of military communication protocols, each formally specified as an XML Schema. Operators need to fill those messages by hand, fast, and without ambiguity. The HMI parses any XSD on the fly, derives a JSON intermediate representation, and renders a typed, validated React form for it. Adding support for a new protocol no longer means writing a new screen, just dropping in its schema."
-			},
-			{
-				"title": "Observer, Comprendre, Agir",
-				"subtitle": "Freelance",
-				"description": "A mobile guide for the security guards of the Paris Olympic Games, helping them understand, analyze and respond to threats from weak to critical.",
-				"body": "Built ahead of the Paris Olympics for the private security staff deployed across venues. The app is a stylized list of files, organized by threat severity from weak to critical, that operators can browse in the field. Each file walks through how to observe the situation, comprehend what is actually happening, and act with the right response, supported by visuals."
-			},
-			{
+			"sorting-viz": {
 				"title": "Sorting algorithm visualizer",
 				"subtitle": "",
 				"description": "A pure-Rust visualizer for classic sorting algorithms, rendered with raylib bindings.",
 				"body": "A small native app that animates how different sorting algorithms move data around. Bubble, insertion, selection, quick, merge, heap, radix and a few weirder ones, all running side-by-side or one at a time on a tunable input size and speed. Pure Rust on top of the raylib bindings, no engine, no GC pauses, just bars and frames."
 			},
-			{
+			"pigeactive": {
+				"title": "pigeactive.fr",
+				"subtitle": "Freelance",
+				"description": "A simple and efficient SaaS tool to allow french real estate agents to find and manage their leads.",
+				"body": "Built for independent agents who used to chase leads across half a dozen listing sites and spreadsheets. Pigeactive aggregates new listings, scores them, and routes the promising ones into a single inbox with one-click contact templates."
+			},
+			"bedrock-app": {
+				"title": "app.bedrock.im",
+				"subtitle": "School project",
+				"description": "My End of Studies project, an all-in-one suite for managing your personal and professional documents. The next decentralized and confidential Office 365/Google Suite.",
+				"body": "A full drive for personal and professional files: upload, organize, share and collaborate on documents, images, videos, notes and more, with previews and editing for the formats that matter. End-to-end encrypted, decentralized at the storage layer so no single provider holds the data."
+			},
+			"cryptio-scroll-indexer": {
+				"title": "Scroll indexer",
+				"subtitle": "Freelance",
+				"description": "A high-throughput blockchain indexer for Scroll, written in Rust, for the Cryptio crypto-accounting platform.",
+				"body": "Built for Cryptio, a crypto-accounting platform that needs reliable on-chain data to reconcile client portfolios. The indexer ingests Scroll's full history, normalizes transactions, traces and logs into the shape Cryptio's pipelines consume, and keeps up with the chain head in real time. Written in Rust for the performance and the guarantees the type system gives around concurrent state."
+			},
+			"libertai": {
+				"title": "libertai.io",
+				"subtitle": "Freelance",
+				"description": "The LibertAI website, explaining the project and its goals.",
+				"body": "Marketing site for LibertAI, an open and decentralized AI platform. Static-ish Next.js build focused on quick edits, smooth landing-page animations, and a no-tracking footprint."
+			},
+			"thales-xsd-hmi": {
+				"title": "Schema-driven HMI",
+				"subtitle": "Thales Internship",
+				"description": "A brand-new HMI for a Thales transversal component, generating forms from XML Schemas of military communication protocols.",
+				"body": "Thales has dozens of military communication protocols, each formally specified as an XML Schema. Operators need to fill those messages by hand, fast, and without ambiguity. The HMI parses any XSD on the fly, derives a JSON intermediate representation, and renders a typed, validated React form for it. Adding support for a new protocol no longer means writing a new screen, just dropping in its schema."
+			},
+			"oca": {
+				"title": "Observer, Comprendre, Agir",
+				"subtitle": "Freelance",
+				"description": "A mobile guide for the security guards of the Paris Olympic Games, helping them understand, analyze and respond to threats from weak to critical.",
+				"body": "Built ahead of the Paris Olympics for the private security staff deployed across venues. The app is a stylized list of files, organized by threat severity from weak to critical, that operators can browse in the field. Each file walks through how to observe the situation, comprehend what is actually happening, and act with the right response, supported by visuals."
+			},
+			"bedrock-hack": {
+				"title": "bedrock.im",
+				"subtitle": "72h Hackathon Winner",
+				"description": "The first iteration of my End of Studies project, a confidential and decentralized version of Notion/Obsidian.",
+				"body": "Built in 72 hours during a hackathon and shipped to a working demo. Markdown-based note-taking with a block editor, end-to-end encryption, and decentralized sync between devices. Won first place and became the foundation for the full bedrock.im suite."
+			},
+			"area": {
+				"title": "Area",
+				"subtitle": "School project",
+				"description": "Mobile and web fullstack application that automates communications and tasks between internet services.",
+				"body": "An IFTTT/Zapier clone built from scratch as an Epitech team project. Users wire \"actions\" from one service (a new GitHub issue, a Discord message) to \"reactions\" on another (an email, a calendar event). Web client, Flutter mobile client, and a NestJS backend with an extensible service-plugin system."
+			},
+			"glados": {
+				"title": "GlaDOS",
+				"subtitle": "School project",
+				"description": "A high-level, bytecode-interpreted language built entirely in pure Haskell, with custom parsing, bytecode, virtual machine, package system and closures.",
+				"body": "End-to-end implementation of a small programming language, written in pure Haskell. Custom parser, custom bytecode instruction set, custom virtual machine to execute it, with a package system for splitting programs across modules and proper closure handling so functions can capture and carry their lexical environment. Every layer hand-rolled, no third-party runtime or VM borrowed."
+			},
+			"trombiday": {
+				"title": "Trombiday",
+				"subtitle": "School project",
+				"description": "A small mobile application featuring a customisable dashboard composed of different widgets based on your geolocation.",
+				"body": "A widget-based homescreen for your phone: weather, transit, local news, anything tied to where you are at that moment. Drag-and-drop layout, offline-friendly data sync, and a clean widget API so new widget types are easy to add."
+			},
+			"zozio-battery": {
 				"title": "IoT battery analysis",
 				"subtitle": "Zozio Internship",
 				"description": "A predictive tool that mines battery logs to anticipate when IoT devices deployed across a site are about to die.",
 				"body": "Zozio's hardware tracks thousands of battery-powered IoT devices in industrial sites. Replacing them reactively means downtime; replacing them too early wastes money. The tool pulls years of battery telemetry from the production Postgres, models per-device discharge curves, and flags the devices likely to die within the next few weeks so field teams can schedule replacements in a single sweep. A lot of the work went into making the SQL fast enough that the whole site can be analyzed in seconds rather than hours."
 			},
-			{
+			"zozio-core": {
 				"title": "Core platform maintenance",
 				"subtitle": "Zozio Internship",
 				"description": "Day-to-day maintenance and feature work on Zozio's core backend, plus tightening up the CI/CD around it.",
 				"body": "Worked across the Express/JavaScript backend that powers Zozio's real-time tracking platform: bug fixes, small features, Redis-backed performance improvements, and Docker-ization of the dev environment. Also took a pass at the GitLab pipelines so test + build + deploy stopped being a manual ritual."
 			},
-			{
+			"zozio-react-migration": {
 				"title": "Legacy UI migration",
 				"subtitle": "Zozio Internship",
 				"description": "Incremental migration of the old PHP/JS UI to React + TypeScript components, embedded via iframes so users could move over without a big-bang rewrite.",
 				"body": "The legacy interface was a sprawling PHP/JS app that couldn't be rewritten in one shot without taking the product offline. Instead, each modernized screen was built as a standalone React + TypeScript component and embedded into the legacy shell through an iframe, with a tiny postMessage bridge for navigation and auth. Users got a steadily better experience while the rest of the app kept working, and the team could replace the legacy screens one at a time."
 			},
-			{
+			"hermes": {
 				"title": "Hermes",
 				"subtitle": "Freelance",
 				"description": "A homegrown anticheat for a Minecraft server I co-founded, written in Java with a MySQL store and RabbitMQ messaging.",
 				"body": "From my early Minecraft-freelance years, Hermes was a simple but practical server-side anticheat for one of the Minecraft servers I co-founded. It caught 6 distinct flying techniques, 3 different speed exploits, and over 10 miscellaneous cheats (reach, kill-aura variants, fast-place, no-fall, and friends). Java for the in-server checks, MySQL for the violation log, and RabbitMQ to fan out detection events to the rest of the network."
 			},
-			{
+			"dracojump": {
 				"title": "DracoJump",
 				"subtitle": "Freelance",
 				"description": "A fully configurable double-jump mechanic plugin with scriptable animations, built for an external Minecraft client.",
 				"body": "Commissioned by an external Minecraft server owner who wanted a polished, configurable double-jump feel. The plugin exposes every knob (jump height, cooldown, recharge mode, per-permission tuning) and ships a small scripting layer for the in-air animations so server admins can author their own particle / sound / motion sequences without touching code. MongoDB powers the cosmetics shop on top: players buy custom double-jump animations, and the store records each transaction and tracks which cosmetics a player owns and has currently equipped."
-			},
-			{
-				"title": "GlaDOS",
-				"subtitle": "School project",
-				"description": "A high-level, bytecode-interpreted language built entirely in pure Haskell, with custom parsing, bytecode, virtual machine, package system and closures.",
-				"body": "End-to-end implementation of a small programming language, written in pure Haskell. Custom parser, custom bytecode instruction set, custom virtual machine to execute it, with a package system for splitting programs across modules and proper closure handling so functions can capture and carry their lexical environment. Every layer hand-rolled, no third-party runtime or VM borrowed."
 			}
-		]
+		}
 	},
 	"modal": {
 		"visit": "Visit project"

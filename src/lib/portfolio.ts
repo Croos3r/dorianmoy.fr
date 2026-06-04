@@ -21,15 +21,18 @@ export type Competency = {
 export type Project = {
 	id: string;
 	index: string;
-	titleKey: string;
-	subtitleKey: string;
-	taglineKey: string;
-	bodyKey: string;
 	year: string;
 	stack: TechName[];
 	url?: string;
 	image?: string;
 };
+
+/** Localised text fields for a project, stored under `projects.list.<id>`. */
+export type ProjectTextField = "title" | "subtitle" | "description" | "body";
+
+/** i18n key for a project's localised text — single source of the key shape. */
+export const projectText = (project: Project, field: ProjectTextField) =>
+	`projects.list.${project.id}.${field}`;
 
 export const PORTFOLIO = {
 	name: "Dorian Moy",
@@ -96,10 +99,6 @@ export const PORTFOLIO = {
 		{
 			id: "dorianmoy",
 			index: "01",
-			titleKey: "projects.list.2.title",
-			subtitleKey: "projects.list.2.subtitle",
-			taglineKey: "projects.list.2.description",
-			bodyKey: "projects.list.2.body",
 			year: "2026",
 			stack: ["Vue", "TypeScript", "Tailwind", "Claude Code"],
 			url: "https://dorianmoy.fr",
@@ -108,20 +107,12 @@ export const PORTFOLIO = {
 		{
 			id: "sorting-viz",
 			index: "02",
-			titleKey: "projects.list.10.title",
-			subtitleKey: "projects.list.10.subtitle",
-			taglineKey: "projects.list.10.description",
-			bodyKey: "projects.list.10.body",
 			year: "2026",
 			stack: ["Rust", "Raylib"],
 		},
 		{
 			id: "pigeactive",
 			index: "03",
-			titleKey: "projects.list.0.title",
-			subtitleKey: "projects.list.0.subtitle",
-			taglineKey: "projects.list.0.description",
-			bodyKey: "projects.list.0.body",
 			year: "2025",
 			stack: ["Adonis", "TypeScript", "Postgres", "Tailwind", "Docker", "Claude Code"],
 			image: "/pigeactive_fr.webp",
@@ -129,10 +120,6 @@ export const PORTFOLIO = {
 		{
 			id: "bedrock-app",
 			index: "04",
-			titleKey: "projects.list.1.title",
-			subtitleKey: "projects.list.1.subtitle",
-			taglineKey: "projects.list.1.description",
-			bodyKey: "projects.list.1.body",
 			year: "2025",
 			stack: [
 				"Next.js",
@@ -151,20 +138,12 @@ export const PORTFOLIO = {
 		{
 			id: "cryptio-scroll-indexer",
 			index: "05",
-			titleKey: "projects.list.7.title",
-			subtitleKey: "projects.list.7.subtitle",
-			taglineKey: "projects.list.7.description",
-			bodyKey: "projects.list.7.body",
 			year: "2025",
 			stack: ["Rust", "Scroll"],
 		},
 		{
 			id: "libertai",
 			index: "06",
-			titleKey: "projects.list.3.title",
-			subtitleKey: "projects.list.3.subtitle",
-			taglineKey: "projects.list.3.description",
-			bodyKey: "projects.list.3.body",
 			year: "2024",
 			stack: ["Vue", "TypeScript", "Tailwind"],
 			url: "https://libertai.io",
@@ -173,30 +152,18 @@ export const PORTFOLIO = {
 		{
 			id: "thales-xsd-hmi",
 			index: "07",
-			titleKey: "projects.list.8.title",
-			subtitleKey: "projects.list.8.subtitle",
-			taglineKey: "projects.list.8.description",
-			bodyKey: "projects.list.8.body",
 			year: "2024",
 			stack: ["React", "TypeScript"],
 		},
 		{
 			id: "oca",
 			index: "08",
-			titleKey: "projects.list.9.title",
-			subtitleKey: "projects.list.9.subtitle",
-			taglineKey: "projects.list.9.description",
-			bodyKey: "projects.list.9.body",
 			year: "2024",
 			stack: ["React-Native", "TypeScript"],
 		},
 		{
 			id: "bedrock-hack",
 			index: "09",
-			titleKey: "projects.list.4.title",
-			subtitleKey: "projects.list.4.subtitle",
-			taglineKey: "projects.list.4.description",
-			bodyKey: "projects.list.4.body",
 			year: "2023",
 			stack: ["React", "TypeScript", "Vite", "Tailwind"],
 			url: "https://old.bedrock.im",
@@ -205,10 +172,6 @@ export const PORTFOLIO = {
 		{
 			id: "area",
 			index: "10",
-			titleKey: "projects.list.5.title",
-			subtitleKey: "projects.list.5.subtitle",
-			taglineKey: "projects.list.5.description",
-			bodyKey: "projects.list.5.body",
 			year: "2023",
 			stack: ["NestJS", "TypeScript", "Next.js", "Flutter", "Dart", "Go", "gRPC", "Docker", "Postgres"],
 			url: "https://github.com/RezaRahemtola/Area",
@@ -217,20 +180,12 @@ export const PORTFOLIO = {
 		{
 			id: "glados",
 			index: "11",
-			titleKey: "projects.list.16.title",
-			subtitleKey: "projects.list.16.subtitle",
-			taglineKey: "projects.list.16.description",
-			bodyKey: "projects.list.16.body",
 			year: "2023",
 			stack: ["Haskell"],
 		},
 		{
 			id: "trombiday",
 			index: "12",
-			titleKey: "projects.list.6.title",
-			subtitleKey: "projects.list.6.subtitle",
-			taglineKey: "projects.list.6.description",
-			bodyKey: "projects.list.6.body",
 			year: "2022",
 			stack: ["NestJS", "React-Native", "TypeScript", "Docker", "Postgres"],
 			url: "https://github.com/RezaRahemtola/Survivor",
@@ -239,50 +194,30 @@ export const PORTFOLIO = {
 		{
 			id: "zozio-battery",
 			index: "13",
-			titleKey: "projects.list.11.title",
-			subtitleKey: "projects.list.11.subtitle",
-			taglineKey: "projects.list.11.description",
-			bodyKey: "projects.list.11.body",
 			year: "2022",
 			stack: ["Python", "Postgres"],
 		},
 		{
 			id: "zozio-core",
 			index: "14",
-			titleKey: "projects.list.12.title",
-			subtitleKey: "projects.list.12.subtitle",
-			taglineKey: "projects.list.12.description",
-			bodyKey: "projects.list.12.body",
 			year: "2022",
 			stack: ["Express", "JavaScript", "Redis", "Docker", "GitLab CI"],
 		},
 		{
 			id: "zozio-react-migration",
 			index: "15",
-			titleKey: "projects.list.13.title",
-			subtitleKey: "projects.list.13.subtitle",
-			taglineKey: "projects.list.13.description",
-			bodyKey: "projects.list.13.body",
 			year: "2022",
 			stack: ["React", "TypeScript"],
 		},
 		{
 			id: "hermes",
 			index: "16",
-			titleKey: "projects.list.14.title",
-			subtitleKey: "projects.list.14.subtitle",
-			taglineKey: "projects.list.14.description",
-			bodyKey: "projects.list.14.body",
 			year: "2020",
 			stack: ["Java", "MySQL", "RabbitMQ"],
 		},
 		{
 			id: "dracojump",
 			index: "17",
-			titleKey: "projects.list.15.title",
-			subtitleKey: "projects.list.15.subtitle",
-			taglineKey: "projects.list.15.description",
-			bodyKey: "projects.list.15.body",
 			year: "2020",
 			stack: ["Java", "MongoDB"],
 		},
