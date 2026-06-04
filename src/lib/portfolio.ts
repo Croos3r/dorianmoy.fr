@@ -31,8 +31,7 @@ export type Project = {
 export type ProjectTextField = "title" | "subtitle" | "description" | "body";
 
 /** i18n key for a project's localised text — single source of the key shape. */
-export const projectText = (project: Project, field: ProjectTextField) =>
-	`projects.list.${project.id}.${field}`;
+export const projectText = (project: Project, field: ProjectTextField) => `projects.list.${project.id}.${field}`;
 
 export const PORTFOLIO = {
 	name: "Dorian Moy",

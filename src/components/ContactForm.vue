@@ -2,6 +2,7 @@
 import { computed, reactive, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { PORTFOLIO } from "../lib/portfolio";
+import { validateContact } from "../lib/contactForm";
 import TerminalIcon from "./TerminalIcon.vue";
 
 const { t } = useI18n();
@@ -14,15 +15,11 @@ const errorDetail = ref("");
 const API_ENDPOINT = "https://api.dorianmoy.fr/messages";
 const API_DOMAIN = "dorianmoy.fr";
 
-const errors = computed<Record<string, string>>(() => {
-	const e: Record<string, string> = {};
-	if (!form.name.trim()) e.name = t("form.required");
-	if (!form.email.trim()) e.email = t("form.required");
-	else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = t("form.invalidEmail");
-	if (!form.message.trim()) e.message = t("form.required");
-	else if (form.message.trim().length < 10) e.message = t("form.tooShort");
-	return e;
-});
+// Field error codes from the pure validator, translated for display.
+const fieldErrors = computed(() => validateContact(form));
+const errors = computed<Record<string, string>>(() =>
+	Object.fromEntries(Object.entries(fieldErrors.value).map(([field, code]) => [field, t(`form.${code}`)])),
+);
 
 const showErr = (k: string) => touched[k] && errors.value[k];
 

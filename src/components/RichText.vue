@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { computed } from "vue";
+import { parseRichText } from "../lib/richText";
 
 // Renders a translation string that may contain <strong>…</strong> emphasis
 // WITHOUT v-html: the string is split into plain and emphasised segments and
@@ -8,21 +9,7 @@ import { computed } from "vue";
 // pairs can ever be injected — safe even if the source text were untrusted.
 const props = defineProps<{ text: string }>();
 
-type Segment = { text: string; strong: boolean };
-
-const segments = computed<Segment[]>(() => {
-	const out: Segment[] = [];
-	const re = /<strong>(.*?)<\/strong>/gs;
-	let last = 0;
-	let m: RegExpExecArray | null;
-	while ((m = re.exec(props.text))) {
-		if (m.index > last) out.push({ text: props.text.slice(last, m.index), strong: false });
-		out.push({ text: m[1], strong: true });
-		last = m.index + m[0].length;
-	}
-	if (last < props.text.length) out.push({ text: props.text.slice(last), strong: false });
-	return out;
-});
+const segments = computed(() => parseRichText(props.text));
 </script>
 
 <template>

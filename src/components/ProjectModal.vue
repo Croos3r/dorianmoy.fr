@@ -121,11 +121,9 @@ useBodyScrollLock(computed(() => props.project !== null));
 					>
 						<template #default="{ linked }">
 							<TechIcon :name="s" :size="18" />
-							<span
-								class="text-gold"
-								:class="linked ? 'underline decoration-1 underline-offset-[3px]' : ''"
-								>{{ s.toLowerCase() }}</span
-							>
+							<span class="text-gold" :class="linked ? 'underline decoration-1 underline-offset-[3px]' : ''">{{
+								s.toLowerCase()
+							}}</span>
 						</template>
 					</TechHomeLink>
 				</div>
