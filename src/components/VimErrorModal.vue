@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { onBeforeUnmount, onMounted, watch } from "vue";
+import { computed, onBeforeUnmount, onMounted } from "vue";
+import { useBodyScrollLock } from "../composables/useBodyScrollLock";
 
 const props = defineProps<{
 	show: boolean;
@@ -19,16 +20,9 @@ const onKey = (e: KeyboardEvent) => {
 onMounted(() => window.addEventListener("keydown", onKey));
 onBeforeUnmount(() => {
 	window.removeEventListener("keydown", onKey);
-	document.body.style.overflow = "";
 });
 
-watch(
-	() => props.show,
-	(v) => {
-		document.body.style.overflow = v ? "hidden" : "";
-	},
-	{ immediate: true },
-);
+useBodyScrollLock(computed(() => props.show));
 </script>
 
 <template>

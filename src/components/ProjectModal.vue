@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-import { onBeforeUnmount, onMounted, watch } from "vue";
+import { computed, onBeforeUnmount, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import { getTechHome } from "../lib/techRegistry";
 import type { Project } from "../lib/portfolio";
+import { useBodyScrollLock } from "../composables/useBodyScrollLock";
 import TerminalIcon from "./TerminalIcon.vue";
 import TechIcon from "./TechIcon.vue";
 
@@ -17,8 +18,8 @@ const onKey = (e: KeyboardEvent) => {
 		return;
 	}
 	if (e.key === "q" && !e.metaKey && !e.ctrlKey && !e.altKey) {
-		const t = e.target as HTMLElement | null;
-		if (t?.tagName === "INPUT" || t?.tagName === "TEXTAREA" || t?.isContentEditable) return;
+		const tgt = e.target as HTMLElement | null;
+		if (tgt?.tagName === "INPUT" || tgt?.tagName === "TEXTAREA" || tgt?.isContentEditable) return;
 		e.preventDefault();
 		emit("close");
 	}
@@ -29,16 +30,9 @@ onMounted(() => {
 });
 onBeforeUnmount(() => {
 	window.removeEventListener("keydown", onKey);
-	document.body.style.overflow = "";
 });
 
-watch(
-	() => props.project,
-	(p) => {
-		document.body.style.overflow = p ? "hidden" : "";
-	},
-	{ immediate: true },
-);
+useBodyScrollLock(computed(() => props.project !== null));
 </script>
 
 <template>

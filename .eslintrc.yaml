@@ -9,3 +9,9 @@ parserOptions:
 
 rules:
   "vue/multi-word-component-names": off
+  # Allow intentionally-unused names (e.g. parameter names in callback type
+  # signatures, which exist for documentation) when prefixed with `_`.
+  "no-unused-vars":
+    - error
+    - argsIgnorePattern: "^_"
+      varsIgnorePattern: "^_"
