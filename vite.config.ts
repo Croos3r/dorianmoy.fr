@@ -54,6 +54,15 @@ function sitemap(): Plugin {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(), sitemap()],
+  // Compile vue-i18n messages with JIT (AST interpretation) instead of the
+  // default code-gen path, which evaluates messages via new Function() (eval).
+  // The production CSP (vercel.json) omits 'unsafe-eval', so the eval path
+  // throws on every translated string and the app renders blank. JIT is the
+  // CSP-safe path; the flag defaults to false in the bundler build, so it must
+  // be set explicitly here.
+  define: {
+    __INTLIFY_JIT_COMPILATION__: true,
+  },
   build: {
     rollupOptions: {
       output: {
