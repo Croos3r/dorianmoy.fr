@@ -175,7 +175,7 @@
 				"title": "dj-track-organizer",
 				"subtitle": "WIP",
 				"description": "Dependency-free command-line tools, packaged as Claude skills, for keeping a music / DJ library tidy end to end.",
-				"body": "Four small CLI tools that run in sequence: normalize filenames to one consistent 'Artist - Title (Mix)' scheme, write the clean names back into the file tags for WAV/MP3/AIFF without re-encoding, relink the renamed files inside a Rekordbox collection while preserving cues, beatgrids and playlists, and move duplicates aside. Everything is dry-run by default with a rollback CSV, the Rekordbox step always backs up master.db before writing, and the dedup tool moves extras rather than deleting them. Each tool is a self-contained skill Claude triggers when you ask it to organise, tag, sync or dedup a library."
+				"body": "Four small CLI tools that run in sequence: normalize filenames to one consistent 'Artist - Title (Mix)' scheme, write the clean names back into the file tags for WAV/MP3/AIFF without re-encoding, relink the renamed files inside a Rekordbox collection while preserving cues, beatgrids and playlists, and move duplicates aside. Everything is dry-run by default with a rollback CSV, the Rekordbox step always backs up master.db before writing, and the dedup tool moves extras rather than deleting them. Each tool is a self-contained skill Claude triggers when you ask it to organise, tag, sync or dedup a library. A native desktop app wrapping the whole pipeline is in the works, so non-CLI users get the same workflow without a terminal."
 			}
 		}
 	},
