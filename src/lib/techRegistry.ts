@@ -59,6 +59,10 @@ export const TECH_REGISTRY = {
 	Dokploy: { slug: "", hex: "ec5d5e", mono: "Dk", home: "https://dokploy.com" },
 	"Claude Code": { slug: "claude", hex: "d97757", mono: "Cc", home: "https://claude.com/claude-code" },
 	CircleCI: { slug: "circleci", hex: "343434", mono: "Cr", home: "https://circleci.com" },
+	WebSocket: { slug: "", hex: "6188dd", mono: "Ws", home: "https://websocket.org" },
+	Bluetooth: { slug: "bluetooth", hex: "0082fc", mono: "Bt", home: "https://www.bluetooth.com" },
+	Rekordbox: { slug: "", hex: "e60912", mono: "Rb", home: "https://www.rekordbox.com" },
+	opencode: { slug: "", hex: "080808", mono: "oc", home: "https://opencode.ai" },
 } satisfies Record<string, TechEntry>;
 
 /** Every technology name the registry knows about. */

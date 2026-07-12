@@ -164,6 +164,18 @@
 				"subtitle": "Freelance",
 				"description": "A fully configurable double-jump mechanic plugin with scriptable animations, built for an external Minecraft client.",
 				"body": "Commissioned by an external Minecraft server owner who wanted a polished, configurable double-jump feel. The plugin exposes every knob (jump height, cooldown, recharge mode, per-permission tuning) and ships a small scripting layer for the in-air animations so server admins can author their own particle / sound / motion sequences without touching code. MongoDB powers the cosmetics shop on top: players buy custom double-jump animations, and the store records each transaction and tracks which cosmetics a player owns and has currently equipped."
+			},
+			"remcontrol": {
+				"title": "remcontrol",
+				"subtitle": "",
+				"description": "A Rust server on your PC plus a React Native app that turns your phone into a secure trackpad and keyboard over the LAN.",
+				"body": "The phone acts as a trackpad and keyboard; a Rust WebSocket server on the PC injects the input events on Linux/X11 and Windows. Connect by scanning a QR code, picking the server from the mDNS list, or entering the details manually. One-finger pan moves the pointer, taps click, two-finger gestures scroll and right-click, and a bottom toolbar exposes the keyboard, arrow keys and speed presets. Every connection runs a PSK-ECDH handshake that derives ChaCha20-Poly1305 session keys from the pairing token, so all input traffic is encrypted and replay-protected, and the token lives in the OS keychain rather than plain app storage."
+			},
+			"dj-track-organizer": {
+				"title": "dj-track-organizer",
+				"subtitle": "WIP",
+				"description": "Dependency-free command-line tools, packaged as Claude skills, for keeping a music / DJ library tidy end to end.",
+				"body": "Four small CLI tools that run in sequence: normalize filenames to one consistent 'Artist - Title (Mix)' scheme, write the clean names back into the file tags for WAV/MP3/AIFF without re-encoding, relink the renamed files inside a Rekordbox collection while preserving cues, beatgrids and playlists, and move duplicates aside. Everything is dry-run by default with a rollback CSV, the Rekordbox step always backs up master.db before writing, and the dedup tool moves extras rather than deleting them. Each tool is a self-contained skill Claude triggers when you ask it to organise, tag, sync or dedup a library."
 			}
 		}
 	},

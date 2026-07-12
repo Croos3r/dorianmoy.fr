@@ -164,6 +164,18 @@
 				"subtitle": "Freelance",
 				"description": "Un plugin de double saut entièrement configurable avec des animations scriptables, développé pour un client Minecraft externe.",
 				"body": "Commande d'un propriétaire de serveur Minecraft externe qui voulait un double saut soigné et entièrement réglable. Le plugin expose chaque paramètre (hauteur, cooldown, mode de recharge, ajustements par permission) et embarque une petite couche de scripting pour les animations en l'air, pour que les admins puissent écrire leurs propres séquences de particules / sons / mouvements sans toucher au code. MongoDB fait tourner la boutique de cosmétiques par-dessus : les joueurs achètent des animations de double saut, et le store enregistre chaque transaction et garde la trace des cosmétiques possédés et actuellement équipés par chaque joueur."
+			},
+			"remcontrol": {
+				"title": "remcontrol",
+				"subtitle": "",
+				"description": "Un serveur Rust sur votre PC et une app React Native qui transforment votre téléphone en trackpad et clavier sécurisés sur le LAN.",
+				"body": "Le téléphone fait office de trackpad et de clavier ; un serveur WebSocket en Rust sur le PC injecte les événements d'entrée sous Linux/X11 et Windows. Connexion par scan d'un QR code, sélection du serveur via mDNS, ou saisie manuelle. Un doigt déplace le pointeur, les taps cliquent, les gestes à deux doigts scrollent et font le clic droit, et une barre d'outils expose le clavier, les flèches et les presets de vitesse. Chaque connexion passe par un handshake PSK-ECDH qui dérive des clés de session ChaCha20-Poly1305 à partir du token d'appairage, donc tout le trafic est chiffré et protégé contre les replays, et le token est stocké dans le trousseau de l'OS plutôt que dans le stockage en clair de l'app."
+			},
+			"dj-track-organizer": {
+				"title": "dj-track-organizer",
+				"subtitle": "WIP",
+				"description": "Des outils en ligne de commande sans dépendance, packagés en skills Claude, pour garder une bibliothèque musicale / DJ propre de bout en bout.",
+				"body": "Quatre petits outils CLI qui s'enchaînent : normaliser les noms de fichiers vers un schéma 'Artist - Title (Mix)' cohérent, écrire les noms propres dans les tags des fichiers WAV/MP3/AIFF sans ré-encodage, relinker les fichiers renommés dans une collection Rekordbox en préservant cues, beatgrids et playlists, et mettre les doublons de côté. Tout est en dry-run par défaut avec un CSV de rollback, l'étape Rekordbox sauvegarde toujours master.db avant d'écrire, et le dedup déplace les doublons au lieu de les supprimer. Chaque outil est un skill autonome que Claude déclenche quand vous lui demandez d'organiser, tagger, synchroniser ou dédoublonner une bibliothèque."
 			}
 		}
 	},
